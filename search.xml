@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Element组件二次修改</title>
+    <url>/2022/02/21/Element%E7%BB%84%E4%BB%B6%E4%BA%8C%E6%AC%A1%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<p>需求：</p>
+<p>​        在进行组件封装时，组件的样式需要从后端等异步的方式获取的数据去修改element组件中的样式。</p>
+<p>方法：</p>
+<p>​        使用less的变量进行赋值，通过ref获取$el的样式修改less变量进行更新</p>
+<p>如：</p>
+<p>​        修改时间选择器中placeholder的字体颜色</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-date-picker</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ref</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">&quot;dataSource.data&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">&quot;日期选择器&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;date&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">value-format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="title function_">setElBackgroundColor</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">datePicker</span>.<span class="property">$el</span>.<span class="property">style</span>.<span class="title function_">setProperty</span>(</span><br><span class="line">        <span class="string">&quot;--fontColor&quot;</span>,</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dataSource</span>.<span class="property">elFontColor</span></span><br><span class="line">      );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.datePicker</span>&#123;</span><br><span class="line">  <span class="attr">--fontColor</span>: #fff;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-moz-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Element</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo添加看板娘</title>
+    <url>/2022/02/20/Hexo%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98/</url>
+    <content><![CDATA[<p>添加个活泼的伙伴吧！</p>
+<h3 id="添加看板娘"><a href="#添加看板娘" class="headerlink" title="添加看板娘"></a>添加看板娘</h3><ul>
+<li>效果如下</li>
+</ul>
+<p><img src="/.io//1-16453661824791.png" alt="1-16453661824791"></p>
+<ol>
+<li><p>步骤1</p>
+<p>下载大佬制作的看板娘<a href="https://github.com/stevenjoezhang/live2d-widget">https://github.com/stevenjoezhang/live2d-widget</a></p>
+<p>下载至\themes\hexo-theme-next\source中autoload.js，</p>
+</li>
+<li><p>步骤2</p>
+<p>打开\themes\hexo-theme-next\source\live2d-widget中的autoload.js</p>
+<p>并将live2d_path改为绝对路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意：live2d_path 参数应使用绝对路径</span></span><br><span class="line"><span class="comment">// const live2d_path = &quot;https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/&quot;;</span></span><br><span class="line"><span class="keyword">const</span> live2d_path = <span class="string">&quot;/live2d-widget/&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>步骤3</p>
+<p>到这就是最后一步了，将之前的引入到自己的主题中</p>
+<p>我的是next主题,在<code>/themes/hexo-theme-next/layout/_layout.njk</code>目录下，看到其他博主都是写_layout.swing，但是找了一圈一直没找到，然后就看到了.njk结尾的文件，死马当活马医吧~就成功了~~~</p>
+<p>在<code>_layout.njk</code>目中引入如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/live2d-widget/autoload.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>步骤4</p>
+</li>
+</ol>
+<p>​    重新hexo g  hexo s打开就成功显示啦！</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript数组操作</title>
+    <url>/2022/02/21/JavaScript%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h3 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h3><ul>
+<li>对于数据进行过滤、筛选返回一个新数组（filter）</li>
+</ul>
+<p>​        如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">isShow</span>:<span class="literal">false</span>,<span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">isShow</span>:<span class="literal">true</span>,<span class="attr">name</span>:<span class="string">&#x27;lisi&#x27;</span>&#125;</span><br><span class="line">  ] </span><br><span class="line"><span class="comment">//返回数组中isShow为true的数据</span></span><br><span class="line"><span class="keyword">let</span> newArr = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="property">isShow</span>)</span><br><span class="line"><span class="comment">// newArr = [&#123;id:1,isShow:false,name:&#x27;张三&#x27;&#125;]</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript的ES6操作</title>
+    <url>/2022/02/21/JavaScript%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h3 id="空值合并运算符：（-）"><a href="#空值合并运算符：（-）" class="headerlink" title="空值合并运算符：（??）"></a>空值合并运算符：（??）</h3><p>是一个逻辑操作符，当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。</p>
+<p>​    如下：两串代码是一样的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(value !== <span class="literal">null</span> &amp;&amp; value !== <span class="literal">undefined</span> &amp;&amp; value !== <span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>((value??<span class="string">&#x27;&#x27;</span>) !== <span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git常用命令</title>
+    <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>hexo文章中添加图片</title>
+    <url>/2022/02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>在添加新文章时，想上传效果，但是在Md编辑时是导入了图片的绝对地址在文档中，但是hexo d部署到服务器时，这个图片是不存在的。</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加新文章"><a href="#添加新文章" class="headerlink" title="添加新文章"></a>添加新文章</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new 文章名称</span><br></pre></td></tr></table></figure>
+
+<p>​    这个时候就会在根目录下的 source\posts 中创建一个 文章名称.md 文件与 文章名称 的文件夹</p>
+<h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p>​    在source\posts\文章名称 中添加所需图片</p>
+<h2 id="引入文章"><a href="#引入文章" class="headerlink" title="引入文章"></a>引入文章</h2><p>​    在 文章名称.md 中放置图片的地方引入图片的方式 ： </p>
+<p>​    </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[img_name](img_name.jpg)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/1.png" alt="1"></p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javaScript 数据类型</title>
+    <url>/2022/02/20/javaScript%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<p>接触javaScript有一段时间了,今天来讲一下javaScript中的数据类型都有哪些</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>javaScript 中有六大数据类型:</p>
+<ul>
+<li>object (对象)</li>
+<li>number (数字)</li>
+<li>string (字符串)</li>
+<li>blooean (布尔)</li>
+<li>Null (空)</li>
+<li>undefined(未定义)</li>
+</ul>
+<p>其中 javaScript还分为了基本数据类型和引用类型,在这里不详细的展开,我在接下来的博客中会进行详细的讲述</p>
+<h3 id="数据类型的隐式转化"><a href="#数据类型的隐式转化" class="headerlink" title="数据类型的隐式转化"></a>数据类型的隐式转化</h3><p>javaScript中的隐式转化也是很有趣的一个地方,打个比方,我定义了一个字符串的变量,<br>再定义一个Number类型的变量 ,进行比较,结果却是true</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;123&#x27;</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line">a == b <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>这是因为,在执行 + 号的时候, 变量a为字符串类型,所以执行的字符串的拼接,但是在js的代码中,-被认定<br>为减法运算,所以会自动将变量a转化为Number类型,并进行运算</p>
+<h3 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h3><p>包装对象这一特性在javaScript中也是值得一提的,大家都知道对象是可以进行打点调用或赋值的,那字符串可以吗,<br>我们可以做一个测试</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;string&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">t</span> = <span class="number">3</span>); <span class="comment">// 3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">t</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>正所谓在H5中,一切皆为对象,把一个基本类型尝试用对象的方式使用它的时候,javascript会把这些基本类型转化为对应的包装类型对象完成这样一个操作以后，这个临时对象会被销毁掉。所以a.t赋值3了以后,再去输出a.t值是undefined。</p>
+<h3 id="类型检测"><a href="#类型检测" class="headerlink" title="类型检测"></a>类型检测</h3><p>typeof 和 instanceof 都可以进行类型检测,typeof就不进行细讲了,来说一下instanceof</p>
+<p>它基于原型链操作。obj instanceof Object。</p>
+<p>左边的操作数为对象，不是就返回false,右操作数必须是函数对象或者函数构造器,因为只有函数才有prototype这个属性,不是会爆出typeError异常。</p>
+<p>原理：判断左边的左操作数的对象的原型链上是否有右边这个构造函数的prototype属性。原型链和构造函数我在后面会<br>进行细讲</p>
+<p>注意一个坑:不同window或iframe之间的对象类型检测不能使用instanceof！</p>
+<h3 id="数据类型转化"><a href="#数据类型转化" class="headerlink" title="数据类型转化"></a>数据类型转化</h3><p>我这里简单的介绍一下常用的类型转化</p>
+<ol>
+<li>将字符串类型转化为number的类型<br>str &#x3D; Number(str);</li>
+<li>number类型转化为string类型<br>a &#x3D; a.toString()<br>a &#x3D; String(a)</li>
+<li>布尔类型转化为number<br>var y &#x3D; false;<br>y &#x3D; Number(y);</li>
+<li>把数字格式化为指定的长度;会四舍五入<br>i &#x3D; i.toPrecision(3)</li>
+<li>将数字转化为字符串,保留几位小数,不够的用0补位<br>i &#x3D; i.toFixed(1);</li>
+</ol>
+<p>前端会经常进行数据的交互和处理,所以Number的转化是用到最多的,这里详细的介绍一下</p>
+<p>Number()函数的转换规则如下：</p>
+<ul>
+<li>如果是Boolean值，true和false将分别被替换为1和0</li>
+<li>如果是数字值，只是简单的传入和返回</li>
+<li>如果是null值，返回0</li>
+<li>如果是undefined，返回NaN</li>
+<li>如果是字符串，遵循下列规则：<ul>
+<li>如果字符串中只包含数字，则将其转换为十进制数值，即”1“会变成1，”123“会变成123，而”011“会变成11（前导的0被忽略）</li>
+<li>如果字符串中包含有效的浮点格式，如”1.1“，则将其转换为对应的浮点数（同样，也会忽略前导0）</li>
+<li>如果字符串中包含有效的十六进制格式，例如”0xf“，则将其转换为相同大小的十进制整数值</li>
+<li>如果字符串是空的，则将其转换为0</li>
+<li>如果字符串中包含除了上述格式之外的字符，则将其转换为NaN</li>
+<li>如果是对象，则调用对象的valueOf()方法，然后依照前面的规则转换返回的值。如果转换的结果是NaN，则调用对象的toString()方法，然后再依次按照前面的规则转换返回的字符串值。</li>
+</ul>
+</li>
+</ul>
+<p>javaScript 的数据类型就讲到这里了,如果有错误,欢迎各位大牛指出,感激不尽</p>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js的事件中call、apply及bind方法</title>
+    <url>/2022/05/11/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%B8%ADcall%E3%80%81apply%E5%8F%8Abind%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="什么是call"><a href="#什么是call" class="headerlink" title="什么是call"></a>什么是call</h2><p>call()是JavaScript中的一个方法，他的特点是可以自动执行函数，并改变this的指向，也就是通过 call()，您能够使用属于另一个对象的方法。<br>如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">fullName</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Bill&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Gates&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Steve&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Jobs&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">person.<span class="property">fullName</span>.<span class="title function_">call</span>(person1);  <span class="comment">// 将返回 &quot;Bill Gates&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是apply"><a href="#什么是apply" class="headerlink" title="什么是apply()"></a>什么是apply()</h2><p>apply与call()相似，也是自动执行函数，改变this的指向</p>
+<h2 id="什么是bind"><a href="#什么是bind" class="headerlink" title="什么是bind()"></a>什么是bind()</h2><p>bind()与apply()及call()不相同的点是并不会自动执行，但是也是用于改变this的指向。</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>reactOneDay</title>
+    <url>/2022/05/06/reactOneDay/</url>
+    <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
+<li>声明式设计</li>
+<li>高效-操作虚拟DOM，减少真实DOM操作</li>
+<li>灵活-可以使用市面上许许多多的框架或者库</li>
+<li>JSX-JSX是JavaScript语法的扩展</li>
+<li>组件-复用开发</li>
+<li>单向数据流：单向数据流就是所有状态的改变可以记录、可以追踪、可以溯源；所有数据只有一份，组件数据只有唯一的入口与出口。简单点来说就是比如在公司中，老板可以把任务发送给部下，然后部下可以接收任务，然后如果部下想要进行修改任务，需要请示老板进行修改，老板修改完任务才算成功。学过VUE的同学应该就知道父传子和子传父。props就是单向数据流，emit进行请示老板修改。</li>
+</ol>
+<h3 id="2-安装react"><a href="#2-安装react" class="headerlink" title="2.安装react"></a>2.安装react</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g create-react-app //全局安装react</span><br><span class="line">$ create-react-app -V  //查看react版本</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-创建react项目"><a href="#3-创建react项目" class="headerlink" title="3.创建react项目"></a>3.创建react项目</h3><p>当安装完react后就可以开始你的hello world ！react之路了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npx create-react-app my-app</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>reactThreeDay</title>
+    <url>/2022/05/11/reactThreeDay/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>reactTowDay</title>
+    <url>/2022/05/10/reactTowDay/</url>
+    <content><![CDATA[<h1 id="React-Tow-Day"><a href="#React-Tow-Day" class="headerlink" title="React Tow Day"></a>React Tow Day</h1><h2 id="创建组件"><a href="#创建组件" class="headerlink" title="创建组件"></a>创建组件</h2><p>在写react之前，肯定需要有创建组件的技能，那创建组件这里主要是使用两种方式进行创建，这两种方式分别是class类与函数式。</p>
+<p>注：在创建组件中，需与vue相同，使用一个外层标签包裹。如下在return中都由一个div包裹。</p>
+<p>class类创建方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import React from &#x27;react&#x27;</span><br><span class="line">class components extends React.Component &#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return &lt;div&gt;&lt;h2&gt;hello I`m class Component &lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default components</span><br></pre></td></tr></table></figure>
+
+<p>函数式组件创建方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function components()&#123;</span><br><span class="line">	return &lt;div&gt;&lt;h2&gt;hello I`m funtion component &lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default components</span><br></pre></td></tr></table></figure>
+
+<p>组件的使用，注：同一个文件级别下的话，直接进行使用即可，如果不同文件需先import。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import React,&#123;Component&#125; from &#x27;react&#x27;</span><br><span class="line">import Components form &#x27;./index.js&#x27;</span><br><span class="line">export default class App extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">        	&lt;div&gt;</span><br><span class="line">                // 引用组件</span><br><span class="line">            	&lt;Components&gt;&lt;/Components&gt; </span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="组件的样式"><a href="#组件的样式" class="headerlink" title="组件的样式"></a>组件的样式</h2><p> 在组件开发时，好不好看归根于我们的css大法好不好。</p>
+<p> 所以在组件开发时，要怎么样进行添加样式呢？</p>
+<h3 id="行内样式"><a href="#行内样式" class="headerlink" title="行内样式"></a>行内样式</h3><p> 在我们的组件return前，可以使用行内直接编写样式。</p>
+<p> 在react中样式名称基本一致，只是在写样式时没有 ‘ - ‘ 使用这个符号。</p>
+<p> 如：在css中我们写背景颜色：background-color:red;<br>    在react组件中是：backgroundColor:’red’，使用驼峰法进行编写。</p>
+<h3 id="外部CSS文件"><a href="#外部CSS文件" class="headerlink" title="外部CSS文件"></a>外部CSS文件</h3><p>使用行内样式写起来显得代码很乱，所以这个时候使用外部css文件引入，然后只要定义匹配的class是不是更好呢？</p>
+<p>1.新增CSS文件，编写CSS代码<br>2.CSS代码引入相应的组件中  import ‘.&#x2F;index.css’<br>3.编写组件代码，这时就会自动使用css文件中的css</p>
+<p>注：在react中，标签中不要使用class进行设置，而是使用className</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div class=&quot;active&gt;这个是错误的写法 × &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div className=&quot;active&quot;&gt;这个是正确的写法 √ &lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.active</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import React,&#123;Component&#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">import &quot;./css/index.css&quot;;</span><br><span class="line"></span><br><span class="line">export default class App extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        var name = &quot;react&quot;;</span><br><span class="line">        var styleObj = &#123;</span><br><span class="line">            backgroundColor: &quot;red&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;div style=&#123;styleObj&#125;&gt;Hello &#123;name&#125; World Style red&lt;/div&gt;</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;h1 style=&#123;&#123;backgroundColor:&#x27;yellow&#x27;&#125;&#125;&gt;Hello &#123;name&#125; World I`m yellow&lt;/h1&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div className=&quot;active&quot;&gt;</span><br><span class="line">                    &lt;h1&gt;Hello &#123;name&#125; World I`m from external css file&lt;/h1&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从上面代码可以看出，react与vue的写法差不多，但是又不同，vue使用双大括号，而react使用单大括号来解析变量。</p>
+<h3 id="react注释"><a href="#react注释" class="headerlink" title="react注释"></a>react注释</h3><p>在组件中怎么进行注释呢，添加了&#x2F;&#x2F;与&#x2F;* <em>&#x2F;统统不行。<br>对了！因为你在react的地盘，你只能用react的注释，只要在想注释的地方使用 {} ，并且在其中添加 &#x2F;&#x2F; 或者&#x2F;</em> <em>&#x2F;<br>如：<br>    {<br>        &#x2F;&#x2F;这个是单行注释<br>        &#x2F;</em><br>            这个是多行注释<br>        *&#x2F;<br>    }</p>
+<h3 id="react事件"><a href="#react事件" class="headerlink" title="react事件"></a>react事件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import React,&#123;Component&#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">import &quot;./css/index.css&quot;;</span><br><span class="line"></span><br><span class="line">export default class App extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;input&gt;&lt;/input&gt;</span><br><span class="line">                &lt;button onClick=&#123; ()=&gt;&#123;</span><br><span class="line">                    console.log(&quot;click&quot;);</span><br><span class="line">                &#125; &#125;&gt;add&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">                &lt;button onClick=&#123; this.handleClick2 &#125;&gt;add2&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">                &lt;button onClick=&#123; this.handleClick3 &#125;&gt;add3&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">                &lt;button onClick=&#123; ()=&gt;&#123;</span><br><span class="line">                    this.handleClick4(666)</span><br><span class="line">                &#125; &#125;&gt;add4&lt;/button&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleClick2()&#123;</span><br><span class="line">        console.log(&#x27;click2&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleClick3 = () =&gt; &#123;</span><br><span class="line">        console.log(&#x27;click3&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleClick4(item)&#123;</span><br><span class="line">        console.log(&#x27;click4&#x27;,item);</span><br><span class="line">        console.log(&#x27;click4&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>web前端开发面试鸭~</title>
+    <url>/2022/05/08/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%B8%AD/</url>
+    <content><![CDATA[<h1 id="web前端开发面试鸭"><a href="#web前端开发面试鸭" class="headerlink" title="web前端开发面试鸭~"></a>web前端开发面试鸭~</h1><ol>
+<li><p>谈一谈cookie、sessionStorage与localStorage的区别</p>
+<p>可以从：数据存储位置、生命周期、存储大小、写入方式、数据共享、发送请求时是否携带、应用场景这几个方面讲解。</p>
+<p>​    标准回答： Cookie、SessionStorage、 LocalStorage都是浏览器的本地存储。 它们的共同点：都是存储在浏览器本地的 它们的区别：cookie是由服务器端写入的，而SessionStorage、 LocalStorage都是由前端写入的，cookie的生命周期是由服务器端在写入的时候就设置好的，LocalStorage是写入就一直存在，除非手动清除，SessionStorage是页面关闭的时候就会自动清除。cookie的存储空间比较小大概4KB，SessionStorage、 LocalStorage存储空间比较大，大概5M。Cookie、SessionStorage、 LocalStorage数据共享都遵循同源原则，SessionStorage还限制必须是同一个页面。在前端给后端发送请求的时候会自动携带Cookie中的数据，但是SessionStorage、 LocalStorage不会 加分回答 由于它们的以上区别，所以它们的应用场景也不同，Cookie一般用于存储登录验证信息SessionID或者token，LocalStorage常用于存储不易变动的数据，减轻服务器的压力，SessionStorage可以用来检测用户是否是刷新进入页面，如音乐播放器恢复播放进度条的功能。</p>
+</li>
+<li><p>说一说JS数据类型有哪些,区别是什么？</p>
+<p>​    JS数据类型分为两类：一类是基本数据类型，也叫简单数据类型，包含7种类型，分别是Number 、String、Boolean、BigInt、Symbol、Null、Undefined。另一类是引用数据类型也叫复杂数据类型，通常用Object代表，普通对象，数组，正则，日期，Math数学函数都属于Object。</p>
+<p>​    数据分成两大类的本质区别：基本数据类型和引用数据类型它们在内存中的存储方式不同。<br>​    基本数据类型是直接存储在栈中的简单数据段，占据空间小，属于被频繁使用的数据。<br>​    引用数据类型是存储在堆内存中，占据空间大。引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址，当解释器寻找引用值时，会检索其在栈中的地址，取得地址后从堆中获得实体。</p>
+</li>
+<li><p>说一说你对闭包的理解？</p>
+<p>变量背包、作用域链、局部变量不销毁、函数体外访问函数的内部变量、内存泄漏、内存溢出、形成块级作用域、柯里化、构造函数中定义特权方法、Vue中数据响应式Observer 标准回答 闭包 一个函数和词法环境的引用捆绑在一起，这样的组合就是闭包（closure）。一般就是一个函数A，return其内部的函数B，被return出去的B函数能够在外部访问A函数内部的变量，这时候就形成了一个B函数的变量背包，A函数执行结束后这个变量背包也不会被销毁，并且这个变量背包在A函数外部只能通过B函数访问。 闭包形成的原理：作用域链，当前作用域可以访问上级作用域中的变量 闭包解决的问题：能够让函数作用域中的变量在函数执行结束之后不被销毁，同时也能在函数外部可以访问函数内部的局部变量。 闭包带来的问题：由于垃圾回收器不会将闭包中变量销毁，于是就造成了内存泄露，内存泄露积累多了就容易导致内存溢出。 加分回答 闭包的应用，能够模仿块级作用域，能够实现柯里化，在构造函数中定义特权方法、Vue中数据响应式Observer中使用闭包等。</p>
+</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>封装一个post请求blob流下载</title>
+    <url>/2022/05/13/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AApost%E8%AF%B7%E6%B1%82blob%E6%B5%81%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// blob流下载</span></span><br><span class="line">  <span class="title function_">getDownloadFile</span>(<span class="params">sendMessage, url</span>) &#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: url,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: sendMessage,</span><br><span class="line">      <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([res.<span class="property">data</span>], &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;application/vnd.ms-excel&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">const</span> fileName = <span class="built_in">decodeURIComponent</span>(res.<span class="property">headers</span>[<span class="string">&#x27;content-disposition&#x27;</span>].<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">const</span> linkNode = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        linkNode.<span class="property">download</span> = fileName <span class="comment">// a标签的download属性规定下载文件的名称</span></span><br><span class="line">        linkNode.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        linkNode.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob) <span class="comment">// 生成一个Blob URL</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(linkNode)</span><br><span class="line">        linkNode.<span class="title function_">click</span>() <span class="comment">// 模拟在按钮上的一次鼠标单击</span></span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(linkNode.<span class="property">href</span>) <span class="comment">// 释放URL 对象</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(linkNode)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>高德地图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建一个react框架项目</title>
+    <url>/2022/05/17/%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAreact%E6%A1%86%E6%9E%B6%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<h2 id="搭建一个react全家桶项目"><a href="#搭建一个react全家桶项目" class="headerlink" title="搭建一个react全家桶项目"></a>搭建一个react全家桶项目</h2><ul>
+<li><h3 id="版本大全"><a href="#版本大全" class="headerlink" title="版本大全"></a>版本大全</h3></li>
+</ul>
+<hr>
+<p><strong><code>&quot;antd&quot;: &quot;^4.20.5&quot;</code></strong></p>
+<p><strong><code>&quot;axios&quot;: &quot;^0.27.2&quot;</code></strong></p>
+<p><strong><code>&quot;react&quot;: &quot;^18.1.0&quot;</code></strong></p>
+<p><strong><code>&quot;react-redux&quot;: &quot;^8.0.1&quot;</code></strong></p>
+<p><strong><code>&quot;react-router-dom&quot;: &quot;^6.3.0&quot;</code></strong></p>
+<p><strong><code>&quot;webpack&quot;: &quot;^5.64.4&quot;</code></strong></p>
+<ul>
+<li><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3></li>
+</ul>
+<hr>
+<h4 id="安装react-cli"><a href="#安装react-cli" class="headerlink" title="安装react cli"></a>安装react cli</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g create-react-app  </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="创建项目-1"><a href="#创建项目-1" class="headerlink" title="创建项目"></a>创建项目</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#  app 为该项目名称</span></span><br><span class="line">create-react-app app</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+<p>这样就能够访问react初始界面了。hello world react！</p>
+<ul>
+<li><h3 id="引入Ant-Design-UI组件库"><a href="#引入Ant-Design-UI组件库" class="headerlink" title="引入Ant Design UI组件库"></a>引入Ant Design UI组件库</h3></li>
+</ul>
+<hr>
+<h4 id="项目引入Ant-Design"><a href="#项目引入Ant-Design" class="headerlink" title="项目引入Ant Design"></a>项目引入Ant Design</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install antd --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="配置Ant-Design按需加载"><a href="#配置Ant-Design按需加载" class="headerlink" title="配置Ant Design按需加载"></a>配置Ant Design按需加载</h4><p>使用 <code>babel-plugin-import</code>方式进行按需加载</p>
+<p>暴露配置文件:</p>
+<p>​    当我们使用react的脚手架创建了一个react项目后，一定会有一个疑问，那就是为什么create-react-app创建的项目没有webpack.config.js文件！这时就可以用如下命令把配置文件暴露出来。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run eject</span><br></pre></td></tr></table></figure>
+
+<p>​    在 <code>package.json</code> 中配置 <code>babel</code> （需要安装 <code>babel-plugin-import</code> ）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install babel-plugin-import --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>​    babel 配置如下</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;babel&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">   <span class="attr">&quot;presets&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">     <span class="string">&quot;react-app&quot;</span></span><br><span class="line">   <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">   <span class="attr">&quot;plugins&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">     <span class="punctuation">[</span></span><br><span class="line">       <span class="string">&quot;import&quot;</span><span class="punctuation">,</span></span><br><span class="line">       <span class="punctuation">&#123;</span></span><br><span class="line">         <span class="attr">&quot;libraryName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;antd&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;libraryDirectory&quot;</span><span class="punctuation">:</span> <span class="string">&quot;es&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span></span><br><span class="line">       <span class="punctuation">&#125;</span></span><br><span class="line">     <span class="punctuation">]</span></span><br><span class="line">   <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>​    使用<code> babel-plugin-import</code> 的 style 配置来引入样式，需要将配置值从 <code>&#39;style&#39;: &#39;css&#39;</code> 改为 <code>&#39;style&#39;: true</code>，这样会引入 less 文件。</p>
+<h4 id="配置Ant-Design中文语言，antD默认English"><a href="#配置Ant-Design中文语言，antD默认English" class="headerlink" title="配置Ant Design中文语言，antD默认English"></a>配置Ant Design中文语言，antD默认English</h4><p>在<code>src/index.js</code>入口文件配置</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ConfigProvider</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> zh_CN <span class="keyword">from</span> <span class="string">&#x27;antd/lib/locale-provider/zh_CN&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">&#x27;moment&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;moment/locale/zh-cn&#x27;</span>;</span><br><span class="line"></span><br><span class="line">moment.<span class="title function_">locale</span>(<span class="string">&#x27;zh-cn&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>另外需要使用 <code>ConfigProvider</code> 组件把 根组件 包裹起来</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;<span class="title class_">ConfigProvider</span> locale=&#123;zh_CN&#125;&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">ConfigProvider</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><h3 id="安装less预处理器"><a href="#安装less预处理器" class="headerlink" title="安装less预处理器"></a>安装less预处理器</h3></li>
+</ul>
+<hr>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install less less-loader --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>如果没有暴露配置文件的话需查看<code>package.json</code>文件中<code> “scripts”</code>中的<code>“eject”</code>中的”<code>react-scripts eject&quot;</code>，然后去<code>node_modules</code>中找到<code>react-scripts</code>文件夹中的<code>config</code>中的<code>webpack.config.js</code>配置<code>less</code></p>
+<p>如果有暴露出来的话直接在根目录下的<code>config</code>中找到上面所述文件进行修改即可</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  test<span class="punctuation">:</span> /\.less$/<span class="punctuation">,</span></span><br><span class="line">  use<span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      loader<span class="punctuation">:</span> &#x27;style-loader&#x27;<span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      loader<span class="punctuation">:</span> &#x27;css-loader&#x27;<span class="punctuation">,</span> <span class="comment">// translates CSS into CommonJS</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      loader<span class="punctuation">:</span> &#x27;less-loader&#x27;<span class="punctuation">,</span> <span class="comment">// compiles Less to CSS</span></span><br><span class="line">      options<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        lessOptions<span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="comment">// If you are using less-loader@5 please spread the lessOptions to options directly</span></span><br><span class="line">          modifyVars<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="comment">// &#x27;primary-color&#x27;: &#x27;#1DA57A&#x27;,</span></span><br><span class="line">            <span class="comment">// &#x27;link-color&#x27;: &#x27;#1DA57A&#x27;,</span></span><br><span class="line">            <span class="comment">// &#x27;border-radius-base&#x27;: &#x27;2px&#x27;,</span></span><br><span class="line">            <span class="comment">// or</span></span><br><span class="line">            <span class="comment">// hack: `true; @import &quot;your-less-file-path.less&quot;;`, // Override with less file</span></span><br><span class="line">          <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">          javascriptEnabled<span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>配置位置如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202205171559057.png"></p>
+<ul>
+<li><h3 id="安装-CSS-resets-Normalize-css-样式重置"><a href="#安装-CSS-resets-Normalize-css-样式重置" class="headerlink" title="安装 CSS resets: Normalize.css ( 样式重置 )"></a>安装 CSS resets: Normalize.css ( 样式重置 )</h3></li>
+</ul>
+<hr>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install normalize.css --save</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后在入口文件 index.js 中引入即可。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;normalize.css&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><h3 id="安装配置-axios、qs"><a href="#安装配置-axios、qs" class="headerlink" title="安装配置 axios、qs"></a>安装配置 axios、qs</h3></li>
+</ul>
+<hr>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install axios qs --save</span><br></pre></td></tr></table></figure>
+
+<p>在根目录 <code>public</code> 文件夹下创建 <code>config.js</code> 文件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">g</span> = &#123;</span><br><span class="line">    <span class="attr">API_URL</span>: <span class="string">&#x27;http://192.168.1.1:8080/&#x27;</span> <span class="comment">// 在这里设置请求IP地址及端口，后续封装的请求都通统一使用这个</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>并下下图位置中插入此配置文件，用于后面统一修改或者统一配置请求的地址，会在 <code>request.js</code> 文件中使用这个配置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202205271659016.png"></p>
+<h4 id="配置请求拦截器、响应拦截器：-request-js"><a href="#配置请求拦截器、响应拦截器：-request-js" class="headerlink" title="配置请求拦截器、响应拦截器： request.js:"></a>配置请求拦截器、响应拦截器： <code>request.js</code>:</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> &#123; message, <span class="title class_">Modal</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">const</span> &#123; confirm &#125; = <span class="title class_">Modal</span>;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">const</span> service = axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">baseURL</span>: <span class="variable language_">window</span>.<span class="property">g</span>.<span class="property">API_URL</span>,</span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">60000</span>, <span class="comment">// 请求超时时间</span></span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * http request 拦截器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">service.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(</span><br><span class="line">   <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 在发送请求之前做些什么</span></span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;请求发生了错误&#x27;</span>, error);</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(error);</span><br><span class="line">   &#125;</span><br><span class="line"> );</span><br><span class="line"> </span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * http response 拦截器</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  service.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(</span><br><span class="line">  <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 在这里配置响应拦截器</span></span><br><span class="line">    <span class="keyword">if</span>(res.<span class="property">data</span>.<span class="property">code</span> === <span class="string">&#x27;9527&#x27;</span>)&#123;</span><br><span class="line">       <span class="title function_">confirm</span>(&#123;</span><br><span class="line">         <span class="attr">title</span>: res.<span class="property">data</span>.<span class="property">msg</span>,</span><br><span class="line">         <span class="attr">closable</span>:<span class="literal">false</span>,</span><br><span class="line">         <span class="title function_">onOk</span>(<span class="params"></span>) &#123;</span><br><span class="line">           <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span> = <span class="string">&#x27;/login&#x27;</span>;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     <span class="keyword">return</span> res.<span class="property">data</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;响应发生了错误&#x27;</span>, err);</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(err);</span><br><span class="line">  &#125;</span><br><span class="line"> );</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 封装get方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> url  请求url</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> params  请求参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Promise</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">get</span>(<span class="params">url, params = &#123;&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    service.<span class="title function_">get</span>(url, &#123;</span><br><span class="line">        <span class="attr">params</span>: params,</span><br><span class="line">      &#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">landing</span>(url, params, response.<span class="property">data</span>);</span><br><span class="line">        <span class="title function_">resolve</span>(response);</span><br><span class="line">      &#125;)</span><br><span class="line">      .<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(error);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 封装post请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">url</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">data</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Promise</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">post</span>(<span class="params">url, data=&#123;&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    service.<span class="title function_">post</span>(url, data).<span class="title function_">then</span>(</span><br><span class="line">      <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//关闭进度条</span></span><br><span class="line">        <span class="title function_">resolve</span>(response);</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        message.<span class="title function_">error</span>(err.<span class="property">msg</span>);</span><br><span class="line">        <span class="title function_">reject</span>(err);</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 封装patch请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">url</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">data</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Promise</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">patch</span>(<span class="params">url, data = &#123;&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    service.<span class="title function_">patch</span>(url, data).<span class="title function_">then</span>(</span><br><span class="line">      <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(response);</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">msag</span>(err);</span><br><span class="line">        <span class="title function_">reject</span>(err);</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 封装put请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">url</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">data</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Promise</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">put</span>(<span class="params">url, data = &#123;&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    service.<span class="title function_">put</span>(url, data).<span class="title function_">then</span>(</span><br><span class="line">      <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(response);</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">msag</span>(err);</span><br><span class="line">        <span class="title function_">reject</span>(err);</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 封装delete请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">url</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">data</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Promise</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">del</span>(<span class="params">url, data</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    service.<span class="title function_">delete</span>(url, &#123;data&#125;).<span class="title function_">then</span>(</span><br><span class="line">      <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//关闭进度条</span></span><br><span class="line">        <span class="title function_">resolve</span>(response);</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(err);</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//统一接口处理，返回数据</span></span><br><span class="line"><span class="comment">// eslint-disable-next-line import/no-anonymous-default-export</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params">fecth, url, param</span>) &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line no-unused-vars</span></span><br><span class="line">  <span class="keyword">let</span> _data = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (fecth) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;get&quot;</span>:</span><br><span class="line">        <span class="title function_">get</span>(url, param)</span><br><span class="line">          .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">            <span class="title function_">resolve</span>(response);</span><br><span class="line">          &#125;)</span><br><span class="line">          .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">error</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;get request GET failed.&quot;</span>, error);</span><br><span class="line">            <span class="title function_">reject</span>(error);</span><br><span class="line">          &#125;);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;post&quot;</span>:</span><br><span class="line">        <span class="title function_">post</span>(url, param)</span><br><span class="line">          .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">            <span class="title function_">resolve</span>(response);</span><br><span class="line">          &#125;)</span><br><span class="line">          .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">error</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;get request POST failed.&quot;</span>, error);</span><br><span class="line">            <span class="title function_">reject</span>(error);</span><br><span class="line">          &#125;);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;del&quot;</span>:</span><br><span class="line">        <span class="title function_">del</span>(url, param)</span><br><span class="line">          .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">            <span class="title function_">resolve</span>(response);</span><br><span class="line">          &#125;)</span><br><span class="line">          .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">error</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;get request delete failed.&quot;</span>, error);</span><br><span class="line">            <span class="title function_">reject</span>(error);</span><br><span class="line">          &#125;);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;put&quot;</span>:</span><br><span class="line">          <span class="title function_">put</span>(url, param)</span><br><span class="line">            .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">              <span class="title function_">resolve</span>(response);</span><br><span class="line">            &#125;)</span><br><span class="line">            .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">error</span>) &#123;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;get request delete failed.&quot;</span>, error);</span><br><span class="line">              <span class="title function_">reject</span>(error);</span><br><span class="line">            &#125;);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;patch&quot;</span>:</span><br><span class="line">        <span class="title function_">patch</span>(url, param)</span><br><span class="line">          .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">            <span class="title function_">resolve</span>(response);</span><br><span class="line">          &#125;)</span><br><span class="line">          .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">error</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;get request delete failed.&quot;</span>, error);</span><br><span class="line">            <span class="title function_">reject</span>(error);</span><br><span class="line">          &#125;);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="attr">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//失败提示</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">msag</span>(<span class="params">err</span>) &#123;</span><br><span class="line">  <span class="comment">// if (err &amp;&amp; err.response) &#123;</span></span><br><span class="line">    <span class="comment">// switch (err.response.status) &#123;</span></span><br><span class="line">      <span class="comment">// case 400:</span></span><br><span class="line">      <span class="comment">//   alert(err.response.data.error.details);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line">      <span class="comment">// case 401:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;未授权，请登录&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// case 403:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;拒绝访问&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// case 404:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;请求地址出错&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// case 408:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;请求超时&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// case 500:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;服务器内部错误&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// case 501:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;服务未实现&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// case 502:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;网关错误&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// case 503:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;服务不可用&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// case 504:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;网关超时&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// case 505:</span></span><br><span class="line">      <span class="comment">//   alert(&quot;HTTP版本不受支持&quot;);</span></span><br><span class="line">      <span class="comment">//   break;</span></span><br><span class="line">      <span class="comment">// default:</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 查看返回的数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">url</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">params</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">data</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">landing</span>(<span class="params">url, params, data</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (data.<span class="property">code</span> === -<span class="number">1</span>) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="管理Api文件："><a href="#管理Api文件：" class="headerlink" title="管理Api文件："></a>管理Api文件：</h4><p>请求的使用方式如下图所示：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">&#x27;../utils/request.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 添加某个接口，并调用封装好的请求方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">FindDictPage</span>(<span class="params">data</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">request</span>(<span class="string">&quot;post&quot;</span>,<span class="string">&#x27;user/v1/dictionary/FindDictPage&#x27;</span>,data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202205271709478.png"></p>
+<p>在某个组中使用这个接口~</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FindDictPage</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;../../apis/user&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">DictionaryTable</span>(<span class="params">props</span>) &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> [tableData, setTableData] = <span class="title class_">React</span>.<span class="title function_">useState</span>([]) <span class="comment">// 表格数据</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 获取分页表格数据API</span></span><br><span class="line">  	<span class="keyword">const</span> <span class="title function_">getTableData</span> = (<span class="params">params</span>) =&gt; &#123;</span><br><span class="line">  		<span class="title class_">FindDictPage</span>(params)</span><br><span class="line">      		.<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        		<span class="keyword">if</span> (res.<span class="property">code</span> === <span class="string">&#x27;200&#x27;</span>) &#123;</span><br><span class="line">          			<span class="keyword">let</span> data = res.<span class="property">data</span>.<span class="property">list</span></span><br><span class="line">                    <span class="title function_">setTableData</span>(data) <span class="comment">//修改data</span></span><br><span class="line">                    <span class="title function_">setTableTotal</span>(res.<span class="property">data</span>.<span class="property">total</span>) <span class="comment">//修改dataTotal</span></span><br><span class="line">                &#125;</span><br><span class="line">      		&#125;)</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><h3 id="配置跨域"><a href="#配置跨域" class="headerlink" title="配置跨域"></a>配置跨域</h3></li>
+</ul>
+<hr>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install http-proxy-middleware --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="src-下新建-setupProxy-js"><a href="#src-下新建-setupProxy-js" class="headerlink" title="src 下新建 setupProxy.js"></a><code>src</code> 下新建 <code>setupProxy.js</code></h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; createProxyMiddleware &#125; = <span class="built_in">require</span>(<span class="string">&#x27;http-proxy-middleware&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="keyword">function</span>(<span class="params">app</span>) &#123;</span><br><span class="line">  app.<span class="title function_">use</span>(</span><br><span class="line">    <span class="string">&#x27;/api&#x27;</span>,</span><br><span class="line">    <span class="title function_">createProxyMiddleware</span>(&#123;</span><br><span class="line">      <span class="attr">target</span>: <span class="string">&#x27;http://localhost:5000&#x27;</span>,</span><br><span class="line">      <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><h3 id="安装配置路由-React-router"><a href="#安装配置路由-React-router" class="headerlink" title="安装配置路由 React-router"></a>安装配置路由 React-router</h3></li>
+</ul>
+<hr>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install react-router-dom --save  // 我这里是<span class="string">&quot;react-router-dom&quot;</span>: <span class="string">&quot;^6.3.0&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="在src中新建utils文件夹，并建立request-js"><a href="#在src中新建utils文件夹，并建立request-js" class="headerlink" title="在src中新建utils文件夹，并建立request.js"></a>在<code>src</code>中新建<code>utils</code>文件夹，并建立<code>request.js</code></h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BrowserRouter</span> <span class="keyword">as</span> <span class="title class_">Router</span>, <span class="title class_">Route</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">YourComponent</span> <span class="keyword">from</span> <span class="string">&#x27;your-component-path&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Router</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&#x27;/&#x27;</span> <span class="attr">component</span>=<span class="string">&#123;YourComponent&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Router</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在应用入口<code>index.js</code>里引用使用这个 <code>router.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Router</span> <span class="keyword">from</span> <span class="string">&#x27;./utils/router&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Index</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Router</span> /&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><h3 id="安装配置redux"><a href="#安装配置redux" class="headerlink" title="安装配置redux"></a>安装配置redux</h3></li>
+</ul>
+<hr>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install redux redux-thunk react-redux --save</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>src</code> 目录下新建 <code>redux</code> 文件夹，作为配置<code> redux</code> 的目录:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202205171617960.png"></p>
+<p><code>actions:</code> 针对不同功能模块进行配置的 actions 文件放在此目录 </p>
+<p><code>reducers: </code>针对不同功能模块进行配置的 reducers 文件放在此目录 </p>
+<p><code>reducers.js: </code>把所有 reducers 结合起来 </p>
+<p><code>store.js: </code>对 redux 的配置文件</p>
+<p><code>types.js: </code>存放 Actions 中所需要的 type 属性值</p>
+<p>各类文件</p>
+<p><code>types.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">MYTODO</span> = <span class="string">&#x27;MYTODO&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">MYLIST</span> = <span class="string">&#x27;MYLIST&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">OTHERTODO</span> = <span class="string">&#x27;OTHERTODO&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">OTHERLIST</span> = <span class="string">&#x27;OTHERLIST&#x27;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>myReducer.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="variable constant_">MYTODO</span>, <span class="variable constant_">MYLIST</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;../types&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> initState = &#123;</span><br><span class="line">  <span class="attr">myTodos</span>: [],</span><br><span class="line">  <span class="attr">list</span>: []</span><br><span class="line">  <span class="comment">// ...etc.</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params">state = initState, action</span>) &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.<span class="property">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="attr">MYTODO</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        <span class="attr">myTodos</span>: action.<span class="property">payload</span></span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="keyword">case</span> <span class="attr">MYLIST</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        <span class="attr">list</span>: action.<span class="property">payload</span></span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>myActions.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="variable constant_">MYTODO</span>, <span class="variable constant_">MYLIST</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;../types&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">myTodos</span> = (<span class="params">params</span>) =&gt; <span class="function">(<span class="params">dispatch, getState</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// const &#123; myState, otherState &#125; = getState();</span></span><br><span class="line">  <span class="title function_">dispatch</span>(&#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="variable constant_">MYTODO</span>,</span><br><span class="line">    <span class="attr">payload</span>: params</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">handleMyList</span> = (<span class="params">params</span>) =&gt; <span class="function">(<span class="params">dispatch, getState</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// const &#123; myState, otherState &#125; = getState();</span></span><br><span class="line">  <span class="title function_">dispatch</span>(&#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="variable constant_">MYLIST</span>,</span><br><span class="line">    <span class="attr">payload</span>: params</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>otherReducer.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="variable constant_">OTHERTODO</span>, <span class="variable constant_">OTHERLIST</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;../types&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> initState = &#123;</span><br><span class="line">  <span class="attr">otherTodos</span>: [],</span><br><span class="line">  <span class="attr">list</span>: []</span><br><span class="line">  <span class="comment">// ...etc.</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params">state = initState, action</span>) &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.<span class="property">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="attr">OTHERTODO</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        <span class="attr">otherTodos</span>: action.<span class="property">payload</span></span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="keyword">case</span> <span class="attr">OTHERLIST</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        <span class="attr">list</span>: action.<span class="property">payload</span></span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>otherActions.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="variable constant_">OTHERTODO</span>, <span class="variable constant_">OTHERLIST</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;../types&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">otherTodos</span> = (<span class="params">params</span>) =&gt; <span class="function">(<span class="params">dispatch, getState</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// const &#123; myState, otherState &#125; = getState();</span></span><br><span class="line">  <span class="title function_">dispatch</span>(&#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="variable constant_">OTHERTODO</span>,</span><br><span class="line">    <span class="attr">payload</span>: params</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">handleOtherList</span> = (<span class="params">params</span>) =&gt; <span class="function">(<span class="params">dispatch, getState</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// const &#123; myState, otherState &#125; = getState();</span></span><br><span class="line">  <span class="title function_">dispatch</span>(&#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="variable constant_">OTHERLIST</span>,</span><br><span class="line">    <span class="attr">payload</span>: params</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>reducers.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">&#x27;redux&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> myReducer <span class="keyword">from</span> <span class="string">&#x27;./reducers/myReducer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> otherReducer <span class="keyword">from</span> <span class="string">&#x27;./reducers/otherReducer&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">combineReducers</span>(&#123;</span><br><span class="line">  <span class="attr">myState</span>: myReducer,</span><br><span class="line">  <span class="attr">otherState</span>: otherReducer</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>store.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware, compose &#125; <span class="keyword">from</span> <span class="string">&#x27;redux&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> thunk <span class="keyword">from</span> <span class="string">&#x27;redux-thunk&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> reducers <span class="keyword">from</span> <span class="string">&#x27;./reducers&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> initState = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> middleware = [thunk];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> composeEnhancers =</span><br><span class="line">  <span class="keyword">typeof</span> <span class="variable language_">window</span> === <span class="string">&#x27;object&#x27;</span> &amp;&amp; <span class="variable language_">window</span>.<span class="property">__REDUX_DEVTOOLS_EXTENSION_COMPOSE__</span></span><br><span class="line">    ? <span class="variable language_">window</span>.<span class="title function_">__REDUX_DEVTOOLS_EXTENSION_COMPOSE__</span>(&#123;&#125;)</span><br><span class="line">    : compose;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> enhancer =</span><br><span class="line">  process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;development&#x27;</span></span><br><span class="line">    ? <span class="title function_">composeEnhancers</span>(<span class="title function_">applyMiddleware</span>(...middleware))</span><br><span class="line">    : <span class="title function_">applyMiddleware</span>(...middleware);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> store = <span class="title function_">createStore</span>(reducers, initState, enhancer);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>以上<code> Redux</code> 基本配置完成，下面是调用方法</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">PropTypes</span> <span class="keyword">from</span> <span class="string">&#x27;prop-types&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">&#x27;react-redux&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; myTodos, handleMyList &#125; <span class="keyword">from</span> <span class="string">&#x27;./path/redux/actions/myActions&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">MyTodosComponent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 通过this.props 访问 state</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">props</span>.<span class="property">myTodos</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">props</span>.<span class="property">list</span>);</span><br><span class="line">    <span class="comment">// 调用 actions</span></span><br><span class="line">    <span class="keyword">const</span> todos = [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">todo</span>: <span class="string">&#x27;say hello world&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ];</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">props</span>.<span class="title function_">myTodos</span>(todos);</span><br><span class="line">    <span class="keyword">const</span> list = [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">text</span>: <span class="string">&#x27;test&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ];</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">props</span>.<span class="title function_">handleMyList</span>(list);</span><br><span class="line">  &#125;, []);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;this.props.todos.map((item, index) =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">        return (</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            id:&#123;item.id&#125;, todo:&#123;item.todo&#125;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        );</span></span><br><span class="line"><span class="language-xml">      &#125;)&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 类型检查</span></span><br><span class="line"><span class="title class_">MyTodosComponent</span>.<span class="property">propTypes</span> = &#123;</span><br><span class="line">  <span class="attr">myTodos</span>: <span class="title class_">PropTypes</span>.<span class="property">array</span>.<span class="property">isRequired</span>,</span><br><span class="line">  <span class="attr">list</span>: <span class="title class_">PropTypes</span>.<span class="property">array</span>.<span class="property">isRequired</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 把redux中的state绑定到组件的props上</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">mapStateToProps</span> = (<span class="params">state</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; myTodos, list &#125; = state.<span class="property">myState</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    myTodos,</span><br><span class="line">    list</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 把redux和组件结合起来,使组件能在props中访问到state和actions</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">connect</span>(mapStateToProps, &#123;</span><br><span class="line">  myTodos,</span><br><span class="line">  handleMyList</span><br><span class="line">&#125;)(<span class="title class_">MyTodosComponent</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>玩转JavaScript时间</title>
+    <url>/2022/04/27/%E7%8E%A9%E8%BD%ACJavaScript%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<h2 id="javaScript-new-Date-开课啦"><a href="#javaScript-new-Date-开课啦" class="headerlink" title="javaScript new Date()开课啦~"></a>javaScript new Date()开课啦~</h2><p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202204271700328.png"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">getYear</span>(); <span class="comment">//获取当前年份(2位)</span></span><br><span class="line">date.<span class="title function_">getFullYear</span>(); <span class="comment">//获取完整的年份(4位,1970-????)</span></span><br><span class="line">date.<span class="title function_">getMonth</span>(); <span class="comment">//获取当前月份(0-11,0代表1月)</span></span><br><span class="line">date.<span class="title function_">getDate</span>(); <span class="comment">//获取当前日(1-31)</span></span><br><span class="line">date.<span class="title function_">getDay</span>(); <span class="comment">//获取当前星期X(0-6,0代表星期天)</span></span><br><span class="line">date.<span class="title function_">getTime</span>(); <span class="comment">//获取当前时间(从1970.1.1开始的毫秒数)</span></span><br><span class="line">date.<span class="title function_">getHours</span>(); <span class="comment">//获取当前小时数(0-23)</span></span><br><span class="line">date.<span class="title function_">getMinutes</span>(); <span class="comment">//获取当前分钟数(0-59)</span></span><br><span class="line">date.<span class="title function_">getSeconds</span>(); <span class="comment">//获取当前秒数(0-59)</span></span><br><span class="line">date.<span class="title function_">getMilliseconds</span>(); <span class="comment">//获取当前毫秒数(0-999)</span></span><br><span class="line">date.<span class="title function_">toLocaleDateString</span>(); <span class="comment">//获取当前日期</span></span><br><span class="line">date.<span class="title function_">toLocaleTimeString</span>(); <span class="comment">//获取当前时间</span></span><br><span class="line">date.<span class="title function_">toLocaleString</span>( ); <span class="comment">//获取日期与时间</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">setTime</span>(value) <span class="comment">//设置时间,</span></span><br><span class="line">date.<span class="title function_">setYear</span>(val) <span class="comment">//设置年,</span></span><br><span class="line">date.<span class="title function_">setMonth</span>(val) <span class="comment">//设置月,</span></span><br><span class="line">date.<span class="title function_">setDate</span>(val) <span class="comment">//设置日,</span></span><br><span class="line">date.<span class="title function_">setDay</span>(val) <span class="comment">//设置星期几,</span></span><br><span class="line">date.<span class="title function_">setHours</span>(val) <span class="comment">//设置小时,</span></span><br><span class="line">date.<span class="title function_">setMinutes</span>(val) <span class="comment">//设置分,</span></span><br><span class="line">date.<span class="title function_">setSeconds</span>(val) <span class="comment">//设置秒 [注意:此日期时间从0开始计]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-时间戳转YYYY-HH-DD-HH-mm-ss"><a href="#1-时间戳转YYYY-HH-DD-HH-mm-ss" class="headerlink" title="1.时间戳转YYYY-HH-DD HH:mm:ss"></a>1.时间戳转YYYY-HH-DD HH:mm:ss</h3><p>代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间戳转时间</span></span><br><span class="line"><span class="title function_">formatDate</span>(<span class="params">time</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(time)</span><br><span class="line">  <span class="keyword">const</span> Y = date.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="keyword">const</span> M = date.<span class="title function_">getMonth</span>() + <span class="number">1</span></span><br><span class="line">  <span class="keyword">const</span> D = date.<span class="title function_">getDate</span>()</span><br><span class="line">  <span class="keyword">const</span> h = date.<span class="title function_">getHours</span>()</span><br><span class="line">  <span class="keyword">const</span> m = date.<span class="title function_">getMinutes</span>()</span><br><span class="line">  <span class="keyword">const</span> s = date.<span class="title function_">getSeconds</span>()</span><br><span class="line">  <span class="keyword">return</span> Y + <span class="string">&#x27;-&#x27;</span> + (M &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + M : M) + <span class="string">&#x27;-&#x27;</span> + (D &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + D : D) + <span class="string">&#x27; &#x27;</span> + (h &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + h : h) + <span class="string">&#x27;:&#x27;</span> + (m &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + m : m) + <span class="string">&#x27;:&#x27;</span> + (s &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + s : s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-当前时间加上某某小时"><a href="#2-当前时间加上某某小时" class="headerlink" title="2.当前时间加上某某小时"></a>2.当前时间加上某某小时</h3><p>​        可能存在时间戳、YYYY-HH-DD HH:mm:ss等这样的时间可以先进行时间转换~</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间加小时计算</span></span><br><span class="line"><span class="title function_">addTime</span>(<span class="params">hour</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  date.<span class="title function_">setHours</span>(date.<span class="title function_">getHours</span>() + hour)</span><br><span class="line">  <span class="keyword">return</span> date</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高德地图JS</title>
+    <url>/2022/02/21/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BEJS/</url>
+    <content><![CDATA[<h3 id="修改点击的标记点图标"><a href="#修改点击的标记点图标" class="headerlink" title="修改点击的标记点图标"></a>修改点击的标记点图标</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> [index, item] <span class="keyword">of</span> <span class="keyword">new</span> <span class="title class_">Map</span>(<span class="variable language_">this</span>.<span class="property">treeData</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">item, index</span>) =&gt;</span> [index, item]))) &#123;</span><br><span class="line">    <span class="comment">//marker点</span></span><br><span class="line">    <span class="keyword">let</span> marker</span><br><span class="line">    <span class="comment">//位置</span></span><br><span class="line">    <span class="keyword">let</span> position</span><br><span class="line">    <span class="comment">//判断是否是第一个点</span></span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">0</span>) &#123; <span class="comment">// 如果是第一个点位则使他突出显示</span></span><br><span class="line">        position = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">LngLat</span>(item.<span class="property">longitude</span>, item.<span class="property">latitude</span>)</span><br><span class="line">        <span class="comment">//设置marker，并设置为唯一图标</span></span><br><span class="line">        marker = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Marker</span>(&#123; <span class="attr">icon</span>: lampIconActive, <span class="attr">position</span>: position, <span class="attr">offset</span>: <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Pixel</span>(-<span class="number">17</span>, -<span class="number">10</span>) &#125;)</span><br><span class="line">        <span class="comment">//this.activeMarker为VUE data中存储的当前的活动标记点，初始化地图点位时默认为数据中的第一个点</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">activeMarker</span> = <span class="number">0</span></span><br><span class="line">        map.<span class="title function_">add</span>(marker)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;<span class="comment">//不是第一个，设置为其他图标</span></span><br><span class="line">        position = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">LngLat</span>(item.<span class="property">longitude</span>, item.<span class="property">latitude</span>)</span><br><span class="line">        marker = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Marker</span>(&#123; <span class="attr">icon</span>: lampIcon, <span class="attr">position</span>: position, <span class="attr">offset</span>: <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Pixel</span>(-<span class="number">17</span>, -<span class="number">10</span>) &#125;)</span><br><span class="line">        map.<span class="title function_">add</span>(marker)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//吧marker存入vue data中</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">allMarkers</span>.<span class="title function_">push</span>(marker)</span><br><span class="line">    <span class="comment">//marker为 map 的点位，并为此点位设置click事件</span></span><br><span class="line">    marker.<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">//设置当前地图高度与中心点</span></span><br><span class="line">       map.<span class="title function_">setZoomAndCenter</span>(centerFloor, e.<span class="property">target</span>.<span class="title function_">getPosition</span>())</span><br><span class="line">        <span class="comment">//this.activeMarker为VUE data中存储的当前的活动标记点</span></span><br><span class="line">       <span class="comment">//设置之前点位唯一图标为其他图标</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">allMarkers</span>[<span class="variable language_">this</span>.<span class="property">activeMarker</span>].<span class="title function_">setIcon</span>(lampIcon)</span><br><span class="line">        <span class="comment">//查找当前点击的点在allMarkers中的index位置，并设置activeMarker为其index</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; <span class="variable language_">this</span>.<span class="property">allMarkers</span>.<span class="property">length</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">allMarkers</span>[i].<span class="property">_amap_id</span> === e.<span class="property">target</span>.<span class="property">_amap_id</span>) &#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">activeMarker</span> = i</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置当前click点的图标为唯一图标</span></span><br><span class="line">        e.<span class="property">target</span>.<span class="title function_">setIcon</span>(lampIconActive)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>高德地图</tag>
+      </tags>
+  </entry>
+</search>
