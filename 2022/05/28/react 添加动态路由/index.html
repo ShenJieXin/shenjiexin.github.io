@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shenjiexin.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+  <meta name="description" content="react 18.1.0 react-router-dom 6.3.0，根据后端返回参数添加动态菜单">
+<meta property="og:type" content="website">
+<meta property="og:title" content="react 添加动态路由">
+<meta property="og:url" content="https://shenjiexin.github.io/2022/05/28/react%20%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/index.html">
+<meta property="og:site_name" content="阿❤的小前端">
+<meta property="og:description" content="react 18.1.0 react-router-dom 6.3.0，根据后端返回参数添加动态菜单">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-05-28T08:33:01.000Z">
+<meta property="article:modified_time" content="2022-05-28T09:33:17.607Z">
+<meta property="article:author" content="阿❤哒哒">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://shenjiexin.github.io/2022/05/28/react%20%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"https://shenjiexin.github.io/2022/05/28/react%20%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/","path":"2022/05/28/react 添加动态路由/","title":"react 添加动态路由"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>react 添加动态路由 | 阿❤的小前端</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">阿❤的小前端</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#react-%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="nav-number">1.</span> <span class="nav-text">react 添加动态路由</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.1.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.2.2.</span> <span class="nav-text">步骤</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="阿❤哒哒"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">阿❤哒哒</p>
+  <div class="site-description" itemprop="description">Ctrl C + Ctrl V</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://shenjiexin.github.io/2022/05/28/react%20%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="阿❤哒哒">
+      <meta itemprop="description" content="Ctrl C + Ctrl V">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿❤的小前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          react 添加动态路由
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-05-28 16:33:01 / 修改时间：17:33:17" itemprop="dateCreated datePublished" datetime="2022-05-28T16:33:01+08:00">2022-05-28</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">react 18.1.0 react-router-dom 6.3.0，根据后端返回参数添加动态菜单</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="react-添加动态路由"><a href="#react-添加动态路由" class="headerlink" title="react 添加动态路由"></a>react 添加动态路由</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><hr>
+<p>在产品创建初期，有菜单权限的要求，需要进行菜单鉴权，这时需要登录后向后端请求此<code>用户</code>存在哪些菜单，前端根据后端返回的<code>菜单</code>及<code>组件||文件</code>的地址去注册路由及菜单栏的展示。</p>
+<p>​    如：点击菜单栏<code>首页</code>，界面跳转<code>首页界面</code></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><hr>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p><code>react: &quot;^18.1.0&quot;</code>                                           <code>react-router-dom: &quot;^6.3.0&quot;</code>                                                  <code>antd: &quot;^4.20.5&quot;</code></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>一、在App.js中引入所需文件，并编写引入登录页</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">BrowserRouter</span>,<span class="title class_">Routes</span>,<span class="title class_">Route</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> loadable <span class="keyword">from</span> <span class="string">&#x27;./utils/loadable&#x27;</span> <span class="comment">//组件加载进度条</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 公共模块，也就是首页</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">DefaultLayout</span> = <span class="title function_">loadable</span>(<span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="comment">/* webpackChunkName: &#x27;default&#x27; */</span> <span class="string">&#x27;./layout&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 登录页面</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Login</span> = <span class="title function_">loadable</span>(<span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="comment">/* webpackChunkName: &#x27;login&#x27; */</span> <span class="string">&#x27;./views/Login&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路由组件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&#x27;/login&#x27;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Login</span>&gt;</span><span class="tag">&lt;/<span class="name">Login</span>&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&#x27;/*&#x27;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">DefaultLayout</span>&gt;</span><span class="tag">&lt;/<span class="name">DefaultLayout</span>&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>二、在首页layout页面添加如下代码</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// eslint-disable-next-line no-unused-vars</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">Navigate</span>, <span class="title class_">Route</span>, <span class="title class_">Routes</span>,useNavigate&#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Layout</span>,message &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../style/layout.less&#x27;</span> <span class="comment">//页面样式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">AppHeader</span> <span class="keyword">from</span> <span class="string">&#x27;./AppHeader&#x27;</span> <span class="comment">//首页头部</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">AppAside</span> <span class="keyword">from</span> <span class="string">&#x27;./AppAside.jsx&#x27;</span> <span class="comment">//首页侧边栏</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> loadable <span class="keyword">from</span> <span class="string">&#x27;../utils/loadable&#x27;</span> <span class="comment">//页面顶部加载进度条</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">Header</span>, <span class="title class_">Content</span> &#125; = <span class="title class_">Layout</span>; <span class="comment">// 引入页面布局组件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">View404</span> = <span class="title function_">loadable</span>(<span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;../views/Others/404&#x27;</span>))<span class="comment">// 404页面</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DefaultLayout</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">    state = &#123;</span><br><span class="line">        <span class="attr">collapsed</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">menus</span>: []</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 组件token判断及加载完成后获取菜单数据</span></span><br><span class="line">    <span class="title function_">componentDidMount</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> token = sessionStorage.<span class="title function_">getItem</span>(<span class="string">&#x27;access_token&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span>(!token)&#123;</span><br><span class="line">            <span class="keyword">const</span> &#123; navigation &#125; = <span class="variable language_">this</span>.<span class="property">props</span>;</span><br><span class="line">            <span class="title function_">navigation</span>(<span class="string">&#x27;/login&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> menus = sessionStorage.<span class="title function_">getItem</span>(<span class="string">&#x27;menus&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span>(menus)&#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123;</span><br><span class="line">                <span class="attr">menus</span>: <span class="title class_">JSON</span>.<span class="title function_">parse</span>(menus)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 获取循环返回路由组件</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title function_">getComponent</span> = (<span class="params">item</span>) =&gt; &#123;</span><br><span class="line">            <span class="keyword">const</span> <span class="title class_">Com</span> = <span class="title function_">loadable</span>(<span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;../views&#x27;</span>+item.<span class="property">pathKey</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Com</span> /&gt;</span></span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">Layout</span> <span class="attr">className</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">AppAside</span> <span class="attr">collapsed</span>=<span class="string">&#123;this.state.collapsed&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Layout</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Header</span> <span class="attr">className</span>=<span class="string">&quot;layout-header-box&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;<span class="name">AppHeader</span> <span class="attr">loginOut</span>=<span class="string">&#123;loginOut&#125;</span> <span class="attr">collapsed</span>=<span class="string">&#123;this.state.collapsed&#125;</span>  <span class="attr">collapsedChange</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-xml">                        this.setState(&#123;</span></span><br><span class="line"><span class="language-xml">                            collapsed: !this.state.collapsed</span></span><br><span class="line"><span class="language-xml">                        &#125;)</span></span><br><span class="line"><span class="language-xml">                    &#125;&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">Header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Content</span> <span class="attr">className</span>=<span class="string">&quot;layout-content-box&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        &#123;/* dictionaryTable，为侧边栏菜单的第一个，这边写死的，后面通过后端返回的进行遍历取第一个放进来进行重定向 */&#125;</span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&#x27;/&#x27;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Navigate</span> <span class="attr">to</span>=<span class="string">&#123;</span>&#x27;/<span class="attr">dictionaryTable</span>&#x27;&#125;/&gt;</span>&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">                        &#123;/* 循环注册路由 */&#125;</span></span><br><span class="line"><span class="language-xml">                        &#123;this.state.menus.map((item,index) =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">                            return (</span></span><br><span class="line"><span class="language-xml">                                <span class="tag">&lt;<span class="name">Route</span> <span class="attr">key</span>=<span class="string">&#123;index&#125;</span> <span class="attr">path</span>=<span class="string">&#123;item.url&#125;</span> <span class="attr">element</span>=<span class="string">&#123;getComponent(item)&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                            )</span></span><br><span class="line"><span class="language-xml">                        &#125;)&#125;</span></span><br><span class="line"><span class="language-xml">                        &#123;/* 没找到进行404界面 */&#125;</span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&#x27;*&#x27;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">View404</span>/&gt;</span>&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">Content</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">Layout</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">Layout</span>&gt;</span></span></span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// eslint-disable-next-line import/no-anonymous-default-export</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> navigation = <span class="title function_">useNavigate</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">DefaultLayout</span> &#123;<span class="attr">...props</span>&#125; <span class="attr">navigation</span>=<span class="string">&#123;navigation&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>三、引入在首页的侧边栏组件如下（菜单数据暂时写死，后面进行优化通过后端返回的数据进行展示）</p>
+<p>​    主要查看菜单点击事件的<code>onClick（）</code>中进行路由跳转</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Menu</span>, <span class="title class_">Layout</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppstoreOutlined</span>, <span class="title class_">MailOutlined</span>, <span class="title class_">SettingOutlined</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@ant-design/icons&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useNavigate,useLocation &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../style/layout.less&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">Sider</span> &#125; = <span class="title class_">Layout</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 菜单数据</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getItem</span>(<span class="params">label, key, icon, children, type</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> item = &#123;key,icon,children,label,type,&#125;</span><br><span class="line">    <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 菜单数据</span></span><br><span class="line"><span class="keyword">const</span> items = [</span><br><span class="line">    <span class="title function_">getItem</span>(<span class="string">&#x27;字典表&#x27;</span>, <span class="string">&#x27;/dictionaryTable&#x27;</span>, <span class="language-xml"><span class="tag">&lt;<span class="name">MailOutlined</span> /&gt;</span></span>),</span><br><span class="line">    <span class="title function_">getItem</span>(<span class="string">&#x27;工单管理&#x27;</span>, <span class="string">&#x27;/order&#x27;</span>, <span class="language-xml"><span class="tag">&lt;<span class="name">AppstoreOutlined</span> /&gt;</span></span>, [</span><br><span class="line">        <span class="title function_">getItem</span>(<span class="string">&#x27;工单列表&#x27;</span>, <span class="string">&#x27;/order/orderList&#x27;</span>),</span><br><span class="line">        <span class="title function_">getItem</span>(<span class="string">&#x27;工单统计&#x27;</span>, <span class="string">&#x27;/order/orderStatistics&#x27;</span>)</span><br><span class="line">    ]),</span><br><span class="line">    <span class="title function_">getItem</span>(<span class="string">&#x27;系统设置&#x27;</span>, <span class="string">&#x27;/systemSetting&#x27;</span>, <span class="language-xml"><span class="tag">&lt;<span class="name">AppstoreOutlined</span> /&gt;</span></span>, [</span><br><span class="line">        <span class="title function_">getItem</span>(<span class="string">&#x27;菜单设置&#x27;</span>, <span class="string">&#x27;/menuControl&#x27;</span>)</span><br><span class="line">    ]),</span><br><span class="line">    <span class="title function_">getItem</span>(<span class="string">&#x27;资产管理&#x27;</span>, <span class="string">&#x27;/assetManagement&#x27;</span>, <span class="language-xml"><span class="tag">&lt;<span class="name">SettingOutlined</span> /&gt;</span></span>),</span><br><span class="line">    <span class="title function_">getItem</span>(<span class="string">&#x27;区域管理&#x27;</span>, <span class="string">&#x27;/regionalManagement&#x27;</span>, <span class="language-xml"><span class="tag">&lt;<span class="name">SettingOutlined</span> /&gt;</span></span>,)</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AppAside</span> = (<span class="params">props</span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> localhost = <span class="title function_">useLocation</span>(); <span class="comment">// 获取当前路由,用于设置菜单选中状态</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> openKeys = localhost.<span class="property">pathname</span>.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>)[<span class="number">1</span>]; <span class="comment">// 获取当前路由的第一个字符串</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">onClick</span> = (<span class="params">e</span>) =&gt; &#123;</span><br><span class="line">        <span class="title function_">navigation</span>(e.<span class="property">key</span>)</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> navigation = <span class="title function_">useNavigate</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Sider</span> <span class="attr">width</span>=<span class="string">&#123;250&#125;</span> <span class="attr">className</span>=<span class="string">&quot;layout-sider-box&quot;</span> <span class="attr">collapsed</span>=<span class="string">&#123;props.collapsed&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;props.collapsed?</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;sider-logo-box vertical-horizontal-center f20&quot;</span>&gt;</span>Logo<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            :</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;sider-logo-box vertical-horizontal-center f30&quot;</span>&gt;</span>Logo<span class="tag">&lt;/<span class="name">div</span>&gt;</span>&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Menu</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">onClick</span>=<span class="string">&#123;onClick&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">defaultSelectedKeys</span>=<span class="string">&#123;[</span>&#x27;/<span class="attr">dictionaryTable</span>&#x27;]&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">defaultOpenKeys</span>=<span class="string">&#123;[</span>&#x27;/&#x27; + <span class="attr">openKeys</span>]&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">mode</span>=<span class="string">&quot;inline&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">theme</span>=<span class="string">&quot;dark&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">items</span>=<span class="string">&#123;items&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Sider</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// eslint-disable-next-line import/no-anonymous-default-export</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (props) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">AppAside</span> &#123;<span class="attr">...props</span>&#125;/&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果文章由于我学识浅薄,导致您发现有严重谬误的地方,请一定在评论中指出,我会在第一时间修正我的博文,以避免误人子弟。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>阿❤哒哒
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://shenjiexin.github.io/2022/05/28/react%20%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/" title="react 添加动态路由">https://shenjiexin.github.io/2022/05/28/react 添加动态路由/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/react/" rel="tag"># react</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="git常用命令">
+                  <i class="fa fa-chevron-left"></i> git常用命令
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">是阿❤呀</span>
+</div>
+  <div class="powered-by">欢迎访问 | 阿❤的小前端
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共8.8k字</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
