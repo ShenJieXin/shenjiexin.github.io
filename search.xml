@@ -167,6 +167,19 @@
       </tags>
   </entry>
   <entry>
+    <title>js的事件中call、apply及bind方法</title>
+    <url>/2022/05/11/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%B8%ADcall%E3%80%81apply%E5%8F%8Abind%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="什么是call"><a href="#什么是call" class="headerlink" title="什么是call"></a>什么是call</h2><p>call()是JavaScript中的一个方法，他的特点是可以自动执行函数，并改变this的指向，也就是通过 call()，您能够使用属于另一个对象的方法。<br>如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">fullName</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Bill&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Gates&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Steve&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Jobs&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">person.<span class="property">fullName</span>.<span class="title function_">call</span>(person1);  <span class="comment">// 将返回 &quot;Bill Gates&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是apply"><a href="#什么是apply" class="headerlink" title="什么是apply()"></a>什么是apply()</h2><p>apply与call()相似，也是自动执行函数，改变this的指向</p>
+<h2 id="什么是bind"><a href="#什么是bind" class="headerlink" title="什么是bind()"></a>什么是bind()</h2><p>bind()与apply()及call()不相同的点是并不会自动执行，但是也是用于改变this的指向。</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>reactOneDay</title>
     <url>/2022/05/06/reactOneDay/</url>
     <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
@@ -188,16 +201,11 @@
       </tags>
   </entry>
   <entry>
-    <title>js的事件中call、apply及bind方法</title>
-    <url>/2022/05/11/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%B8%ADcall%E3%80%81apply%E5%8F%8Abind%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="什么是call"><a href="#什么是call" class="headerlink" title="什么是call"></a>什么是call</h2><p>call()是JavaScript中的一个方法，他的特点是可以自动执行函数，并改变this的指向，也就是通过 call()，您能够使用属于另一个对象的方法。<br>如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">fullName</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Bill&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Gates&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Steve&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Jobs&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">person.<span class="property">fullName</span>.<span class="title function_">call</span>(person1);  <span class="comment">// 将返回 &quot;Bill Gates&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="什么是apply"><a href="#什么是apply" class="headerlink" title="什么是apply()"></a>什么是apply()</h2><p>apply与call()相似，也是自动执行函数，改变this的指向</p>
-<h2 id="什么是bind"><a href="#什么是bind" class="headerlink" title="什么是bind()"></a>什么是bind()</h2><p>bind()与apply()及call()不相同的点是并不会自动执行，但是也是用于改变this的指向。</p>
-]]></content>
+    <title>reactThreeDay</title>
+    <url>/2022/05/11/reactThreeDay/</url>
+    <content><![CDATA[]]></content>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -270,14 +278,6 @@
 
 
 ]]></content>
-      <tags>
-        <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>reactThreeDay</title>
-    <url>/2022/05/11/reactThreeDay/</url>
-    <content><![CDATA[]]></content>
       <tags>
         <tag>react</tag>
       </tags>
