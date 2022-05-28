@@ -235,52 +235,6 @@
       </tags>
   </entry>
   <entry>
-    <title>web前端开发面试鸭~</title>
-    <url>/2022/05/08/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%B8%AD/</url>
-    <content><![CDATA[<h1 id="web前端开发面试鸭"><a href="#web前端开发面试鸭" class="headerlink" title="web前端开发面试鸭~"></a>web前端开发面试鸭~</h1><ol>
-<li><p>谈一谈cookie、sessionStorage与localStorage的区别</p>
-<p>可以从：数据存储位置、生命周期、存储大小、写入方式、数据共享、发送请求时是否携带、应用场景这几个方面讲解。</p>
-<p>​    标准回答： Cookie、SessionStorage、 LocalStorage都是浏览器的本地存储。 它们的共同点：都是存储在浏览器本地的 它们的区别：cookie是由服务器端写入的，而SessionStorage、 LocalStorage都是由前端写入的，cookie的生命周期是由服务器端在写入的时候就设置好的，LocalStorage是写入就一直存在，除非手动清除，SessionStorage是页面关闭的时候就会自动清除。cookie的存储空间比较小大概4KB，SessionStorage、 LocalStorage存储空间比较大，大概5M。Cookie、SessionStorage、 LocalStorage数据共享都遵循同源原则，SessionStorage还限制必须是同一个页面。在前端给后端发送请求的时候会自动携带Cookie中的数据，但是SessionStorage、 LocalStorage不会 加分回答 由于它们的以上区别，所以它们的应用场景也不同，Cookie一般用于存储登录验证信息SessionID或者token，LocalStorage常用于存储不易变动的数据，减轻服务器的压力，SessionStorage可以用来检测用户是否是刷新进入页面，如音乐播放器恢复播放进度条的功能。</p>
-</li>
-<li><p>说一说JS数据类型有哪些,区别是什么？</p>
-<p>​    JS数据类型分为两类：一类是基本数据类型，也叫简单数据类型，包含7种类型，分别是Number 、String、Boolean、BigInt、Symbol、Null、Undefined。另一类是引用数据类型也叫复杂数据类型，通常用Object代表，普通对象，数组，正则，日期，Math数学函数都属于Object。</p>
-<p>​    数据分成两大类的本质区别：基本数据类型和引用数据类型它们在内存中的存储方式不同。<br>​    基本数据类型是直接存储在栈中的简单数据段，占据空间小，属于被频繁使用的数据。<br>​    引用数据类型是存储在堆内存中，占据空间大。引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址，当解释器寻找引用值时，会检索其在栈中的地址，取得地址后从堆中获得实体。</p>
-</li>
-<li><p>说一说你对闭包的理解？</p>
-<p>变量背包、作用域链、局部变量不销毁、函数体外访问函数的内部变量、内存泄漏、内存溢出、形成块级作用域、柯里化、构造函数中定义特权方法、Vue中数据响应式Observer 标准回答 闭包 一个函数和词法环境的引用捆绑在一起，这样的组合就是闭包（closure）。一般就是一个函数A，return其内部的函数B，被return出去的B函数能够在外部访问A函数内部的变量，这时候就形成了一个B函数的变量背包，A函数执行结束后这个变量背包也不会被销毁，并且这个变量背包在A函数外部只能通过B函数访问。 闭包形成的原理：作用域链，当前作用域可以访问上级作用域中的变量 闭包解决的问题：能够让函数作用域中的变量在函数执行结束之后不被销毁，同时也能在函数外部可以访问函数内部的局部变量。 闭包带来的问题：由于垃圾回收器不会将闭包中变量销毁，于是就造成了内存泄露，内存泄露积累多了就容易导致内存溢出。 加分回答 闭包的应用，能够模仿块级作用域，能够实现柯里化，在构造函数中定义特权方法、Vue中数据响应式Observer中使用闭包等。</p>
-</li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>reactTowDay</title>
     <url>/2022/05/10/reactTowDay/</url>
     <content><![CDATA[<h1 id="React-Tow-Day"><a href="#React-Tow-Day" class="headerlink" title="React Tow Day"></a>React Tow Day</h1><h2 id="创建组件"><a href="#创建组件" class="headerlink" title="创建组件"></a>创建组件</h2><p>在写react之前，肯定需要有创建组件的技能，那创建组件这里主要是使用两种方式进行创建，这两种方式分别是class类与函数式。</p>
@@ -355,42 +309,55 @@
       </tags>
   </entry>
   <entry>
+    <title>web前端开发面试鸭~</title>
+    <url>/2022/05/08/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%B8%AD/</url>
+    <content><![CDATA[<h1 id="web前端开发面试鸭"><a href="#web前端开发面试鸭" class="headerlink" title="web前端开发面试鸭~"></a>web前端开发面试鸭~</h1><ol>
+<li><p>谈一谈cookie、sessionStorage与localStorage的区别</p>
+<p>可以从：数据存储位置、生命周期、存储大小、写入方式、数据共享、发送请求时是否携带、应用场景这几个方面讲解。</p>
+<p>​    标准回答： Cookie、SessionStorage、 LocalStorage都是浏览器的本地存储。 它们的共同点：都是存储在浏览器本地的 它们的区别：cookie是由服务器端写入的，而SessionStorage、 LocalStorage都是由前端写入的，cookie的生命周期是由服务器端在写入的时候就设置好的，LocalStorage是写入就一直存在，除非手动清除，SessionStorage是页面关闭的时候就会自动清除。cookie的存储空间比较小大概4KB，SessionStorage、 LocalStorage存储空间比较大，大概5M。Cookie、SessionStorage、 LocalStorage数据共享都遵循同源原则，SessionStorage还限制必须是同一个页面。在前端给后端发送请求的时候会自动携带Cookie中的数据，但是SessionStorage、 LocalStorage不会 加分回答 由于它们的以上区别，所以它们的应用场景也不同，Cookie一般用于存储登录验证信息SessionID或者token，LocalStorage常用于存储不易变动的数据，减轻服务器的压力，SessionStorage可以用来检测用户是否是刷新进入页面，如音乐播放器恢复播放进度条的功能。</p>
+</li>
+<li><p>说一说JS数据类型有哪些,区别是什么？</p>
+<p>​    JS数据类型分为两类：一类是基本数据类型，也叫简单数据类型，包含7种类型，分别是Number 、String、Boolean、BigInt、Symbol、Null、Undefined。另一类是引用数据类型也叫复杂数据类型，通常用Object代表，普通对象，数组，正则，日期，Math数学函数都属于Object。</p>
+<p>​    数据分成两大类的本质区别：基本数据类型和引用数据类型它们在内存中的存储方式不同。<br>​    基本数据类型是直接存储在栈中的简单数据段，占据空间小，属于被频繁使用的数据。<br>​    引用数据类型是存储在堆内存中，占据空间大。引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址，当解释器寻找引用值时，会检索其在栈中的地址，取得地址后从堆中获得实体。</p>
+</li>
+<li><p>说一说你对闭包的理解？</p>
+<p>变量背包、作用域链、局部变量不销毁、函数体外访问函数的内部变量、内存泄漏、内存溢出、形成块级作用域、柯里化、构造函数中定义特权方法、Vue中数据响应式Observer 标准回答 闭包 一个函数和词法环境的引用捆绑在一起，这样的组合就是闭包（closure）。一般就是一个函数A，return其内部的函数B，被return出去的B函数能够在外部访问A函数内部的变量，这时候就形成了一个B函数的变量背包，A函数执行结束后这个变量背包也不会被销毁，并且这个变量背包在A函数外部只能通过B函数访问。 闭包形成的原理：作用域链，当前作用域可以访问上级作用域中的变量 闭包解决的问题：能够让函数作用域中的变量在函数执行结束之后不被销毁，同时也能在函数外部可以访问函数内部的局部变量。 闭包带来的问题：由于垃圾回收器不会将闭包中变量销毁，于是就造成了内存泄露，内存泄露积累多了就容易导致内存溢出。 加分回答 闭包的应用，能够模仿块级作用域，能够实现柯里化，在构造函数中定义特权方法、Vue中数据响应式Observer中使用闭包等。</p>
+</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>封装一个post请求blob流下载</title>
     <url>/2022/05/13/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AApost%E8%AF%B7%E6%B1%82blob%E6%B5%81%E4%B8%8B%E8%BD%BD/</url>
     <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// blob流下载</span></span><br><span class="line">  <span class="title function_">getDownloadFile</span>(<span class="params">sendMessage, url</span>) &#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: url,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: sendMessage,</span><br><span class="line">      <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([res.<span class="property">data</span>], &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;application/vnd.ms-excel&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">const</span> fileName = <span class="built_in">decodeURIComponent</span>(res.<span class="property">headers</span>[<span class="string">&#x27;content-disposition&#x27;</span>].<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">const</span> linkNode = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        linkNode.<span class="property">download</span> = fileName <span class="comment">// a标签的download属性规定下载文件的名称</span></span><br><span class="line">        linkNode.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        linkNode.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob) <span class="comment">// 生成一个Blob URL</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(linkNode)</span><br><span class="line">        linkNode.<span class="title function_">click</span>() <span class="comment">// 模拟在按钮上的一次鼠标单击</span></span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(linkNode.<span class="property">href</span>) <span class="comment">// 释放URL 对象</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(linkNode)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>高德地图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>玩转JavaScript时间</title>
-    <url>/2022/04/27/%E7%8E%A9%E8%BD%ACJavaScript%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<h2 id="javaScript-new-Date-开课啦"><a href="#javaScript-new-Date-开课啦" class="headerlink" title="javaScript new Date()开课啦~"></a>javaScript new Date()开课啦~</h2><p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202204271700328.png"></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">getYear</span>(); <span class="comment">//获取当前年份(2位)</span></span><br><span class="line">date.<span class="title function_">getFullYear</span>(); <span class="comment">//获取完整的年份(4位,1970-????)</span></span><br><span class="line">date.<span class="title function_">getMonth</span>(); <span class="comment">//获取当前月份(0-11,0代表1月)</span></span><br><span class="line">date.<span class="title function_">getDate</span>(); <span class="comment">//获取当前日(1-31)</span></span><br><span class="line">date.<span class="title function_">getDay</span>(); <span class="comment">//获取当前星期X(0-6,0代表星期天)</span></span><br><span class="line">date.<span class="title function_">getTime</span>(); <span class="comment">//获取当前时间(从1970.1.1开始的毫秒数)</span></span><br><span class="line">date.<span class="title function_">getHours</span>(); <span class="comment">//获取当前小时数(0-23)</span></span><br><span class="line">date.<span class="title function_">getMinutes</span>(); <span class="comment">//获取当前分钟数(0-59)</span></span><br><span class="line">date.<span class="title function_">getSeconds</span>(); <span class="comment">//获取当前秒数(0-59)</span></span><br><span class="line">date.<span class="title function_">getMilliseconds</span>(); <span class="comment">//获取当前毫秒数(0-999)</span></span><br><span class="line">date.<span class="title function_">toLocaleDateString</span>(); <span class="comment">//获取当前日期</span></span><br><span class="line">date.<span class="title function_">toLocaleTimeString</span>(); <span class="comment">//获取当前时间</span></span><br><span class="line">date.<span class="title function_">toLocaleString</span>( ); <span class="comment">//获取日期与时间</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">setTime</span>(value) <span class="comment">//设置时间,</span></span><br><span class="line">date.<span class="title function_">setYear</span>(val) <span class="comment">//设置年,</span></span><br><span class="line">date.<span class="title function_">setMonth</span>(val) <span class="comment">//设置月,</span></span><br><span class="line">date.<span class="title function_">setDate</span>(val) <span class="comment">//设置日,</span></span><br><span class="line">date.<span class="title function_">setDay</span>(val) <span class="comment">//设置星期几,</span></span><br><span class="line">date.<span class="title function_">setHours</span>(val) <span class="comment">//设置小时,</span></span><br><span class="line">date.<span class="title function_">setMinutes</span>(val) <span class="comment">//设置分,</span></span><br><span class="line">date.<span class="title function_">setSeconds</span>(val) <span class="comment">//设置秒 [注意:此日期时间从0开始计]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="1-时间戳转YYYY-HH-DD-HH-mm-ss"><a href="#1-时间戳转YYYY-HH-DD-HH-mm-ss" class="headerlink" title="1.时间戳转YYYY-HH-DD HH:mm:ss"></a>1.时间戳转YYYY-HH-DD HH:mm:ss</h3><p>代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间戳转时间</span></span><br><span class="line"><span class="title function_">formatDate</span>(<span class="params">time</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(time)</span><br><span class="line">  <span class="keyword">const</span> Y = date.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="keyword">const</span> M = date.<span class="title function_">getMonth</span>() + <span class="number">1</span></span><br><span class="line">  <span class="keyword">const</span> D = date.<span class="title function_">getDate</span>()</span><br><span class="line">  <span class="keyword">const</span> h = date.<span class="title function_">getHours</span>()</span><br><span class="line">  <span class="keyword">const</span> m = date.<span class="title function_">getMinutes</span>()</span><br><span class="line">  <span class="keyword">const</span> s = date.<span class="title function_">getSeconds</span>()</span><br><span class="line">  <span class="keyword">return</span> Y + <span class="string">&#x27;-&#x27;</span> + (M &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + M : M) + <span class="string">&#x27;-&#x27;</span> + (D &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + D : D) + <span class="string">&#x27; &#x27;</span> + (h &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + h : h) + <span class="string">&#x27;:&#x27;</span> + (m &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + m : m) + <span class="string">&#x27;:&#x27;</span> + (s &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + s : s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-当前时间加上某某小时"><a href="#2-当前时间加上某某小时" class="headerlink" title="2.当前时间加上某某小时"></a>2.当前时间加上某某小时</h3><p>​        可能存在时间戳、YYYY-HH-DD HH:mm:ss等这样的时间可以先进行时间转换~</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间加小时计算</span></span><br><span class="line"><span class="title function_">addTime</span>(<span class="params">hour</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  date.<span class="title function_">setHours</span>(date.<span class="title function_">getHours</span>() + hour)</span><br><span class="line">  <span class="keyword">return</span> date</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高德地图JS</title>
-    <url>/2022/02/21/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BEJS/</url>
-    <content><![CDATA[<h3 id="修改点击的标记点图标"><a href="#修改点击的标记点图标" class="headerlink" title="修改点击的标记点图标"></a>修改点击的标记点图标</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> [index, item] <span class="keyword">of</span> <span class="keyword">new</span> <span class="title class_">Map</span>(<span class="variable language_">this</span>.<span class="property">treeData</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">item, index</span>) =&gt;</span> [index, item]))) &#123;</span><br><span class="line">    <span class="comment">//marker点</span></span><br><span class="line">    <span class="keyword">let</span> marker</span><br><span class="line">    <span class="comment">//位置</span></span><br><span class="line">    <span class="keyword">let</span> position</span><br><span class="line">    <span class="comment">//判断是否是第一个点</span></span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">0</span>) &#123; <span class="comment">// 如果是第一个点位则使他突出显示</span></span><br><span class="line">        position = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">LngLat</span>(item.<span class="property">longitude</span>, item.<span class="property">latitude</span>)</span><br><span class="line">        <span class="comment">//设置marker，并设置为唯一图标</span></span><br><span class="line">        marker = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Marker</span>(&#123; <span class="attr">icon</span>: lampIconActive, <span class="attr">position</span>: position, <span class="attr">offset</span>: <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Pixel</span>(-<span class="number">17</span>, -<span class="number">10</span>) &#125;)</span><br><span class="line">        <span class="comment">//this.activeMarker为VUE data中存储的当前的活动标记点，初始化地图点位时默认为数据中的第一个点</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">activeMarker</span> = <span class="number">0</span></span><br><span class="line">        map.<span class="title function_">add</span>(marker)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;<span class="comment">//不是第一个，设置为其他图标</span></span><br><span class="line">        position = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">LngLat</span>(item.<span class="property">longitude</span>, item.<span class="property">latitude</span>)</span><br><span class="line">        marker = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Marker</span>(&#123; <span class="attr">icon</span>: lampIcon, <span class="attr">position</span>: position, <span class="attr">offset</span>: <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Pixel</span>(-<span class="number">17</span>, -<span class="number">10</span>) &#125;)</span><br><span class="line">        map.<span class="title function_">add</span>(marker)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//吧marker存入vue data中</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">allMarkers</span>.<span class="title function_">push</span>(marker)</span><br><span class="line">    <span class="comment">//marker为 map 的点位，并为此点位设置click事件</span></span><br><span class="line">    marker.<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">//设置当前地图高度与中心点</span></span><br><span class="line">       map.<span class="title function_">setZoomAndCenter</span>(centerFloor, e.<span class="property">target</span>.<span class="title function_">getPosition</span>())</span><br><span class="line">        <span class="comment">//this.activeMarker为VUE data中存储的当前的活动标记点</span></span><br><span class="line">       <span class="comment">//设置之前点位唯一图标为其他图标</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">allMarkers</span>[<span class="variable language_">this</span>.<span class="property">activeMarker</span>].<span class="title function_">setIcon</span>(lampIcon)</span><br><span class="line">        <span class="comment">//查找当前点击的点在allMarkers中的index位置，并设置activeMarker为其index</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; <span class="variable language_">this</span>.<span class="property">allMarkers</span>.<span class="property">length</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">allMarkers</span>[i].<span class="property">_amap_id</span> === e.<span class="property">target</span>.<span class="property">_amap_id</span>) &#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">activeMarker</span> = i</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置当前click点的图标为唯一图标</span></span><br><span class="line">        e.<span class="property">target</span>.<span class="title function_">setIcon</span>(lampIconActive)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
@@ -584,6 +551,39 @@
 ]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>玩转JavaScript时间</title>
+    <url>/2022/04/27/%E7%8E%A9%E8%BD%ACJavaScript%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<h2 id="javaScript-new-Date-开课啦"><a href="#javaScript-new-Date-开课啦" class="headerlink" title="javaScript new Date()开课啦~"></a>javaScript new Date()开课啦~</h2><p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202204271700328.png"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">getYear</span>(); <span class="comment">//获取当前年份(2位)</span></span><br><span class="line">date.<span class="title function_">getFullYear</span>(); <span class="comment">//获取完整的年份(4位,1970-????)</span></span><br><span class="line">date.<span class="title function_">getMonth</span>(); <span class="comment">//获取当前月份(0-11,0代表1月)</span></span><br><span class="line">date.<span class="title function_">getDate</span>(); <span class="comment">//获取当前日(1-31)</span></span><br><span class="line">date.<span class="title function_">getDay</span>(); <span class="comment">//获取当前星期X(0-6,0代表星期天)</span></span><br><span class="line">date.<span class="title function_">getTime</span>(); <span class="comment">//获取当前时间(从1970.1.1开始的毫秒数)</span></span><br><span class="line">date.<span class="title function_">getHours</span>(); <span class="comment">//获取当前小时数(0-23)</span></span><br><span class="line">date.<span class="title function_">getMinutes</span>(); <span class="comment">//获取当前分钟数(0-59)</span></span><br><span class="line">date.<span class="title function_">getSeconds</span>(); <span class="comment">//获取当前秒数(0-59)</span></span><br><span class="line">date.<span class="title function_">getMilliseconds</span>(); <span class="comment">//获取当前毫秒数(0-999)</span></span><br><span class="line">date.<span class="title function_">toLocaleDateString</span>(); <span class="comment">//获取当前日期</span></span><br><span class="line">date.<span class="title function_">toLocaleTimeString</span>(); <span class="comment">//获取当前时间</span></span><br><span class="line">date.<span class="title function_">toLocaleString</span>( ); <span class="comment">//获取日期与时间</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">setTime</span>(value) <span class="comment">//设置时间,</span></span><br><span class="line">date.<span class="title function_">setYear</span>(val) <span class="comment">//设置年,</span></span><br><span class="line">date.<span class="title function_">setMonth</span>(val) <span class="comment">//设置月,</span></span><br><span class="line">date.<span class="title function_">setDate</span>(val) <span class="comment">//设置日,</span></span><br><span class="line">date.<span class="title function_">setDay</span>(val) <span class="comment">//设置星期几,</span></span><br><span class="line">date.<span class="title function_">setHours</span>(val) <span class="comment">//设置小时,</span></span><br><span class="line">date.<span class="title function_">setMinutes</span>(val) <span class="comment">//设置分,</span></span><br><span class="line">date.<span class="title function_">setSeconds</span>(val) <span class="comment">//设置秒 [注意:此日期时间从0开始计]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-时间戳转YYYY-HH-DD-HH-mm-ss"><a href="#1-时间戳转YYYY-HH-DD-HH-mm-ss" class="headerlink" title="1.时间戳转YYYY-HH-DD HH:mm:ss"></a>1.时间戳转YYYY-HH-DD HH:mm:ss</h3><p>代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间戳转时间</span></span><br><span class="line"><span class="title function_">formatDate</span>(<span class="params">time</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(time)</span><br><span class="line">  <span class="keyword">const</span> Y = date.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="keyword">const</span> M = date.<span class="title function_">getMonth</span>() + <span class="number">1</span></span><br><span class="line">  <span class="keyword">const</span> D = date.<span class="title function_">getDate</span>()</span><br><span class="line">  <span class="keyword">const</span> h = date.<span class="title function_">getHours</span>()</span><br><span class="line">  <span class="keyword">const</span> m = date.<span class="title function_">getMinutes</span>()</span><br><span class="line">  <span class="keyword">const</span> s = date.<span class="title function_">getSeconds</span>()</span><br><span class="line">  <span class="keyword">return</span> Y + <span class="string">&#x27;-&#x27;</span> + (M &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + M : M) + <span class="string">&#x27;-&#x27;</span> + (D &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + D : D) + <span class="string">&#x27; &#x27;</span> + (h &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + h : h) + <span class="string">&#x27;:&#x27;</span> + (m &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + m : m) + <span class="string">&#x27;:&#x27;</span> + (s &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + s : s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-当前时间加上某某小时"><a href="#2-当前时间加上某某小时" class="headerlink" title="2.当前时间加上某某小时"></a>2.当前时间加上某某小时</h3><p>​        可能存在时间戳、YYYY-HH-DD HH:mm:ss等这样的时间可以先进行时间转换~</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间加小时计算</span></span><br><span class="line"><span class="title function_">addTime</span>(<span class="params">hour</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  date.<span class="title function_">setHours</span>(date.<span class="title function_">getHours</span>() + hour)</span><br><span class="line">  <span class="keyword">return</span> date</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高德地图JS</title>
+    <url>/2022/02/21/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BEJS/</url>
+    <content><![CDATA[<h3 id="修改点击的标记点图标"><a href="#修改点击的标记点图标" class="headerlink" title="修改点击的标记点图标"></a>修改点击的标记点图标</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> [index, item] <span class="keyword">of</span> <span class="keyword">new</span> <span class="title class_">Map</span>(<span class="variable language_">this</span>.<span class="property">treeData</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">item, index</span>) =&gt;</span> [index, item]))) &#123;</span><br><span class="line">    <span class="comment">//marker点</span></span><br><span class="line">    <span class="keyword">let</span> marker</span><br><span class="line">    <span class="comment">//位置</span></span><br><span class="line">    <span class="keyword">let</span> position</span><br><span class="line">    <span class="comment">//判断是否是第一个点</span></span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">0</span>) &#123; <span class="comment">// 如果是第一个点位则使他突出显示</span></span><br><span class="line">        position = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">LngLat</span>(item.<span class="property">longitude</span>, item.<span class="property">latitude</span>)</span><br><span class="line">        <span class="comment">//设置marker，并设置为唯一图标</span></span><br><span class="line">        marker = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Marker</span>(&#123; <span class="attr">icon</span>: lampIconActive, <span class="attr">position</span>: position, <span class="attr">offset</span>: <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Pixel</span>(-<span class="number">17</span>, -<span class="number">10</span>) &#125;)</span><br><span class="line">        <span class="comment">//this.activeMarker为VUE data中存储的当前的活动标记点，初始化地图点位时默认为数据中的第一个点</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">activeMarker</span> = <span class="number">0</span></span><br><span class="line">        map.<span class="title function_">add</span>(marker)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;<span class="comment">//不是第一个，设置为其他图标</span></span><br><span class="line">        position = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">LngLat</span>(item.<span class="property">longitude</span>, item.<span class="property">latitude</span>)</span><br><span class="line">        marker = <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Marker</span>(&#123; <span class="attr">icon</span>: lampIcon, <span class="attr">position</span>: position, <span class="attr">offset</span>: <span class="keyword">new</span> <span class="title class_">AMap</span>.<span class="title class_">Pixel</span>(-<span class="number">17</span>, -<span class="number">10</span>) &#125;)</span><br><span class="line">        map.<span class="title function_">add</span>(marker)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//吧marker存入vue data中</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">allMarkers</span>.<span class="title function_">push</span>(marker)</span><br><span class="line">    <span class="comment">//marker为 map 的点位，并为此点位设置click事件</span></span><br><span class="line">    marker.<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">//设置当前地图高度与中心点</span></span><br><span class="line">       map.<span class="title function_">setZoomAndCenter</span>(centerFloor, e.<span class="property">target</span>.<span class="title function_">getPosition</span>())</span><br><span class="line">        <span class="comment">//this.activeMarker为VUE data中存储的当前的活动标记点</span></span><br><span class="line">       <span class="comment">//设置之前点位唯一图标为其他图标</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">allMarkers</span>[<span class="variable language_">this</span>.<span class="property">activeMarker</span>].<span class="title function_">setIcon</span>(lampIcon)</span><br><span class="line">        <span class="comment">//查找当前点击的点在allMarkers中的index位置，并设置activeMarker为其index</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; <span class="variable language_">this</span>.<span class="property">allMarkers</span>.<span class="property">length</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">allMarkers</span>[i].<span class="property">_amap_id</span> === e.<span class="property">target</span>.<span class="property">_amap_id</span>) &#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">activeMarker</span> = i</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置当前click点的图标为唯一图标</span></span><br><span class="line">        e.<span class="property">target</span>.<span class="title function_">setIcon</span>(lampIconActive)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>高德地图</tag>
       </tags>
   </entry>
 </search>
