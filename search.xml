@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Element组件二次修改</title>
+    <url>/2022/02/21/Element%E7%BB%84%E4%BB%B6%E4%BA%8C%E6%AC%A1%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<p>需求：</p>
+<p>​        在进行组件封装时，组件的样式需要从后端等异步的方式获取的数据去修改element组件中的样式。</p>
+<p>方法：</p>
+<p>​        使用less的变量进行赋值，通过ref获取$el的样式修改less变量进行更新</p>
+<p>如：</p>
+<p>​        修改时间选择器中placeholder的字体颜色</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-date-picker</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ref</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">&quot;dataSource.data&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">&quot;日期选择器&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;date&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">value-format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="title function_">setElBackgroundColor</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">datePicker</span>.<span class="property">$el</span>.<span class="property">style</span>.<span class="title function_">setProperty</span>(</span><br><span class="line">        <span class="string">&quot;--fontColor&quot;</span>,</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dataSource</span>.<span class="property">elFontColor</span></span><br><span class="line">      );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.datePicker</span>&#123;</span><br><span class="line">  <span class="attr">--fontColor</span>: #fff;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-moz-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Element</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo添加看板娘</title>
     <url>/2022/02/20/Hexo%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98/</url>
     <content><![CDATA[<p>添加个活泼的伙伴吧！</p>
@@ -35,26 +55,6 @@
 ]]></content>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Element组件二次修改</title>
-    <url>/2022/02/21/Element%E7%BB%84%E4%BB%B6%E4%BA%8C%E6%AC%A1%E4%BF%AE%E6%94%B9/</url>
-    <content><![CDATA[<p>需求：</p>
-<p>​        在进行组件封装时，组件的样式需要从后端等异步的方式获取的数据去修改element组件中的样式。</p>
-<p>方法：</p>
-<p>​        使用less的变量进行赋值，通过ref获取$el的样式修改less变量进行更新</p>
-<p>如：</p>
-<p>​        修改时间选择器中placeholder的字体颜色</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-date-picker</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ref</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">&quot;dataSource.data&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">&quot;日期选择器&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;date&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">value-format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="title function_">setElBackgroundColor</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">datePicker</span>.<span class="property">$el</span>.<span class="property">style</span>.<span class="title function_">setProperty</span>(</span><br><span class="line">        <span class="string">&quot;--fontColor&quot;</span>,</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dataSource</span>.<span class="property">elFontColor</span></span><br><span class="line">      );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.datePicker</span>&#123;</span><br><span class="line">  <span class="attr">--fontColor</span>: #fff;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-moz-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Element</tag>
       </tags>
   </entry>
   <entry>
@@ -180,27 +180,6 @@
       </tags>
   </entry>
   <entry>
-    <title>reactOneDay</title>
-    <url>/2022/05/06/reactOneDay/</url>
-    <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
-<li>声明式设计</li>
-<li>高效-操作虚拟DOM，减少真实DOM操作</li>
-<li>灵活-可以使用市面上许许多多的框架或者库</li>
-<li>JSX-JSX是JavaScript语法的扩展</li>
-<li>组件-复用开发</li>
-<li>单向数据流：单向数据流就是所有状态的改变可以记录、可以追踪、可以溯源；所有数据只有一份，组件数据只有唯一的入口与出口。简单点来说就是比如在公司中，老板可以把任务发送给部下，然后部下可以接收任务，然后如果部下想要进行修改任务，需要请示老板进行修改，老板修改完任务才算成功。学过VUE的同学应该就知道父传子和子传父。props就是单向数据流，emit进行请示老板修改。</li>
-</ol>
-<h3 id="2-安装react"><a href="#2-安装react" class="headerlink" title="2.安装react"></a>2.安装react</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g create-react-app //全局安装react</span><br><span class="line">$ create-react-app -V  //查看react版本</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-创建react项目"><a href="#3-创建react项目" class="headerlink" title="3.创建react项目"></a>3.创建react项目</h3><p>当安装完react后就可以开始你的hello world ！react之路了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npx create-react-app my-app</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>reactThreeDay</title>
     <url>/2022/05/11/reactThreeDay/</url>
     <content><![CDATA[]]></content>
@@ -276,6 +255,27 @@
 
 
 
+
+]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>reactOneDay</title>
+    <url>/2022/05/06/reactOneDay/</url>
+    <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
+<li>声明式设计</li>
+<li>高效-操作虚拟DOM，减少真实DOM操作</li>
+<li>灵活-可以使用市面上许许多多的框架或者库</li>
+<li>JSX-JSX是JavaScript语法的扩展</li>
+<li>组件-复用开发</li>
+<li>单向数据流：单向数据流就是所有状态的改变可以记录、可以追踪、可以溯源；所有数据只有一份，组件数据只有唯一的入口与出口。简单点来说就是比如在公司中，老板可以把任务发送给部下，然后部下可以接收任务，然后如果部下想要进行修改任务，需要请示老板进行修改，老板修改完任务才算成功。学过VUE的同学应该就知道父传子和子传父。props就是单向数据流，emit进行请示老板修改。</li>
+</ol>
+<h3 id="2-安装react"><a href="#2-安装react" class="headerlink" title="2.安装react"></a>2.安装react</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g create-react-app //全局安装react</span><br><span class="line">$ create-react-app -V  //查看react版本</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-创建react项目"><a href="#3-创建react项目" class="headerlink" title="3.创建react项目"></a>3.创建react项目</h3><p>当安装完react后就可以开始你的hello world ！react之路了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npx create-react-app my-app</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
