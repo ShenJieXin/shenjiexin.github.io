@@ -21,20 +21,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript数组操作</title>
-    <url>/2022/02/21/JavaScript%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h3 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h3><ul>
-<li>对于数据进行过滤、筛选返回一个新数组（filter）</li>
-</ul>
-<p>​        如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">isShow</span>:<span class="literal">false</span>,<span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">isShow</span>:<span class="literal">true</span>,<span class="attr">name</span>:<span class="string">&#x27;lisi&#x27;</span>&#125;</span><br><span class="line">  ] </span><br><span class="line"><span class="comment">//返回数组中isShow为true的数据</span></span><br><span class="line"><span class="keyword">let</span> newArr = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="property">isShow</span>)</span><br><span class="line"><span class="comment">// newArr = [&#123;id:1,isShow:false,name:&#x27;张三&#x27;&#125;]</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo添加看板娘</title>
     <url>/2022/02/20/Hexo%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98/</url>
     <content><![CDATA[<p>添加个活泼的伙伴吧！</p>
@@ -69,6 +55,20 @@
 ]]></content>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript数组操作</title>
+    <url>/2022/02/21/JavaScript%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h3 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h3><ul>
+<li>对于数据进行过滤、筛选返回一个新数组（filter）</li>
+</ul>
+<p>​        如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">isShow</span>:<span class="literal">false</span>,<span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">isShow</span>:<span class="literal">true</span>,<span class="attr">name</span>:<span class="string">&#x27;lisi&#x27;</span>&#125;</span><br><span class="line">  ] </span><br><span class="line"><span class="comment">//返回数组中isShow为true的数据</span></span><br><span class="line"><span class="keyword">let</span> newArr = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="property">isShow</span>)</span><br><span class="line"><span class="comment">// newArr = [&#123;id:1,isShow:false,name:&#x27;张三&#x27;&#125;]</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -180,6 +180,14 @@
       </tags>
   </entry>
   <entry>
+    <title>reactThreeDay</title>
+    <url>/2022/05/11/reactThreeDay/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>reactOneDay</title>
     <url>/2022/05/06/reactOneDay/</url>
     <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
@@ -196,14 +204,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npx create-react-app my-app</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-      <tags>
-        <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>reactThreeDay</title>
-    <url>/2022/05/11/reactThreeDay/</url>
-    <content><![CDATA[]]></content>
       <tags>
         <tag>react</tag>
       </tags>
@@ -336,29 +336,6 @@
 ]]></content>
       <tags>
         <tag>高德地图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>玩转JavaScript时间</title>
-    <url>/2022/04/27/%E7%8E%A9%E8%BD%ACJavaScript%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<h2 id="javaScript-new-Date-开课啦"><a href="#javaScript-new-Date-开课啦" class="headerlink" title="javaScript new Date()开课啦~"></a>javaScript new Date()开课啦~</h2><p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202204271700328.png"></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">getYear</span>(); <span class="comment">//获取当前年份(2位)</span></span><br><span class="line">date.<span class="title function_">getFullYear</span>(); <span class="comment">//获取完整的年份(4位,1970-????)</span></span><br><span class="line">date.<span class="title function_">getMonth</span>(); <span class="comment">//获取当前月份(0-11,0代表1月)</span></span><br><span class="line">date.<span class="title function_">getDate</span>(); <span class="comment">//获取当前日(1-31)</span></span><br><span class="line">date.<span class="title function_">getDay</span>(); <span class="comment">//获取当前星期X(0-6,0代表星期天)</span></span><br><span class="line">date.<span class="title function_">getTime</span>(); <span class="comment">//获取当前时间(从1970.1.1开始的毫秒数)</span></span><br><span class="line">date.<span class="title function_">getHours</span>(); <span class="comment">//获取当前小时数(0-23)</span></span><br><span class="line">date.<span class="title function_">getMinutes</span>(); <span class="comment">//获取当前分钟数(0-59)</span></span><br><span class="line">date.<span class="title function_">getSeconds</span>(); <span class="comment">//获取当前秒数(0-59)</span></span><br><span class="line">date.<span class="title function_">getMilliseconds</span>(); <span class="comment">//获取当前毫秒数(0-999)</span></span><br><span class="line">date.<span class="title function_">toLocaleDateString</span>(); <span class="comment">//获取当前日期</span></span><br><span class="line">date.<span class="title function_">toLocaleTimeString</span>(); <span class="comment">//获取当前时间</span></span><br><span class="line">date.<span class="title function_">toLocaleString</span>( ); <span class="comment">//获取日期与时间</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">setTime</span>(value) <span class="comment">//设置时间,</span></span><br><span class="line">date.<span class="title function_">setYear</span>(val) <span class="comment">//设置年,</span></span><br><span class="line">date.<span class="title function_">setMonth</span>(val) <span class="comment">//设置月,</span></span><br><span class="line">date.<span class="title function_">setDate</span>(val) <span class="comment">//设置日,</span></span><br><span class="line">date.<span class="title function_">setDay</span>(val) <span class="comment">//设置星期几,</span></span><br><span class="line">date.<span class="title function_">setHours</span>(val) <span class="comment">//设置小时,</span></span><br><span class="line">date.<span class="title function_">setMinutes</span>(val) <span class="comment">//设置分,</span></span><br><span class="line">date.<span class="title function_">setSeconds</span>(val) <span class="comment">//设置秒 [注意:此日期时间从0开始计]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="1-时间戳转YYYY-HH-DD-HH-mm-ss"><a href="#1-时间戳转YYYY-HH-DD-HH-mm-ss" class="headerlink" title="1.时间戳转YYYY-HH-DD HH:mm:ss"></a>1.时间戳转YYYY-HH-DD HH:mm:ss</h3><p>代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间戳转时间</span></span><br><span class="line"><span class="title function_">formatDate</span>(<span class="params">time</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(time)</span><br><span class="line">  <span class="keyword">const</span> Y = date.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="keyword">const</span> M = date.<span class="title function_">getMonth</span>() + <span class="number">1</span></span><br><span class="line">  <span class="keyword">const</span> D = date.<span class="title function_">getDate</span>()</span><br><span class="line">  <span class="keyword">const</span> h = date.<span class="title function_">getHours</span>()</span><br><span class="line">  <span class="keyword">const</span> m = date.<span class="title function_">getMinutes</span>()</span><br><span class="line">  <span class="keyword">const</span> s = date.<span class="title function_">getSeconds</span>()</span><br><span class="line">  <span class="keyword">return</span> Y + <span class="string">&#x27;-&#x27;</span> + (M &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + M : M) + <span class="string">&#x27;-&#x27;</span> + (D &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + D : D) + <span class="string">&#x27; &#x27;</span> + (h &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + h : h) + <span class="string">&#x27;:&#x27;</span> + (m &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + m : m) + <span class="string">&#x27;:&#x27;</span> + (s &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + s : s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-当前时间加上某某小时"><a href="#2-当前时间加上某某小时" class="headerlink" title="2.当前时间加上某某小时"></a>2.当前时间加上某某小时</h3><p>​        可能存在时间戳、YYYY-HH-DD HH:mm:ss等这样的时间可以先进行时间转换~</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间加小时计算</span></span><br><span class="line"><span class="title function_">addTime</span>(<span class="params">hour</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  date.<span class="title function_">setHours</span>(date.<span class="title function_">getHours</span>() + hour)</span><br><span class="line">  <span class="keyword">return</span> date</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -548,6 +525,29 @@
 ]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>玩转JavaScript时间</title>
+    <url>/2022/04/27/%E7%8E%A9%E8%BD%ACJavaScript%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<h2 id="javaScript-new-Date-开课啦"><a href="#javaScript-new-Date-开课啦" class="headerlink" title="javaScript new Date()开课啦~"></a>javaScript new Date()开课啦~</h2><p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202204271700328.png"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">getYear</span>(); <span class="comment">//获取当前年份(2位)</span></span><br><span class="line">date.<span class="title function_">getFullYear</span>(); <span class="comment">//获取完整的年份(4位,1970-????)</span></span><br><span class="line">date.<span class="title function_">getMonth</span>(); <span class="comment">//获取当前月份(0-11,0代表1月)</span></span><br><span class="line">date.<span class="title function_">getDate</span>(); <span class="comment">//获取当前日(1-31)</span></span><br><span class="line">date.<span class="title function_">getDay</span>(); <span class="comment">//获取当前星期X(0-6,0代表星期天)</span></span><br><span class="line">date.<span class="title function_">getTime</span>(); <span class="comment">//获取当前时间(从1970.1.1开始的毫秒数)</span></span><br><span class="line">date.<span class="title function_">getHours</span>(); <span class="comment">//获取当前小时数(0-23)</span></span><br><span class="line">date.<span class="title function_">getMinutes</span>(); <span class="comment">//获取当前分钟数(0-59)</span></span><br><span class="line">date.<span class="title function_">getSeconds</span>(); <span class="comment">//获取当前秒数(0-59)</span></span><br><span class="line">date.<span class="title function_">getMilliseconds</span>(); <span class="comment">//获取当前毫秒数(0-999)</span></span><br><span class="line">date.<span class="title function_">toLocaleDateString</span>(); <span class="comment">//获取当前日期</span></span><br><span class="line">date.<span class="title function_">toLocaleTimeString</span>(); <span class="comment">//获取当前时间</span></span><br><span class="line">date.<span class="title function_">toLocaleString</span>( ); <span class="comment">//获取日期与时间</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">date.<span class="title function_">setTime</span>(value) <span class="comment">//设置时间,</span></span><br><span class="line">date.<span class="title function_">setYear</span>(val) <span class="comment">//设置年,</span></span><br><span class="line">date.<span class="title function_">setMonth</span>(val) <span class="comment">//设置月,</span></span><br><span class="line">date.<span class="title function_">setDate</span>(val) <span class="comment">//设置日,</span></span><br><span class="line">date.<span class="title function_">setDay</span>(val) <span class="comment">//设置星期几,</span></span><br><span class="line">date.<span class="title function_">setHours</span>(val) <span class="comment">//设置小时,</span></span><br><span class="line">date.<span class="title function_">setMinutes</span>(val) <span class="comment">//设置分,</span></span><br><span class="line">date.<span class="title function_">setSeconds</span>(val) <span class="comment">//设置秒 [注意:此日期时间从0开始计]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-时间戳转YYYY-HH-DD-HH-mm-ss"><a href="#1-时间戳转YYYY-HH-DD-HH-mm-ss" class="headerlink" title="1.时间戳转YYYY-HH-DD HH:mm:ss"></a>1.时间戳转YYYY-HH-DD HH:mm:ss</h3><p>代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间戳转时间</span></span><br><span class="line"><span class="title function_">formatDate</span>(<span class="params">time</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(time)</span><br><span class="line">  <span class="keyword">const</span> Y = date.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="keyword">const</span> M = date.<span class="title function_">getMonth</span>() + <span class="number">1</span></span><br><span class="line">  <span class="keyword">const</span> D = date.<span class="title function_">getDate</span>()</span><br><span class="line">  <span class="keyword">const</span> h = date.<span class="title function_">getHours</span>()</span><br><span class="line">  <span class="keyword">const</span> m = date.<span class="title function_">getMinutes</span>()</span><br><span class="line">  <span class="keyword">const</span> s = date.<span class="title function_">getSeconds</span>()</span><br><span class="line">  <span class="keyword">return</span> Y + <span class="string">&#x27;-&#x27;</span> + (M &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + M : M) + <span class="string">&#x27;-&#x27;</span> + (D &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + D : D) + <span class="string">&#x27; &#x27;</span> + (h &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + h : h) + <span class="string">&#x27;:&#x27;</span> + (m &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + m : m) + <span class="string">&#x27;:&#x27;</span> + (s &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + s : s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-当前时间加上某某小时"><a href="#2-当前时间加上某某小时" class="headerlink" title="2.当前时间加上某某小时"></a>2.当前时间加上某某小时</h3><p>​        可能存在时间戳、YYYY-HH-DD HH:mm:ss等这样的时间可以先进行时间转换~</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间加小时计算</span></span><br><span class="line"><span class="title function_">addTime</span>(<span class="params">hour</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  date.<span class="title function_">setHours</span>(date.<span class="title function_">getHours</span>() + hour)</span><br><span class="line">  <span class="keyword">return</span> date</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
