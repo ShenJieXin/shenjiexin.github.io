@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Element组件二次修改</title>
+    <url>/2022/02/21/Element%E7%BB%84%E4%BB%B6%E4%BA%8C%E6%AC%A1%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<p>需求：</p>
+<p>​        在进行组件封装时，组件的样式需要从后端等异步的方式获取的数据去修改element组件中的样式。</p>
+<p>方法：</p>
+<p>​        使用less的变量进行赋值，通过ref获取$el的样式修改less变量进行更新</p>
+<p>如：</p>
+<p>​        修改时间选择器中placeholder的字体颜色</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-date-picker</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ref</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">&quot;dataSource.data&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">&quot;日期选择器&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;date&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">value-format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="title function_">setElBackgroundColor</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">datePicker</span>.<span class="property">$el</span>.<span class="property">style</span>.<span class="title function_">setProperty</span>(</span><br><span class="line">        <span class="string">&quot;--fontColor&quot;</span>,</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dataSource</span>.<span class="property">elFontColor</span></span><br><span class="line">      );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.datePicker</span>&#123;</span><br><span class="line">  <span class="attr">--fontColor</span>: #fff;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-moz-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Element</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo添加看板娘</title>
     <url>/2022/02/20/Hexo%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98/</url>
     <content><![CDATA[<p>添加个活泼的伙伴吧！</p>
@@ -38,23 +58,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Element组件二次修改</title>
-    <url>/2022/02/21/Element%E7%BB%84%E4%BB%B6%E4%BA%8C%E6%AC%A1%E4%BF%AE%E6%94%B9/</url>
-    <content><![CDATA[<p>需求：</p>
-<p>​        在进行组件封装时，组件的样式需要从后端等异步的方式获取的数据去修改element组件中的样式。</p>
-<p>方法：</p>
-<p>​        使用less的变量进行赋值，通过ref获取$el的样式修改less变量进行更新</p>
-<p>如：</p>
-<p>​        修改时间选择器中placeholder的字体颜色</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-date-picker</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ref</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">&quot;dataSource.data&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">&quot;日期选择器&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;date&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">value-format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="title function_">setElBackgroundColor</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">datePicker</span>.<span class="property">$el</span>.<span class="property">style</span>.<span class="title function_">setProperty</span>(</span><br><span class="line">        <span class="string">&quot;--fontColor&quot;</span>,</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dataSource</span>.<span class="property">elFontColor</span></span><br><span class="line">      );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.datePicker</span>&#123;</span><br><span class="line">  <span class="attr">--fontColor</span>: #fff;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-moz-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>JavaScript的ES6操作</title>
+    <url>/2022/02/21/JavaScript%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h3 id="空值合并运算符：（-）"><a href="#空值合并运算符：（-）" class="headerlink" title="空值合并运算符：（??）"></a>空值合并运算符：（??）</h3><p>是一个逻辑操作符，当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。</p>
+<p>​    如下：两串代码是一样的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(value !== <span class="literal">null</span> &amp;&amp; value !== <span class="literal">undefined</span> &amp;&amp; value !== <span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>((value??<span class="string">&#x27;&#x27;</span>) !== <span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
-        <tag>Element</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -70,23 +82,6 @@
       <tags>
         <tag>JavaScript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>JavaScript的ES6操作</title>
-    <url>/2022/02/21/JavaScript%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h3 id="空值合并运算符：（-）"><a href="#空值合并运算符：（-）" class="headerlink" title="空值合并运算符：（??）"></a>空值合并运算符：（??）</h3><p>是一个逻辑操作符，当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。</p>
-<p>​    如下：两串代码是一样的</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(value !== <span class="literal">null</span> &amp;&amp; value !== <span class="literal">undefined</span> &amp;&amp; value !== <span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>((value??<span class="string">&#x27;&#x27;</span>) !== <span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git常用命令</title>
-    <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>hexo文章中添加图片</title>
@@ -107,6 +102,11 @@
       <tags>
         <tag>hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>git常用命令</title>
+    <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>javaScript 数据类型</title>
