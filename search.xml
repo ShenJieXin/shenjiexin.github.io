@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Element组件二次修改</title>
-    <url>/2022/02/21/Element%E7%BB%84%E4%BB%B6%E4%BA%8C%E6%AC%A1%E4%BF%AE%E6%94%B9/</url>
-    <content><![CDATA[<p>需求：</p>
-<p>​        在进行组件封装时，组件的样式需要从后端等异步的方式获取的数据去修改element组件中的样式。</p>
-<p>方法：</p>
-<p>​        使用less的变量进行赋值，通过ref获取$el的样式修改less变量进行更新</p>
-<p>如：</p>
-<p>​        修改时间选择器中placeholder的字体颜色</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-date-picker</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ref</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">&quot;dataSource.data&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">&quot;日期选择器&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;date&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">value-format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="title function_">setElBackgroundColor</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">datePicker</span>.<span class="property">$el</span>.<span class="property">style</span>.<span class="title function_">setProperty</span>(</span><br><span class="line">        <span class="string">&quot;--fontColor&quot;</span>,</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dataSource</span>.<span class="property">elFontColor</span></span><br><span class="line">      );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.datePicker</span>&#123;</span><br><span class="line">  <span class="attr">--fontColor</span>: #fff;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-moz-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Element</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo添加看板娘</title>
     <url>/2022/02/20/Hexo%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98/</url>
     <content><![CDATA[<p>添加个活泼的伙伴吧！</p>
@@ -58,6 +38,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Element组件二次修改</title>
+    <url>/2022/02/21/Element%E7%BB%84%E4%BB%B6%E4%BA%8C%E6%AC%A1%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<p>需求：</p>
+<p>​        在进行组件封装时，组件的样式需要从后端等异步的方式获取的数据去修改element组件中的样式。</p>
+<p>方法：</p>
+<p>​        使用less的变量进行赋值，通过ref获取$el的样式修改less变量进行更新</p>
+<p>如：</p>
+<p>​        修改时间选择器中placeholder的字体颜色</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-date-picker</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ref</span>=<span class="string">&quot;datePicker&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">&quot;dataSource.data&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">&quot;日期选择器&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;date&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">value-format</span>=<span class="string">&quot;yyyy-MM-dd&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="title function_">setElBackgroundColor</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">datePicker</span>.<span class="property">$el</span>.<span class="property">style</span>.<span class="title function_">setProperty</span>(</span><br><span class="line">        <span class="string">&quot;--fontColor&quot;</span>,</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dataSource</span>.<span class="property">elFontColor</span></span><br><span class="line">      );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.datePicker</span>&#123;</span><br><span class="line">  <span class="attr">--fontColor</span>: #fff;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-moz-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  /<span class="selector-tag">deep</span>/<span class="selector-tag">input</span>::<span class="selector-tag">-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: var(--fontColor) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Element</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript数组操作</title>
     <url>/2022/02/21/JavaScript%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h3 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h3><ul>
@@ -87,26 +87,6 @@
     <title>git常用命令</title>
     <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>hexo文章中添加图片</title>
-    <url>/2022/02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<p>在添加新文章时，想上传效果，但是在Md编辑时是导入了图片的绝对地址在文档中，但是hexo d部署到服务器时，这个图片是不存在的。</p>
-<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加新文章"><a href="#添加新文章" class="headerlink" title="添加新文章"></a>添加新文章</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new 文章名称</span><br></pre></td></tr></table></figure>
-
-<p>​    这个时候就会在根目录下的 source\posts 中创建一个 文章名称.md 文件与 文章名称 的文件夹</p>
-<h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p>​    在source\posts\文章名称 中添加所需图片</p>
-<h2 id="引入文章"><a href="#引入文章" class="headerlink" title="引入文章"></a>引入文章</h2><p>​    在 文章名称.md 中放置图片的地方引入图片的方式 ： </p>
-<p>​    </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[img_name](img_name.jpg)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/.io//02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/1.png" alt="1"></p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>javaScript 数据类型</title>
@@ -167,6 +147,39 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo文章中添加图片</title>
+    <url>/2022/02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>在添加新文章时，想上传效果，但是在Md编辑时是导入了图片的绝对地址在文档中，但是hexo d部署到服务器时，这个图片是不存在的。</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加新文章"><a href="#添加新文章" class="headerlink" title="添加新文章"></a>添加新文章</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new 文章名称</span><br></pre></td></tr></table></figure>
+
+<p>​    这个时候就会在根目录下的 source\posts 中创建一个 文章名称.md 文件与 文章名称 的文件夹</p>
+<h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p>​    在source\posts\文章名称 中添加所需图片</p>
+<h2 id="引入文章"><a href="#引入文章" class="headerlink" title="引入文章"></a>引入文章</h2><p>​    在 文章名称.md 中放置图片的地方引入图片的方式 ： </p>
+<p>​    </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[img_name](img_name.jpg)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/1.png" alt="1"></p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js的事件中call、apply及bind方法</title>
+    <url>/2022/05/11/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%B8%ADcall%E3%80%81apply%E5%8F%8Abind%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="什么是call"><a href="#什么是call" class="headerlink" title="什么是call"></a>什么是call</h2><p>call()是JavaScript中的一个方法，他的特点是可以自动执行函数，并改变this的指向，也就是通过 call()，您能够使用属于另一个对象的方法。<br>如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">fullName</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Bill&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Gates&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Steve&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Jobs&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">person.<span class="property">fullName</span>.<span class="title function_">call</span>(person1);  <span class="comment">// 将返回 &quot;Bill Gates&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是apply"><a href="#什么是apply" class="headerlink" title="什么是apply()"></a>什么是apply()</h2><p>apply与call()相似，也是自动执行函数，改变this的指向</p>
+<h2 id="什么是bind"><a href="#什么是bind" class="headerlink" title="什么是bind()"></a>什么是bind()</h2><p>bind()与apply()及call()不相同的点是并不会自动执行，但是也是用于改变this的指向。</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>react 添加动态路由</title>
     <url>/2022/05/28/react%20%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/</url>
     <content><![CDATA[<h1 id="react-添加动态路由"><a href="#react-添加动态路由" class="headerlink" title="react 添加动态路由"></a>react 添加动态路由</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><hr>
@@ -190,19 +203,6 @@
 ]]></content>
       <tags>
         <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js的事件中call、apply及bind方法</title>
-    <url>/2022/05/11/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%B8%ADcall%E3%80%81apply%E5%8F%8Abind%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="什么是call"><a href="#什么是call" class="headerlink" title="什么是call"></a>什么是call</h2><p>call()是JavaScript中的一个方法，他的特点是可以自动执行函数，并改变this的指向，也就是通过 call()，您能够使用属于另一个对象的方法。<br>如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">fullName</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Bill&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Gates&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Steve&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Jobs&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">person.<span class="property">fullName</span>.<span class="title function_">call</span>(person1);  <span class="comment">// 将返回 &quot;Bill Gates&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="什么是apply"><a href="#什么是apply" class="headerlink" title="什么是apply()"></a>什么是apply()</h2><p>apply与call()相似，也是自动执行函数，改变this的指向</p>
-<h2 id="什么是bind"><a href="#什么是bind" class="headerlink" title="什么是bind()"></a>什么是bind()</h2><p>bind()与apply()及call()不相同的点是并不会自动执行，但是也是用于改变this的指向。</p>
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -309,16 +309,6 @@
       </tags>
   </entry>
   <entry>
-    <title>封装一个post请求blob流下载</title>
-    <url>/2022/05/13/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AApost%E8%AF%B7%E6%B1%82blob%E6%B5%81%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// blob流下载</span></span><br><span class="line">  <span class="title function_">getDownloadFile</span>(<span class="params">sendMessage, url</span>) &#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: url,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: sendMessage,</span><br><span class="line">      <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([res.<span class="property">data</span>], &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;application/vnd.ms-excel&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">const</span> fileName = <span class="built_in">decodeURIComponent</span>(res.<span class="property">headers</span>[<span class="string">&#x27;content-disposition&#x27;</span>].<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">const</span> linkNode = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        linkNode.<span class="property">download</span> = fileName <span class="comment">// a标签的download属性规定下载文件的名称</span></span><br><span class="line">        linkNode.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        linkNode.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob) <span class="comment">// 生成一个Blob URL</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(linkNode)</span><br><span class="line">        linkNode.<span class="title function_">click</span>() <span class="comment">// 模拟在按钮上的一次鼠标单击</span></span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(linkNode.<span class="property">href</span>) <span class="comment">// 释放URL 对象</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(linkNode)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>高德地图</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>web前端开发面试鸭~</title>
     <url>/2022/05/08/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%B8%AD/</url>
     <content><![CDATA[<h1 id="web前端开发面试鸭"><a href="#web前端开发面试鸭" class="headerlink" title="web前端开发面试鸭~"></a>web前端开发面试鸭~</h1><ol>
@@ -362,6 +352,16 @@
 ]]></content>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>封装一个post请求blob流下载</title>
+    <url>/2022/05/13/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AApost%E8%AF%B7%E6%B1%82blob%E6%B5%81%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// blob流下载</span></span><br><span class="line">  <span class="title function_">getDownloadFile</span>(<span class="params">sendMessage, url</span>) &#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: url,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: sendMessage,</span><br><span class="line">      <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([res.<span class="property">data</span>], &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;application/vnd.ms-excel&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">const</span> fileName = <span class="built_in">decodeURIComponent</span>(res.<span class="property">headers</span>[<span class="string">&#x27;content-disposition&#x27;</span>].<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">const</span> linkNode = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        linkNode.<span class="property">download</span> = fileName <span class="comment">// a标签的download属性规定下载文件的名称</span></span><br><span class="line">        linkNode.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        linkNode.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob) <span class="comment">// 生成一个Blob URL</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(linkNode)</span><br><span class="line">        linkNode.<span class="title function_">click</span>() <span class="comment">// 模拟在按钮上的一次鼠标单击</span></span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(linkNode.<span class="property">href</span>) <span class="comment">// 释放URL 对象</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(linkNode)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>高德地图</tag>
       </tags>
   </entry>
   <entry>
