@@ -21,6 +21,20 @@
       </tags>
   </entry>
   <entry>
+    <title>JavaScript数组操作</title>
+    <url>/2022/02/21/JavaScript%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h3 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h3><ul>
+<li>对于数据进行过滤、筛选返回一个新数组（filter）</li>
+</ul>
+<p>​        如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">isShow</span>:<span class="literal">false</span>,<span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">isShow</span>:<span class="literal">true</span>,<span class="attr">name</span>:<span class="string">&#x27;lisi&#x27;</span>&#125;</span><br><span class="line">  ] </span><br><span class="line"><span class="comment">//返回数组中isShow为true的数据</span></span><br><span class="line"><span class="keyword">let</span> newArr = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="property">isShow</span>)</span><br><span class="line"><span class="comment">// newArr = [&#123;id:1,isShow:false,name:&#x27;张三&#x27;&#125;]</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo添加看板娘</title>
     <url>/2022/02/20/Hexo%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98/</url>
     <content><![CDATA[<p>添加个活泼的伙伴吧！</p>
@@ -58,25 +72,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript数组操作</title>
-    <url>/2022/02/21/JavaScript%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h3 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h3><ul>
-<li>对于数据进行过滤、筛选返回一个新数组（filter）</li>
-</ul>
-<p>​        如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">isShow</span>:<span class="literal">false</span>,<span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">isShow</span>:<span class="literal">true</span>,<span class="attr">name</span>:<span class="string">&#x27;lisi&#x27;</span>&#125;</span><br><span class="line">  ] </span><br><span class="line"><span class="comment">//返回数组中isShow为true的数据</span></span><br><span class="line"><span class="keyword">let</span> newArr = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="property">isShow</span>)</span><br><span class="line"><span class="comment">// newArr = [&#123;id:1,isShow:false,name:&#x27;张三&#x27;&#125;]</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git常用命令</title>
-    <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>JavaScript的ES6操作</title>
     <url>/2022/02/21/JavaScript%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h3 id="空值合并运算符：（-）"><a href="#空值合并运算符：（-）" class="headerlink" title="空值合并运算符：（??）"></a>空值合并运算符：（??）</h3><p>是一个逻辑操作符，当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。</p>
@@ -87,6 +82,11 @@
       <tags>
         <tag>JavaScript</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>git常用命令</title>
+    <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>hexo文章中添加图片</title>
