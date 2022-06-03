@@ -206,27 +206,6 @@
       </tags>
   </entry>
   <entry>
-    <title>reactOneDay</title>
-    <url>/2022/05/06/reactOneDay/</url>
-    <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
-<li>声明式设计</li>
-<li>高效-操作虚拟DOM，减少真实DOM操作</li>
-<li>灵活-可以使用市面上许许多多的框架或者库</li>
-<li>JSX-JSX是JavaScript语法的扩展</li>
-<li>组件-复用开发</li>
-<li>单向数据流：单向数据流就是所有状态的改变可以记录、可以追踪、可以溯源；所有数据只有一份，组件数据只有唯一的入口与出口。简单点来说就是比如在公司中，老板可以把任务发送给部下，然后部下可以接收任务，然后如果部下想要进行修改任务，需要请示老板进行修改，老板修改完任务才算成功。学过VUE的同学应该就知道父传子和子传父。props就是单向数据流，emit进行请示老板修改。</li>
-</ol>
-<h3 id="2-安装react"><a href="#2-安装react" class="headerlink" title="2.安装react"></a>2.安装react</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g create-react-app //全局安装react</span><br><span class="line">$ create-react-app -V  //查看react版本</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-创建react项目"><a href="#3-创建react项目" class="headerlink" title="3.创建react项目"></a>3.创建react项目</h3><p>当安装完react后就可以开始你的hello world ！react之路了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npx create-react-app my-app</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>reactThreeDay</title>
     <url>/2022/05/11/reactThreeDay/</url>
     <content><![CDATA[]]></content>
@@ -352,6 +331,27 @@
 ]]></content>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>reactOneDay</title>
+    <url>/2022/05/06/reactOneDay/</url>
+    <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
+<li>声明式设计</li>
+<li>高效-操作虚拟DOM，减少真实DOM操作</li>
+<li>灵活-可以使用市面上许许多多的框架或者库</li>
+<li>JSX-JSX是JavaScript语法的扩展</li>
+<li>组件-复用开发</li>
+<li>单向数据流：单向数据流就是所有状态的改变可以记录、可以追踪、可以溯源；所有数据只有一份，组件数据只有唯一的入口与出口。简单点来说就是比如在公司中，老板可以把任务发送给部下，然后部下可以接收任务，然后如果部下想要进行修改任务，需要请示老板进行修改，老板修改完任务才算成功。学过VUE的同学应该就知道父传子和子传父。props就是单向数据流，emit进行请示老板修改。</li>
+</ol>
+<h3 id="2-安装react"><a href="#2-安装react" class="headerlink" title="2.安装react"></a>2.安装react</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g create-react-app //全局安装react</span><br><span class="line">$ create-react-app -V  //查看react版本</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-创建react项目"><a href="#3-创建react项目" class="headerlink" title="3.创建react项目"></a>3.创建react项目</h3><p>当安装完react后就可以开始你的hello world ！react之路了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npx create-react-app my-app</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
