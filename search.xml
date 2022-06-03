@@ -84,6 +84,11 @@
       </tags>
   </entry>
   <entry>
+    <title>git常用命令</title>
+    <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>hexo文章中添加图片</title>
     <url>/2022/02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
     <content><![CDATA[<p>在添加新文章时，想上传效果，但是在Md编辑时是导入了图片的绝对地址在文档中，但是hexo d部署到服务器时，这个图片是不存在的。</p>
@@ -102,11 +107,6 @@
       <tags>
         <tag>hexo</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>git常用命令</title>
-    <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>javaScript 数据类型</title>

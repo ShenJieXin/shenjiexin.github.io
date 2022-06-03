@@ -2753,7 +2753,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ac413d;
+  background: #ffec6b;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2778,4 +2778,10 @@ hr {
 }
 .sub-menu .menu-item {
   display: inline-block;
+}
+* {
+  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword2.ico"), auto !important;
+}
+:active {
+  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword1.ico"), auto !important;
 }
