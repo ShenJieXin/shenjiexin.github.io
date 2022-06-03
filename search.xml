@@ -89,26 +89,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>hexo文章中添加图片</title>
-    <url>/2022/02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<p>在添加新文章时，想上传效果，但是在Md编辑时是导入了图片的绝对地址在文档中，但是hexo d部署到服务器时，这个图片是不存在的。</p>
-<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加新文章"><a href="#添加新文章" class="headerlink" title="添加新文章"></a>添加新文章</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new 文章名称</span><br></pre></td></tr></table></figure>
-
-<p>​    这个时候就会在根目录下的 source\posts 中创建一个 文章名称.md 文件与 文章名称 的文件夹</p>
-<h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p>​    在source\posts\文章名称 中添加所需图片</p>
-<h2 id="引入文章"><a href="#引入文章" class="headerlink" title="引入文章"></a>引入文章</h2><p>​    在 文章名称.md 中放置图片的地方引入图片的方式 ： </p>
-<p>​    </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[img_name](img_name.jpg)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/.io//02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/1.png" alt="1"></p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>javaScript 数据类型</title>
     <url>/2022/02/20/javaScript%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<p>接触javaScript有一段时间了,今天来讲一下javaScript中的数据类型都有哪些</p>
@@ -164,6 +144,26 @@
 ]]></content>
       <tags>
         <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo文章中添加图片</title>
+    <url>/2022/02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>在添加新文章时，想上传效果，但是在Md编辑时是导入了图片的绝对地址在文档中，但是hexo d部署到服务器时，这个图片是不存在的。</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加新文章"><a href="#添加新文章" class="headerlink" title="添加新文章"></a>添加新文章</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new 文章名称</span><br></pre></td></tr></table></figure>
+
+<p>​    这个时候就会在根目录下的 source\posts 中创建一个 文章名称.md 文件与 文章名称 的文件夹</p>
+<h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p>​    在source\posts\文章名称 中添加所需图片</p>
+<h2 id="引入文章"><a href="#引入文章" class="headerlink" title="引入文章"></a>引入文章</h2><p>​    在 文章名称.md 中放置图片的地方引入图片的方式 ： </p>
+<p>​    </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[img_name](img_name.jpg)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//02/20/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/1.png" alt="1"></p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -309,16 +309,6 @@
       </tags>
   </entry>
   <entry>
-    <title>封装一个post请求blob流下载</title>
-    <url>/2022/05/13/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AApost%E8%AF%B7%E6%B1%82blob%E6%B5%81%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// blob流下载</span></span><br><span class="line">  <span class="title function_">getDownloadFile</span>(<span class="params">sendMessage, url</span>) &#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: url,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: sendMessage,</span><br><span class="line">      <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([res.<span class="property">data</span>], &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;application/vnd.ms-excel&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">const</span> fileName = <span class="built_in">decodeURIComponent</span>(res.<span class="property">headers</span>[<span class="string">&#x27;content-disposition&#x27;</span>].<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">const</span> linkNode = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        linkNode.<span class="property">download</span> = fileName <span class="comment">// a标签的download属性规定下载文件的名称</span></span><br><span class="line">        linkNode.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        linkNode.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob) <span class="comment">// 生成一个Blob URL</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(linkNode)</span><br><span class="line">        linkNode.<span class="title function_">click</span>() <span class="comment">// 模拟在按钮上的一次鼠标单击</span></span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(linkNode.<span class="property">href</span>) <span class="comment">// 释放URL 对象</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(linkNode)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>高德地图</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>web前端开发面试鸭~</title>
     <url>/2022/05/08/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%B8%AD/</url>
     <content><![CDATA[<h1 id="web前端开发面试鸭"><a href="#web前端开发面试鸭" class="headerlink" title="web前端开发面试鸭~"></a>web前端开发面试鸭~</h1><ol>
@@ -362,6 +352,16 @@
 ]]></content>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>封装一个post请求blob流下载</title>
+    <url>/2022/05/13/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AApost%E8%AF%B7%E6%B1%82blob%E6%B5%81%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// blob流下载</span></span><br><span class="line">  <span class="title function_">getDownloadFile</span>(<span class="params">sendMessage, url</span>) &#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: url,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: sendMessage,</span><br><span class="line">      <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([res.<span class="property">data</span>], &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;application/vnd.ms-excel&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">const</span> fileName = <span class="built_in">decodeURIComponent</span>(res.<span class="property">headers</span>[<span class="string">&#x27;content-disposition&#x27;</span>].<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">const</span> linkNode = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        linkNode.<span class="property">download</span> = fileName <span class="comment">// a标签的download属性规定下载文件的名称</span></span><br><span class="line">        linkNode.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        linkNode.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob) <span class="comment">// 生成一个Blob URL</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(linkNode)</span><br><span class="line">        linkNode.<span class="title function_">click</span>() <span class="comment">// 模拟在按钮上的一次鼠标单击</span></span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(linkNode.<span class="property">href</span>) <span class="comment">// 释放URL 对象</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(linkNode)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>高德地图</tag>
       </tags>
   </entry>
   <entry>
