@@ -21,6 +21,20 @@
       </tags>
   </entry>
   <entry>
+    <title>JavaScript数组操作</title>
+    <url>/2022/02/21/JavaScript%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h3 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h3><ul>
+<li>对于数据进行过滤、筛选返回一个新数组（filter）</li>
+</ul>
+<p>​        如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">isShow</span>:<span class="literal">false</span>,<span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">isShow</span>:<span class="literal">true</span>,<span class="attr">name</span>:<span class="string">&#x27;lisi&#x27;</span>&#125;</span><br><span class="line">  ] </span><br><span class="line"><span class="comment">//返回数组中isShow为true的数据</span></span><br><span class="line"><span class="keyword">let</span> newArr = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="property">isShow</span>)</span><br><span class="line"><span class="comment">// newArr = [&#123;id:1,isShow:false,name:&#x27;张三&#x27;&#125;]</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo添加看板娘</title>
     <url>/2022/02/20/Hexo%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98/</url>
     <content><![CDATA[<p>添加个活泼的伙伴吧！</p>
@@ -58,18 +72,9 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript数组操作</title>
-    <url>/2022/02/21/JavaScript%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h3 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h3><ul>
-<li>对于数据进行过滤、筛选返回一个新数组（filter）</li>
-</ul>
-<p>​        如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">isShow</span>:<span class="literal">false</span>,<span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">isShow</span>:<span class="literal">true</span>,<span class="attr">name</span>:<span class="string">&#x27;lisi&#x27;</span>&#125;</span><br><span class="line">  ] </span><br><span class="line"><span class="comment">//返回数组中isShow为true的数据</span></span><br><span class="line"><span class="keyword">let</span> newArr = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="property">isShow</span>)</span><br><span class="line"><span class="comment">// newArr = [&#123;id:1,isShow:false,name:&#x27;张三&#x27;&#125;]</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
+    <title>git常用命令</title>
+    <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>JavaScript的ES6操作</title>
@@ -82,11 +87,6 @@
       <tags>
         <tag>JavaScript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>git常用命令</title>
-    <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>hexo文章中添加图片</title>
@@ -204,27 +204,6 @@
       </tags>
   </entry>
   <entry>
-    <title>reactOneDay</title>
-    <url>/2022/05/06/reactOneDay/</url>
-    <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
-<li>声明式设计</li>
-<li>高效-操作虚拟DOM，减少真实DOM操作</li>
-<li>灵活-可以使用市面上许许多多的框架或者库</li>
-<li>JSX-JSX是JavaScript语法的扩展</li>
-<li>组件-复用开发</li>
-<li>单向数据流：单向数据流就是所有状态的改变可以记录、可以追踪、可以溯源；所有数据只有一份，组件数据只有唯一的入口与出口。简单点来说就是比如在公司中，老板可以把任务发送给部下，然后部下可以接收任务，然后如果部下想要进行修改任务，需要请示老板进行修改，老板修改完任务才算成功。学过VUE的同学应该就知道父传子和子传父。props就是单向数据流，emit进行请示老板修改。</li>
-</ol>
-<h3 id="2-安装react"><a href="#2-安装react" class="headerlink" title="2.安装react"></a>2.安装react</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g create-react-app //全局安装react</span><br><span class="line">$ create-react-app -V  //查看react版本</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-创建react项目"><a href="#3-创建react项目" class="headerlink" title="3.创建react项目"></a>3.创建react项目</h3><p>当安装完react后就可以开始你的hello world ！react之路了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npx create-react-app my-app</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>react 引入文件配置的路径为‘@’</title>
     <url>/2022/06/06/react-%E5%BC%95%E5%85%A5%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%9A%84%E8%B7%AF%E5%BE%84%E4%B8%BA%E2%80%98@%E2%80%99/</url>
     <content><![CDATA[<h2 id="react-引入文件配置的路径为‘-’"><a href="#react-引入文件配置的路径为‘-’" class="headerlink" title="react 引入文件配置的路径为‘@’"></a>react 引入文件配置的路径为‘@’</h2><p>在前面搭建react项目框架的过程上补充引入文件的配置，例如我们会使用 <code>../</code> 的方式去引入其他文件夹的文件，这样如果修改、查看下都会显得过于复杂，所以通过webpack的配置进行操作。</p>
@@ -241,6 +220,27 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">alias</span>: &#123;</span><br><span class="line">   <span class="string">&#x27;react-native&#x27;</span>: <span class="string">&#x27;react-native-web&#x27;</span>,</span><br><span class="line">   ...(isEnvProductionProfile &amp;&amp; &#123;</span><br><span class="line">   		<span class="string">&#x27;react-dom$&#x27;</span>: <span class="string">&#x27;react-dom/profiling&#x27;</span>,</span><br><span class="line">   		<span class="string">&#x27;scheduler/tracing&#x27;</span>: <span class="string">&#x27;scheduler/tracing-profiling&#x27;</span>,</span><br><span class="line">   &#125;),</span><br><span class="line">   ...(modules.<span class="property">webpackAliases</span> || &#123;&#125;),</span><br><span class="line">   <span class="string">&#x27;@&#x27;</span>:path.<span class="title function_">resolve</span>(<span class="string">&#x27;src&#x27;</span>)   <span class="comment">// 添加这条配置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>保存即可，记得重新启动一下项目哈~</p>
+]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>reactOneDay</title>
+    <url>/2022/05/06/reactOneDay/</url>
+    <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
+<li>声明式设计</li>
+<li>高效-操作虚拟DOM，减少真实DOM操作</li>
+<li>灵活-可以使用市面上许许多多的框架或者库</li>
+<li>JSX-JSX是JavaScript语法的扩展</li>
+<li>组件-复用开发</li>
+<li>单向数据流：单向数据流就是所有状态的改变可以记录、可以追踪、可以溯源；所有数据只有一份，组件数据只有唯一的入口与出口。简单点来说就是比如在公司中，老板可以把任务发送给部下，然后部下可以接收任务，然后如果部下想要进行修改任务，需要请示老板进行修改，老板修改完任务才算成功。学过VUE的同学应该就知道父传子和子传父。props就是单向数据流，emit进行请示老板修改。</li>
+</ol>
+<h3 id="2-安装react"><a href="#2-安装react" class="headerlink" title="2.安装react"></a>2.安装react</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g create-react-app //全局安装react</span><br><span class="line">$ create-react-app -V  //查看react版本</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-创建react项目"><a href="#3-创建react项目" class="headerlink" title="3.创建react项目"></a>3.创建react项目</h3><p>当安装完react后就可以开始你的hello world ！react之路了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npx create-react-app my-app</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
         <tag>react</tag>
