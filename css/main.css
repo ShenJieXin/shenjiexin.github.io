@@ -2753,7 +2753,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ff2f57;
+  background: #1b9829;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2780,8 +2780,5 @@ hr {
   display: inline-block;
 }
 * {
-  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword2.ico"), auto !important;
-}
-:active {
-  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword1.ico"), auto !important;
+  cursor: url("![](https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202206061433687.ico)"), auto !important;
 }

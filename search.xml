@@ -109,28 +109,6 @@
       </tags>
   </entry>
   <entry>
-    <title>react 引入文件配置的路径为‘@’</title>
-    <url>/2022/06/06/react-%E5%BC%95%E5%85%A5%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%9A%84%E8%B7%AF%E5%BE%84%E4%B8%BA%E2%80%98@%E2%80%99/</url>
-    <content><![CDATA[<h2 id="react-引入文件配置的路径为‘-’"><a href="#react-引入文件配置的路径为‘-’" class="headerlink" title="react 引入文件配置的路径为‘@’"></a>react 引入文件配置的路径为‘@’</h2><p>在前面搭建react项目框架的过程上补充引入文件的配置，例如我们会使用 <code>../</code> 的方式去引入其他文件夹的文件，这样如果修改、查看下都会显得过于复杂，所以通过webpack的配置进行操作。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202206061406970.png"></p>
-<p>配置后的效果如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;findUserPageList&#125; <span class="keyword">from</span> <span class="string">&#x27;@/apis/user&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;phoneValidator&#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/rules&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这样就方便多了~</p>
-<p>配置方式如下：</p>
-<h3 id="1、暴露webpack的配置文件"><a href="#1、暴露webpack的配置文件" class="headerlink" title="1、暴露webpack的配置文件"></a>1、暴露webpack的配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># npm 方式:</span></span><br><span class="line">    npm run eject</span><br><span class="line"><span class="comment"># cnpm 方式:</span></span><br><span class="line">    cnpm run eject</span><br><span class="line"><span class="comment"># yarn 方式:</span></span><br><span class="line">    yarn eject</span><br></pre></td></tr></table></figure>
-
-<p>注：此步骤不可逆，暴露后无法撤销~</p>
-<h3 id="2、配置根目录下的config文件夹中的-webpack-config-js"><a href="#2、配置根目录下的config文件夹中的-webpack-config-js" class="headerlink" title="2、配置根目录下的config文件夹中的 webpack.config.js"></a>2、配置根目录下的<code>config</code>文件夹中的 <code>webpack.config.js</code></h3><p>搜索 <code>alias</code> 在其中添加配置：<code>&#39;@&#39;:path.resolve(&#39;src&#39;) </code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">alias</span>: &#123;</span><br><span class="line">   <span class="string">&#x27;react-native&#x27;</span>: <span class="string">&#x27;react-native-web&#x27;</span>,</span><br><span class="line">   ...(isEnvProductionProfile &amp;&amp; &#123;</span><br><span class="line">   		<span class="string">&#x27;react-dom$&#x27;</span>: <span class="string">&#x27;react-dom/profiling&#x27;</span>,</span><br><span class="line">   		<span class="string">&#x27;scheduler/tracing&#x27;</span>: <span class="string">&#x27;scheduler/tracing-profiling&#x27;</span>,</span><br><span class="line">   &#125;),</span><br><span class="line">   ...(modules.<span class="property">webpackAliases</span> || &#123;&#125;),</span><br><span class="line">   <span class="string">&#x27;@&#x27;</span>:path.<span class="title function_">resolve</span>(<span class="string">&#x27;src&#x27;</span>)   <span class="comment">// 添加这条配置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>保存即可，记得重新启动一下项目哈~</p>
-]]></content>
-      <tags>
-        <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>javaScript 数据类型</title>
     <url>/2022/02/20/javaScript%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<p>接触javaScript有一段时间了,今天来讲一下javaScript中的数据类型都有哪些</p>
@@ -189,6 +167,19 @@
       </tags>
   </entry>
   <entry>
+    <title>js的事件中call、apply及bind方法</title>
+    <url>/2022/05/11/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%B8%ADcall%E3%80%81apply%E5%8F%8Abind%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="什么是call"><a href="#什么是call" class="headerlink" title="什么是call"></a>什么是call</h2><p>call()是JavaScript中的一个方法，他的特点是可以自动执行函数，并改变this的指向，也就是通过 call()，您能够使用属于另一个对象的方法。<br>如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">fullName</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Bill&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Gates&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Steve&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Jobs&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">person.<span class="property">fullName</span>.<span class="title function_">call</span>(person1);  <span class="comment">// 将返回 &quot;Bill Gates&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是apply"><a href="#什么是apply" class="headerlink" title="什么是apply()"></a>什么是apply()</h2><p>apply与call()相似，也是自动执行函数，改变this的指向</p>
+<h2 id="什么是bind"><a href="#什么是bind" class="headerlink" title="什么是bind()"></a>什么是bind()</h2><p>bind()与apply()及call()不相同的点是并不会自动执行，但是也是用于改变this的指向。</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>react 添加动态路由</title>
     <url>/2022/05/28/react%20%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/</url>
     <content><![CDATA[<h1 id="react-添加动态路由"><a href="#react-添加动态路由" class="headerlink" title="react 添加动态路由"></a>react 添加动态路由</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><hr>
@@ -213,16 +204,25 @@
       </tags>
   </entry>
   <entry>
-    <title>js的事件中call、apply及bind方法</title>
-    <url>/2022/05/11/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%B8%ADcall%E3%80%81apply%E5%8F%8Abind%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="什么是call"><a href="#什么是call" class="headerlink" title="什么是call"></a>什么是call</h2><p>call()是JavaScript中的一个方法，他的特点是可以自动执行函数，并改变this的指向，也就是通过 call()，您能够使用属于另一个对象的方法。<br>如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">fullName</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Bill&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Gates&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Steve&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&quot;Jobs&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">person.<span class="property">fullName</span>.<span class="title function_">call</span>(person1);  <span class="comment">// 将返回 &quot;Bill Gates&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>react 引入文件配置的路径为‘@’</title>
+    <url>/2022/06/06/react-%E5%BC%95%E5%85%A5%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%9A%84%E8%B7%AF%E5%BE%84%E4%B8%BA%E2%80%98@%E2%80%99/</url>
+    <content><![CDATA[<h2 id="react-引入文件配置的路径为‘-’"><a href="#react-引入文件配置的路径为‘-’" class="headerlink" title="react 引入文件配置的路径为‘@’"></a>react 引入文件配置的路径为‘@’</h2><p>在前面搭建react项目框架的过程上补充引入文件的配置，例如我们会使用 <code>../</code> 的方式去引入其他文件夹的文件，这样如果修改、查看下都会显得过于复杂，所以通过webpack的配置进行操作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202206061406970.png"></p>
+<p>配置后的效果如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;findUserPageList&#125; <span class="keyword">from</span> <span class="string">&#x27;@/apis/user&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;phoneValidator&#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/rules&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-<h2 id="什么是apply"><a href="#什么是apply" class="headerlink" title="什么是apply()"></a>什么是apply()</h2><p>apply与call()相似，也是自动执行函数，改变this的指向</p>
-<h2 id="什么是bind"><a href="#什么是bind" class="headerlink" title="什么是bind()"></a>什么是bind()</h2><p>bind()与apply()及call()不相同的点是并不会自动执行，但是也是用于改变this的指向。</p>
+<p>这样就方便多了~</p>
+<p>配置方式如下：</p>
+<h3 id="1、暴露webpack的配置文件"><a href="#1、暴露webpack的配置文件" class="headerlink" title="1、暴露webpack的配置文件"></a>1、暴露webpack的配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># npm 方式:</span></span><br><span class="line">    npm run eject</span><br><span class="line"><span class="comment"># cnpm 方式:</span></span><br><span class="line">    cnpm run eject</span><br><span class="line"><span class="comment"># yarn 方式:</span></span><br><span class="line">    yarn eject</span><br></pre></td></tr></table></figure>
+
+<p>注：此步骤不可逆，暴露后无法撤销~</p>
+<h3 id="2、配置根目录下的config文件夹中的-webpack-config-js"><a href="#2、配置根目录下的config文件夹中的-webpack-config-js" class="headerlink" title="2、配置根目录下的config文件夹中的 webpack.config.js"></a>2、配置根目录下的<code>config</code>文件夹中的 <code>webpack.config.js</code></h3><p>搜索 <code>alias</code> 在其中添加配置：<code>&#39;@&#39;:path.resolve(&#39;src&#39;) </code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">alias</span>: &#123;</span><br><span class="line">   <span class="string">&#x27;react-native&#x27;</span>: <span class="string">&#x27;react-native-web&#x27;</span>,</span><br><span class="line">   ...(isEnvProductionProfile &amp;&amp; &#123;</span><br><span class="line">   		<span class="string">&#x27;react-dom$&#x27;</span>: <span class="string">&#x27;react-dom/profiling&#x27;</span>,</span><br><span class="line">   		<span class="string">&#x27;scheduler/tracing&#x27;</span>: <span class="string">&#x27;scheduler/tracing-profiling&#x27;</span>,</span><br><span class="line">   &#125;),</span><br><span class="line">   ...(modules.<span class="property">webpackAliases</span> || &#123;&#125;),</span><br><span class="line">   <span class="string">&#x27;@&#x27;</span>:path.<span class="title function_">resolve</span>(<span class="string">&#x27;src&#x27;</span>)   <span class="comment">// 添加这条配置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>保存即可，记得重新启动一下项目哈~</p>
 ]]></content>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -247,21 +247,57 @@
       </tags>
   </entry>
   <entry>
-    <title>封装一个post请求blob流下载</title>
-    <url>/2022/05/13/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AApost%E8%AF%B7%E6%B1%82blob%E6%B5%81%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// blob流下载</span></span><br><span class="line">  <span class="title function_">getDownloadFile</span>(<span class="params">sendMessage, url</span>) &#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: url,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: sendMessage,</span><br><span class="line">      <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([res.<span class="property">data</span>], &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;application/vnd.ms-excel&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">const</span> fileName = <span class="built_in">decodeURIComponent</span>(res.<span class="property">headers</span>[<span class="string">&#x27;content-disposition&#x27;</span>].<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">const</span> linkNode = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        linkNode.<span class="property">download</span> = fileName <span class="comment">// a标签的download属性规定下载文件的名称</span></span><br><span class="line">        linkNode.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        linkNode.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob) <span class="comment">// 生成一个Blob URL</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(linkNode)</span><br><span class="line">        linkNode.<span class="title function_">click</span>() <span class="comment">// 模拟在按钮上的一次鼠标单击</span></span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(linkNode.<span class="property">href</span>) <span class="comment">// 释放URL 对象</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(linkNode)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>高德地图</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>reactThreeDay</title>
     <url>/2022/05/11/reactThreeDay/</url>
     <content><![CDATA[]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>web前端开发面试鸭~</title>
+    <url>/2022/05/08/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%B8%AD/</url>
+    <content><![CDATA[<h1 id="web前端开发面试鸭"><a href="#web前端开发面试鸭" class="headerlink" title="web前端开发面试鸭~"></a>web前端开发面试鸭~</h1><ol>
+<li><p>谈一谈cookie、sessionStorage与localStorage的区别</p>
+<p>可以从：数据存储位置、生命周期、存储大小、写入方式、数据共享、发送请求时是否携带、应用场景这几个方面讲解。</p>
+<p>​    标准回答： Cookie、SessionStorage、 LocalStorage都是浏览器的本地存储。 它们的共同点：都是存储在浏览器本地的 它们的区别：cookie是由服务器端写入的，而SessionStorage、 LocalStorage都是由前端写入的，cookie的生命周期是由服务器端在写入的时候就设置好的，LocalStorage是写入就一直存在，除非手动清除，SessionStorage是页面关闭的时候就会自动清除。cookie的存储空间比较小大概4KB，SessionStorage、 LocalStorage存储空间比较大，大概5M。Cookie、SessionStorage、 LocalStorage数据共享都遵循同源原则，SessionStorage还限制必须是同一个页面。在前端给后端发送请求的时候会自动携带Cookie中的数据，但是SessionStorage、 LocalStorage不会 加分回答 由于它们的以上区别，所以它们的应用场景也不同，Cookie一般用于存储登录验证信息SessionID或者token，LocalStorage常用于存储不易变动的数据，减轻服务器的压力，SessionStorage可以用来检测用户是否是刷新进入页面，如音乐播放器恢复播放进度条的功能。</p>
+</li>
+<li><p>说一说JS数据类型有哪些,区别是什么？</p>
+<p>​    JS数据类型分为两类：一类是基本数据类型，也叫简单数据类型，包含7种类型，分别是Number 、String、Boolean、BigInt、Symbol、Null、Undefined。另一类是引用数据类型也叫复杂数据类型，通常用Object代表，普通对象，数组，正则，日期，Math数学函数都属于Object。</p>
+<p>​    数据分成两大类的本质区别：基本数据类型和引用数据类型它们在内存中的存储方式不同。<br>​    基本数据类型是直接存储在栈中的简单数据段，占据空间小，属于被频繁使用的数据。<br>​    引用数据类型是存储在堆内存中，占据空间大。引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址，当解释器寻找引用值时，会检索其在栈中的地址，取得地址后从堆中获得实体。</p>
+</li>
+<li><p>说一说你对闭包的理解？</p>
+<p>变量背包、作用域链、局部变量不销毁、函数体外访问函数的内部变量、内存泄漏、内存溢出、形成块级作用域、柯里化、构造函数中定义特权方法、Vue中数据响应式Observer 标准回答 闭包 一个函数和词法环境的引用捆绑在一起，这样的组合就是闭包（closure）。一般就是一个函数A，return其内部的函数B，被return出去的B函数能够在外部访问A函数内部的变量，这时候就形成了一个B函数的变量背包，A函数执行结束后这个变量背包也不会被销毁，并且这个变量背包在A函数外部只能通过B函数访问。 闭包形成的原理：作用域链，当前作用域可以访问上级作用域中的变量 闭包解决的问题：能够让函数作用域中的变量在函数执行结束之后不被销毁，同时也能在函数外部可以访问函数内部的局部变量。 闭包带来的问题：由于垃圾回收器不会将闭包中变量销毁，于是就造成了内存泄露，内存泄露积累多了就容易导致内存溢出。 加分回答 闭包的应用，能够模仿块级作用域，能够实现柯里化，在构造函数中定义特权方法、Vue中数据响应式Observer中使用闭包等。</p>
+</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -336,6 +372,16 @@
 ]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>封装一个post请求blob流下载</title>
+    <url>/2022/05/13/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AApost%E8%AF%B7%E6%B1%82blob%E6%B5%81%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// blob流下载</span></span><br><span class="line">  <span class="title function_">getDownloadFile</span>(<span class="params">sendMessage, url</span>) &#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: url,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: sendMessage,</span><br><span class="line">      <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([res.<span class="property">data</span>], &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;application/vnd.ms-excel&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">const</span> fileName = <span class="built_in">decodeURIComponent</span>(res.<span class="property">headers</span>[<span class="string">&#x27;content-disposition&#x27;</span>].<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">const</span> linkNode = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        linkNode.<span class="property">download</span> = fileName <span class="comment">// a标签的download属性规定下载文件的名称</span></span><br><span class="line">        linkNode.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        linkNode.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob) <span class="comment">// 生成一个Blob URL</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(linkNode)</span><br><span class="line">        linkNode.<span class="title function_">click</span>() <span class="comment">// 模拟在按钮上的一次鼠标单击</span></span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(linkNode.<span class="property">href</span>) <span class="comment">// 释放URL 对象</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(linkNode)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>高德地图</tag>
       </tags>
   </entry>
   <entry>
@@ -525,52 +571,6 @@
 ]]></content>
       <tags>
         <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>web前端开发面试鸭~</title>
-    <url>/2022/05/08/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%B8%AD/</url>
-    <content><![CDATA[<h1 id="web前端开发面试鸭"><a href="#web前端开发面试鸭" class="headerlink" title="web前端开发面试鸭~"></a>web前端开发面试鸭~</h1><ol>
-<li><p>谈一谈cookie、sessionStorage与localStorage的区别</p>
-<p>可以从：数据存储位置、生命周期、存储大小、写入方式、数据共享、发送请求时是否携带、应用场景这几个方面讲解。</p>
-<p>​    标准回答： Cookie、SessionStorage、 LocalStorage都是浏览器的本地存储。 它们的共同点：都是存储在浏览器本地的 它们的区别：cookie是由服务器端写入的，而SessionStorage、 LocalStorage都是由前端写入的，cookie的生命周期是由服务器端在写入的时候就设置好的，LocalStorage是写入就一直存在，除非手动清除，SessionStorage是页面关闭的时候就会自动清除。cookie的存储空间比较小大概4KB，SessionStorage、 LocalStorage存储空间比较大，大概5M。Cookie、SessionStorage、 LocalStorage数据共享都遵循同源原则，SessionStorage还限制必须是同一个页面。在前端给后端发送请求的时候会自动携带Cookie中的数据，但是SessionStorage、 LocalStorage不会 加分回答 由于它们的以上区别，所以它们的应用场景也不同，Cookie一般用于存储登录验证信息SessionID或者token，LocalStorage常用于存储不易变动的数据，减轻服务器的压力，SessionStorage可以用来检测用户是否是刷新进入页面，如音乐播放器恢复播放进度条的功能。</p>
-</li>
-<li><p>说一说JS数据类型有哪些,区别是什么？</p>
-<p>​    JS数据类型分为两类：一类是基本数据类型，也叫简单数据类型，包含7种类型，分别是Number 、String、Boolean、BigInt、Symbol、Null、Undefined。另一类是引用数据类型也叫复杂数据类型，通常用Object代表，普通对象，数组，正则，日期，Math数学函数都属于Object。</p>
-<p>​    数据分成两大类的本质区别：基本数据类型和引用数据类型它们在内存中的存储方式不同。<br>​    基本数据类型是直接存储在栈中的简单数据段，占据空间小，属于被频繁使用的数据。<br>​    引用数据类型是存储在堆内存中，占据空间大。引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址，当解释器寻找引用值时，会检索其在栈中的地址，取得地址后从堆中获得实体。</p>
-</li>
-<li><p>说一说你对闭包的理解？</p>
-<p>变量背包、作用域链、局部变量不销毁、函数体外访问函数的内部变量、内存泄漏、内存溢出、形成块级作用域、柯里化、构造函数中定义特权方法、Vue中数据响应式Observer 标准回答 闭包 一个函数和词法环境的引用捆绑在一起，这样的组合就是闭包（closure）。一般就是一个函数A，return其内部的函数B，被return出去的B函数能够在外部访问A函数内部的变量，这时候就形成了一个B函数的变量背包，A函数执行结束后这个变量背包也不会被销毁，并且这个变量背包在A函数外部只能通过B函数访问。 闭包形成的原理：作用域链，当前作用域可以访问上级作用域中的变量 闭包解决的问题：能够让函数作用域中的变量在函数执行结束之后不被销毁，同时也能在函数外部可以访问函数内部的局部变量。 闭包带来的问题：由于垃圾回收器不会将闭包中变量销毁，于是就造成了内存泄露，内存泄露积累多了就容易导致内存溢出。 加分回答 闭包的应用，能够模仿块级作用域，能够实现柯里化，在构造函数中定义特权方法、Vue中数据响应式Observer中使用闭包等。</p>
-</li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
