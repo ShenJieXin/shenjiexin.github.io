@@ -21,43 +21,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo添加看板娘</title>
-    <url>/2022/02/20/Hexo%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98/</url>
-    <content><![CDATA[<p>添加个活泼的伙伴吧！</p>
-<h3 id="添加看板娘"><a href="#添加看板娘" class="headerlink" title="添加看板娘"></a>添加看板娘</h3><ul>
-<li>效果如下</li>
-</ul>
-<p><img src="/.io//1-16453661824791.png" alt="1-16453661824791"></p>
-<ol>
-<li><p>步骤1</p>
-<p>下载大佬制作的看板娘<a href="https://github.com/stevenjoezhang/live2d-widget">https://github.com/stevenjoezhang/live2d-widget</a></p>
-<p>下载至\themes\hexo-theme-next\source中autoload.js，</p>
-</li>
-<li><p>步骤2</p>
-<p>打开\themes\hexo-theme-next\source\live2d-widget中的autoload.js</p>
-<p>并将live2d_path改为绝对路径</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意：live2d_path 参数应使用绝对路径</span></span><br><span class="line"><span class="comment">// const live2d_path = &quot;https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/&quot;;</span></span><br><span class="line"><span class="keyword">const</span> live2d_path = <span class="string">&quot;/live2d-widget/&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>步骤3</p>
-<p>到这就是最后一步了，将之前的引入到自己的主题中</p>
-<p>我的是next主题,在<code>/themes/hexo-theme-next/layout/_layout.njk</code>目录下，看到其他博主都是写_layout.swing，但是找了一圈一直没找到，然后就看到了.njk结尾的文件，死马当活马医吧~就成功了~~~</p>
-<p>在<code>_layout.njk</code>目中引入如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/live2d-widget/autoload.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>步骤4</p>
-</li>
-</ol>
-<p>​    重新hexo g  hexo s打开就成功显示啦！</p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>对于AntV的G6流程图的操作记录文档</title>
     <url>/2022/04/05/G6%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[<h2 id="对于AntV的G6流程图的操作记录文档"><a href="#对于AntV的G6流程图的操作记录文档" class="headerlink" title="对于AntV的G6流程图的操作记录文档"></a>对于AntV的G6流程图的操作记录文档</h2><h3 id="需求：添加流程图"><a href="#需求：添加流程图" class="headerlink" title="需求：添加流程图"></a>需求：添加流程图</h3><h4 id="安装G6"><a href="#安装G6" class="headerlink" title="安装G6"></a>安装G6</h4><p>​     npm install –save @antv&#x2F;g6</p>
@@ -100,6 +63,43 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo添加看板娘</title>
+    <url>/2022/02/20/Hexo%E6%B7%BB%E5%8A%A0%E7%9C%8B%E6%9D%BF%E5%A8%98/</url>
+    <content><![CDATA[<p>添加个活泼的伙伴吧！</p>
+<h3 id="添加看板娘"><a href="#添加看板娘" class="headerlink" title="添加看板娘"></a>添加看板娘</h3><ul>
+<li>效果如下</li>
+</ul>
+<p><img src="/.io//1-16453661824791.png" alt="1-16453661824791"></p>
+<ol>
+<li><p>步骤1</p>
+<p>下载大佬制作的看板娘<a href="https://github.com/stevenjoezhang/live2d-widget">https://github.com/stevenjoezhang/live2d-widget</a></p>
+<p>下载至\themes\hexo-theme-next\source中autoload.js，</p>
+</li>
+<li><p>步骤2</p>
+<p>打开\themes\hexo-theme-next\source\live2d-widget中的autoload.js</p>
+<p>并将live2d_path改为绝对路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意：live2d_path 参数应使用绝对路径</span></span><br><span class="line"><span class="comment">// const live2d_path = &quot;https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/&quot;;</span></span><br><span class="line"><span class="keyword">const</span> live2d_path = <span class="string">&quot;/live2d-widget/&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>步骤3</p>
+<p>到这就是最后一步了，将之前的引入到自己的主题中</p>
+<p>我的是next主题,在<code>/themes/hexo-theme-next/layout/_layout.njk</code>目录下，看到其他博主都是写_layout.swing，但是找了一圈一直没找到，然后就看到了.njk结尾的文件，死马当活马医吧~就成功了~~~</p>
+<p>在<code>_layout.njk</code>目中引入如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/live2d-widget/autoload.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>步骤4</p>
+</li>
+</ol>
+<p>​    重新hexo g  hexo s打开就成功显示啦！</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript数组操作</title>
     <url>/2022/02/21/JavaScript%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h3 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h3><ul>
@@ -129,94 +129,6 @@
     <title>git常用命令</title>
     <url>/2022/05/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>使用VUE + Vant + uView + Sass搭建移动端项目</title>
-    <url>/2022/02/18/Web%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<h1 id="使用VUE-Vant-uView-Sass搭建移动端项目"><a href="#使用VUE-Vant-uView-Sass搭建移动端项目" class="headerlink" title="使用VUE + Vant + uView + Sass搭建移动端项目"></a>使用VUE + Vant + uView + Sass搭建移动端项目</h1><ol>
-<li><p>框架搭建</p>
-<ol>
-<li><p>安装vue</p>
-<ol>
-<li>新建一个存放项目的文件夹目录</li>
-<li>在目录内cmd</li>
-<li>vue init webpack ‘项目名称’，如：vue init webpack MyPortalProject，然后根据自身选择需要的东西</li>
-<li>完成，直接npm run dev运行vue项目</li>
-</ol>
-</li>
-<li><p>配置ESLint</p>
-<ol>
-<li><p>打开.eslintrc.js</p>
-</li>
-<li><p>&#96;&#96;&#96;js<br>const isPro &#x3D; process.env.NODE_ENV &#x3D;&#x3D;&#x3D; “production”;<br>module.exports &#x3D; {<br>  root: true,<br>  parserOptions: {<br>parser: “babel-eslint”,<br>ecmaVersion:true<br>  },<br>  env: {<br>browser: true,<br>es6: true,<br>  },<br>  extends: [‘plugin:vue&#x2F;essential’],<br>  plugins: [“vue”],<br>  &#x2F;&#x2F; “off”或者0    关闭规则关闭<br>  &#x2F;&#x2F; “warn”或者1   在打开的规则作为警告（不影响退出代码）<br>  &#x2F;&#x2F; “error”或者2  把规则作为一个错误（退出代码触发时为1）<br>  rules: {<br>“vue&#x2F;no-use-v-if-with-v-for”: [“error”, {<br>  “allowUsingIterationVar”: true<br>}],<br>&#x2F;&#x2F; 代码风格规范<br>“quotes”: [2, “single”], &#x2F;&#x2F;字符串使用单引号<br>“space-infix-ops”: 2, &#x2F;&#x2F; 操作符周围要有空格<br>“spaced-comment”: 2, &#x2F;&#x2F;注释风格要有空格<br>“comma-spacing”: 2, &#x2F;&#x2F;逗号后要有空格<br>“comma-style”: [2, “last”], &#x2F;&#x2F;逗号风格，换行时在行首还是行尾<br>“consistent-this”: [2, “_this”], &#x2F;&#x2F;this别名<br>“curly”: [2, “all”], &#x2F;&#x2F;必须使用 if(){} 中的{}<br>“brace-style”: [2, “1tbs”], &#x2F;&#x2F; 大括号和关键字在同一行<br>“no-unused-vars”: [0, {“vars”: “all”, “args”: “after-used”}], &#x2F;&#x2F;不能有声明后未被使用的变量或参数<br>“no-use-before-define”: 0, &#x2F;&#x2F;未定义前不能使用<br>“arrow-parens”: 2, &#x2F;&#x2F;箭头函数用小括号括起来<br>“no-multiple-empty-lines”: [1, {“max”: 2}], &#x2F;&#x2F;空行最多不能超过2行<br>“operator-linebreak”: [2, “after”], &#x2F;&#x2F;换行时运算符在行尾还是行首<br>“indent”: [2, 2], &#x2F;&#x2F;缩进风格,缩进两格<br>“comma-dangle”: [2, “never”], &#x2F;&#x2F;对象字面量项尾不能有逗号<br>“dot-location”: 2, &#x2F;&#x2F;对象访问符的位置，换行的时候在行首还是行尾<br>“func-call-spacing”: 2, &#x2F;&#x2F;函数调用不要空格<br>“key-spacing”: [2, { “afterColon”: true, “mode”: “strict” }], &#x2F;&#x2F; key的冒号后面要有空格<br>“no-dupe-keys”: 2,&#x2F;&#x2F;在创建对象字面量时不允许键重复 {a:1,a:1}<br>“no-duplicate-case”: 2,&#x2F;&#x2F;switch中的case标签不能重复<br>“no-floating-decimal”: 2,&#x2F;&#x2F;禁止省略浮点数中的0 .5 3.<br>“no-multi-spaces”: 2,&#x2F;&#x2F;不能用多余的空格<br>“no-multi-str”: 2, &#x2F;&#x2F;字符串不能用\换行<br>“object-property-newline”: 0, &#x2F;&#x2F;对象属性换行时注意统一代码风格。<br>“padded-blocks”: 0,&#x2F;&#x2F;块语句内行首行尾是否要空行<br>“vue&#x2F;v-bind-style”: [“error”, “shorthand”],<br>“vue&#x2F;v-on-style”: [“error”, “shorthand”],<br>“prefer-destructuring”: 0,<br>“class-methods-use-this”: 0,<br>“no-mixed-operators”: 0,<br>“max-len”: 0, &#x2F;&#x2F;字符串最大长度<br>“no-unused-expressions”: 2, &#x2F;&#x2F;禁止无用的表达式<br>“import&#x2F;no-dynamic-require”: 0,<br>“func-names”: 0, &#x2F;&#x2F;函数表达式必须有名字<br>“no-underscore-dangle”: 0, &#x2F;&#x2F;标识符不能以_开头或结尾<br>“no-restricted-properties”: 0,<br>“no-restricted-syntax”: 0,<br>“no-prototype-builtins”: 0,<br>“no-plusplus”: 0, &#x2F;&#x2F;禁止使用++，–<br>“one-var”: 0, &#x2F;&#x2F;连续声明<br>“no-tabs”: 0,<br>“prefer-const”: 0, &#x2F;&#x2F;首选const<br>“global-require”: 0,<br>“guard-for-in”: 0, &#x2F;&#x2F;for in循环要用if语句过滤<br>“import&#x2F;extensions”:0,<br>“no-console”: 0,<br>“no-return-assign”: 0, &#x2F;&#x2F;return 语句中不能有赋值表达式<br>“no-param-reassign”: 0, &#x2F;&#x2F;禁止给参数重新赋值<br>“no-nested-ternary”: 0, &#x2F;&#x2F;禁止使用嵌套的三目运算<br>“camelcase”: 0, &#x2F;&#x2F;强制驼峰法命名<br>“eqeqeq”: 0,&#x2F;&#x2F;必须使用全等<br>“import&#x2F;no-extraneous-dependencies”: 0,<br>“no-debugger”: isPro ? “error” : “off”<br>  }<br>}</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   3. 如果运行的时候发生错误：可能为ESLint生效，把代码格式修改为正确的ESLint再重新运行</span><br><span class="line"></span><br><span class="line">3. 安装axios</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>npm install axios –save-dev</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">4. 安装vuex</span><br><span class="line"></span><br><span class="line">   1. 安装：npm i vuex</span><br><span class="line"></span><br><span class="line">   2. 新建文件store/index.js </span><br><span class="line"></span><br><span class="line">      ```js</span><br><span class="line">      import Vue from &#x27;vue&#x27;</span><br><span class="line">      import Vuex from &#x27;vuex&#x27;</span><br><span class="line">      import modules from &#x27;./modules&#x27;  </span><br><span class="line">          *// 数据持久化*</span><br><span class="line">          import createPersistedState from &#x27;vuex-persistedstate&#x27;;</span><br><span class="line">      Vue.use(Vuex)</span><br><span class="line">      export default new Vuex.Store(&#123;</span><br><span class="line">          modules</span><br><span class="line">          *// plugins: [createPersistedState()]*</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>   3.使用：main.js</p>
-   <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">    store</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装sass</p>
-<ol>
-<li><p>*<em>sass-loader依赖于node-sass,所以要安装node-sass</em></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install node-sass --save-dev    //安装node-sass</span><br><span class="line">npm install sass-loader --save-dev     //安装依赖包sass-loader</span><br><span class="line">npm install style-loader --save-dev    //安装style-loader</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在build文件夹下的webpack.base.conf.js的module下 rules里面添加配置</p>
-<ol>
-<li>&#96;&#96;&#96;js<br>{<br>  test: &#x2F;.sass$&#x2F;,<br>  loaders: [‘style’, ‘css’, ‘sass’]<br>},<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">3. 在需要用到sass的地方添加lang=scss</span><br><span class="line">   </span><br><span class="line">   1. ```html</span><br><span class="line">      &lt;style lang=&quot;scss&quot; scoped&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>注意：如果因为使用lang&#x3D;“scss”后npm run dev报错，可能因为版本过高的原因，把</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//卸载sass-loader</span><br><span class="line">npm uninstall sass-loader</span><br><span class="line">//安装更低的版本</span><br><span class="line">npm install sass-loader@7.3.1 --save-dev</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>安装Vant框架</p>
-<ol>
-<li>&#96;&#96;&#96;bash<br>&#x2F;&#x2F;npm 安装vant<br>npm i vant -S<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">   </span><br><span class="line">2. 引入组件（自动按需引入）</span><br><span class="line">   </span><br><span class="line">   1. [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一款 babel 插件，它会在编译过程中将 import 的写法自动转换为按需引入的方式。</span><br><span class="line"></span><br><span class="line">      ```bash</span><br><span class="line">      // 安装插件</span><br><span class="line">      npm i babel-plugin-import -D</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>&#96;&#96;&#96;js<br>&#x2F;&#x2F; 接着你可以在代码中直接引入 Vant 组件<br>&#x2F;&#x2F; 插件会自动将代码转化为方式二中的按需引入形式<br>import { Button } from ‘vant’;<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">15. 配置scss（安装uview使用的sass10版本太高了）</span><br><span class="line"></span><br><span class="line">    1. ```bash</span><br><span class="line">       npm i node-sass -D // 安装node-sass</span><br><span class="line">       npm i sass-loader@10 -D  // 安装sass-loader，注意需要版本10，否则可能会导致vue与sass的兼容问题而报错</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>安装uView</p>
-<ol>
-<li><p>安装uView</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install uview-ui // 安装</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>main.js引入uView主JS库</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在项目src目录中的main.js中，引入并使用uView的JS库，注意这两行要放在import Vue之后。</span></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> uView <span class="keyword">from</span> <span class="string">&quot;uview-ui&quot;</span>;</span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(uView);</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>在引入uView的全局SCSS主题文件</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*在项目src目录的uni.scss中引入此文件。*/</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;uview-ui/theme.scss&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>引入uView基础样式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* 在App.vue中首行的位置引入，注意给style标签加入lang=&quot;scss&quot;属性 */</span><br><span class="line">&lt;style lang=&quot;scss&quot;&gt;</span><br><span class="line">	/* 注意要写在第一行，同时给style标签加入lang=&quot;scss&quot;属性 */</span><br><span class="line">	@import &quot;uview-ui/index.scss&quot;;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置easycom组件模式</p>
-<p>此配置需要在项目<code>src</code>目录的<code>pages.json</code>中进行</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// pages.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;easycom&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;^u-(.*)&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uview-ui/components/u-$1/u-$1.vue&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 此为本身已有的内容</span></span><br><span class="line">	<span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="comment">// ......</span></span><br><span class="line">	<span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Cli模式额外配置</p>
-<p>如果您是<code>vue-cli</code>模式的项目，还需要在项目<code>根目录</code>的<code>vue.config.js</code>文件中进行如下配置：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vue.config.js，如没有此文件则手动创建</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">transpileDependencies</span>: [<span class="string">&#x27;uview-ui&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
   </entry>
   <entry>
     <title>hexo文章中添加图片</title>
@@ -334,6 +246,28 @@
       </tags>
   </entry>
   <entry>
+    <title>react 引入文件配置的路径为‘@’</title>
+    <url>/2022/06/06/react-%E5%BC%95%E5%85%A5%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%9A%84%E8%B7%AF%E5%BE%84%E4%B8%BA%E2%80%98@%E2%80%99/</url>
+    <content><![CDATA[<h2 id="react-引入文件配置的路径为‘-’"><a href="#react-引入文件配置的路径为‘-’" class="headerlink" title="react 引入文件配置的路径为‘@’"></a>react 引入文件配置的路径为‘@’</h2><p>在前面搭建react项目框架的过程上补充引入文件的配置，例如我们会使用 <code>../</code> 的方式去引入其他文件夹的文件，这样如果修改、查看下都会显得过于复杂，所以通过webpack的配置进行操作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202206061406970.png"></p>
+<p>配置后的效果如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;findUserPageList&#125; <span class="keyword">from</span> <span class="string">&#x27;@/apis/user&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;phoneValidator&#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/rules&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样就方便多了~</p>
+<p>配置方式如下：</p>
+<h3 id="1、暴露webpack的配置文件"><a href="#1、暴露webpack的配置文件" class="headerlink" title="1、暴露webpack的配置文件"></a>1、暴露webpack的配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># npm 方式:</span></span><br><span class="line">    npm run eject</span><br><span class="line"><span class="comment"># cnpm 方式:</span></span><br><span class="line">    cnpm run eject</span><br><span class="line"><span class="comment"># yarn 方式:</span></span><br><span class="line">    yarn eject</span><br></pre></td></tr></table></figure>
+
+<p>注：此步骤不可逆，暴露后无法撤销~</p>
+<h3 id="2、配置根目录下的config文件夹中的-webpack-config-js"><a href="#2、配置根目录下的config文件夹中的-webpack-config-js" class="headerlink" title="2、配置根目录下的config文件夹中的 webpack.config.js"></a>2、配置根目录下的<code>config</code>文件夹中的 <code>webpack.config.js</code></h3><p>搜索 <code>alias</code> 在其中添加配置：<code>&#39;@&#39;:path.resolve(&#39;src&#39;) </code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">alias</span>: &#123;</span><br><span class="line">   <span class="string">&#x27;react-native&#x27;</span>: <span class="string">&#x27;react-native-web&#x27;</span>,</span><br><span class="line">   ...(isEnvProductionProfile &amp;&amp; &#123;</span><br><span class="line">   		<span class="string">&#x27;react-dom$&#x27;</span>: <span class="string">&#x27;react-dom/profiling&#x27;</span>,</span><br><span class="line">   		<span class="string">&#x27;scheduler/tracing&#x27;</span>: <span class="string">&#x27;scheduler/tracing-profiling&#x27;</span>,</span><br><span class="line">   &#125;),</span><br><span class="line">   ...(modules.<span class="property">webpackAliases</span> || &#123;&#125;),</span><br><span class="line">   <span class="string">&#x27;@&#x27;</span>:path.<span class="title function_">resolve</span>(<span class="string">&#x27;src&#x27;</span>)   <span class="comment">// 添加这条配置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>保存即可，记得重新启动一下项目哈~</p>
+]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>reactOneDay</title>
     <url>/2022/05/06/reactOneDay/</url>
     <content><![CDATA[<h1 id="React-One-Day"><a href="#React-One-Day" class="headerlink" title="React One Day"></a>React One Day</h1><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
@@ -358,28 +292,6 @@
     <title>reactThreeDay</title>
     <url>/2022/05/11/reactThreeDay/</url>
     <content><![CDATA[]]></content>
-      <tags>
-        <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>react 引入文件配置的路径为‘@’</title>
-    <url>/2022/06/06/react-%E5%BC%95%E5%85%A5%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%9A%84%E8%B7%AF%E5%BE%84%E4%B8%BA%E2%80%98@%E2%80%99/</url>
-    <content><![CDATA[<h2 id="react-引入文件配置的路径为‘-’"><a href="#react-引入文件配置的路径为‘-’" class="headerlink" title="react 引入文件配置的路径为‘@’"></a>react 引入文件配置的路径为‘@’</h2><p>在前面搭建react项目框架的过程上补充引入文件的配置，例如我们会使用 <code>../</code> 的方式去引入其他文件夹的文件，这样如果修改、查看下都会显得过于复杂，所以通过webpack的配置进行操作。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202206061406970.png"></p>
-<p>配置后的效果如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;findUserPageList&#125; <span class="keyword">from</span> <span class="string">&#x27;@/apis/user&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;phoneValidator&#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/rules&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这样就方便多了~</p>
-<p>配置方式如下：</p>
-<h3 id="1、暴露webpack的配置文件"><a href="#1、暴露webpack的配置文件" class="headerlink" title="1、暴露webpack的配置文件"></a>1、暴露webpack的配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># npm 方式:</span></span><br><span class="line">    npm run eject</span><br><span class="line"><span class="comment"># cnpm 方式:</span></span><br><span class="line">    cnpm run eject</span><br><span class="line"><span class="comment"># yarn 方式:</span></span><br><span class="line">    yarn eject</span><br></pre></td></tr></table></figure>
-
-<p>注：此步骤不可逆，暴露后无法撤销~</p>
-<h3 id="2、配置根目录下的config文件夹中的-webpack-config-js"><a href="#2、配置根目录下的config文件夹中的-webpack-config-js" class="headerlink" title="2、配置根目录下的config文件夹中的 webpack.config.js"></a>2、配置根目录下的<code>config</code>文件夹中的 <code>webpack.config.js</code></h3><p>搜索 <code>alias</code> 在其中添加配置：<code>&#39;@&#39;:path.resolve(&#39;src&#39;) </code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">alias</span>: &#123;</span><br><span class="line">   <span class="string">&#x27;react-native&#x27;</span>: <span class="string">&#x27;react-native-web&#x27;</span>,</span><br><span class="line">   ...(isEnvProductionProfile &amp;&amp; &#123;</span><br><span class="line">   		<span class="string">&#x27;react-dom$&#x27;</span>: <span class="string">&#x27;react-dom/profiling&#x27;</span>,</span><br><span class="line">   		<span class="string">&#x27;scheduler/tracing&#x27;</span>: <span class="string">&#x27;scheduler/tracing-profiling&#x27;</span>,</span><br><span class="line">   &#125;),</span><br><span class="line">   ...(modules.<span class="property">webpackAliases</span> || &#123;&#125;),</span><br><span class="line">   <span class="string">&#x27;@&#x27;</span>:path.<span class="title function_">resolve</span>(<span class="string">&#x27;src&#x27;</span>)   <span class="comment">// 添加这条配置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>保存即可，记得重新启动一下项目哈~</p>
-]]></content>
       <tags>
         <tag>react</tag>
       </tags>
@@ -461,17 +373,18 @@
   <entry>
     <title>UniApp开发基础框架搭建流程</title>
     <url>/2022/03/02/uniApp%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="UniApp开发基础框架搭建流程"><a href="#UniApp开发基础框架搭建流程" class="headerlink" title="UniApp开发基础框架搭建流程"></a>UniApp开发基础框架搭建流程</h1><h3 id="1、工具选择：HBuilderX"><a href="#1、工具选择：HBuilderX" class="headerlink" title="1、工具选择：HBuilderX"></a>1、工具选择：HBuilderX<img src="/.io//Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20220303141348454.png" alt="image-20220303141348454"></h3><h3 id="2、文件-gt-新建-gt-项目（我这里选择默认模板）"><a href="#2、文件-gt-新建-gt-项目（我这里选择默认模板）" class="headerlink" title="2、文件 -&gt; 新建 -&gt; 项目（我这里选择默认模板）"></a>2、文件 -&gt; 新建 -&gt; 项目（我这里选择默认模板）</h3><h3 id="3、安装scss"><a href="#3、安装scss" class="headerlink" title="3、安装scss"></a>3、安装scss</h3><h4 id="3-1、通过插件市场安装"><a href="#3-1、通过插件市场安装" class="headerlink" title="3-1、通过插件市场安装"></a>3-1、通过插件市场安装</h4><p>​        工具 -&gt; 插件安装：安装scss&#x2F;sass编译</p>
-<h3 id="4、安装uview（通过HbuilderX方式）"><a href="#4、安装uview（通过HbuilderX方式）" class="headerlink" title="4、安装uview（通过HbuilderX方式）"></a>4、安装uview（通过HbuilderX方式）</h3><p>​    安装链接：<a href="https://ext.dcloud.net.cn/plugin?id=1593">uView2.0重磅发布，利剑出鞘，一统江湖 - DCloud 插件市场</a></p>
-<h4 id="4-1、引入uView主JS库"><a href="#4-1、引入uView主JS库" class="headerlink" title="4-1、引入uView主JS库"></a>4-1、引入uView主JS库</h4><p>​    在项目根目录中的<code>main.js</code>中，引入并使用uView的JS库，注意这两行要放在<code>import Vue</code>之后。</p>
+    <content><![CDATA[<h1 id="UniApp开发基础框架搭建流程"><a href="#UniApp开发基础框架搭建流程" class="headerlink" title="UniApp开发基础框架搭建流程"></a>UniApp开发基础框架搭建流程</h1><h3 id="工具选择：HBuilderX"><a href="#工具选择：HBuilderX" class="headerlink" title="工具选择：HBuilderX"></a>工具选择：HBuilderX</h3><p><img src="https://cdn.jsdelivr.net/gh/ShenJieXin/blog-imgs/202206091117382.png"></p>
+<h3 id="文件-gt-新建-gt-项目（我这里选择默认模板）"><a href="#文件-gt-新建-gt-项目（我这里选择默认模板）" class="headerlink" title="文件 -&gt; 新建 -&gt; 项目（我这里选择默认模板）"></a>文件 -&gt; 新建 -&gt; 项目（我这里选择默认模板）</h3><h3 id="安装scss"><a href="#安装scss" class="headerlink" title="安装scss"></a>安装scss</h3><h4 id="通过插件市场安装"><a href="#通过插件市场安装" class="headerlink" title="通过插件市场安装"></a>通过插件市场安装</h4><p>​        工具 -&gt; 插件安装：安装scss&#x2F;sass编译</p>
+<h3 id="安装uview（通过HbuilderX方式）"><a href="#安装uview（通过HbuilderX方式）" class="headerlink" title="安装uview（通过HbuilderX方式）"></a>安装uview（通过HbuilderX方式）</h3><p>​    安装链接：<a href="https://ext.dcloud.net.cn/plugin?id=1593">uView2.0重磅发布，利剑出鞘，一统江湖 - DCloud 插件市场</a></p>
+<h4 id="引入uView主JS库"><a href="#引入uView主JS库" class="headerlink" title="引入uView主JS库"></a>引入uView主JS库</h4><p>​        在项目根目录中的<code>main.js</code>中，引入并使用uView的JS库，注意这两行要放在<code>import Vue</code>之后。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> uView <span class="keyword">from</span> <span class="string">&#x27;@/uni_modules/uview-ui&#x27;</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(uView)</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-2、在引入uView的全局SCSS主题文件"><a href="#4-2、在引入uView的全局SCSS主题文件" class="headerlink" title="4-2、在引入uView的全局SCSS主题文件"></a>4-2、在引入uView的全局SCSS主题文件</h4><p>​    在项目根目录的<code>uni.scss</code>中引入此文件。</p>
+<h4 id="在引入uView的全局SCSS主题文件"><a href="#在引入uView的全局SCSS主题文件" class="headerlink" title="在引入uView的全局SCSS主题文件"></a>在引入uView的全局SCSS主题文件</h4><p>​        在项目根目录的<code>uni.scss</code>中引入此文件。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* uni.scss */</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;@/uni_modules/uview-ui/theme.scss&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-3、引入uView基础样式（注意！在App-vue中首行的位置引入，注意给style标签加入lang-x3D-”scss”属性）"><a href="#4-3、引入uView基础样式（注意！在App-vue中首行的位置引入，注意给style标签加入lang-x3D-”scss”属性）" class="headerlink" title="4-3、引入uView基础样式（注意！在App.vue中首行的位置引入，注意给style标签加入lang&#x3D;”scss”属性）"></a>4-3、引入uView基础样式（注意！在<code>App.vue</code>中<strong>首行</strong>的位置引入，注意给style标签加入lang&#x3D;”scss”属性）</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* App.vue */</span></span><br><span class="line">&lt;style lang=&quot;scss&quot;&gt;</span><br><span class="line"><span class="comment">/* 注意要写在第一行，同时给style标签加入lang=&quot;scss&quot;属性 */</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;@/uni_modules/uview-ui/index.scss&quot;</span>;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="引入uView基础样式（注意！在App-vue中首行的位置引入，注意给style标签加入lang-x3D-”scss”属性）"><a href="#引入uView基础样式（注意！在App-vue中首行的位置引入，注意给style标签加入lang-x3D-”scss”属性）" class="headerlink" title="引入uView基础样式（注意！在App.vue中首行的位置引入，注意给style标签加入lang&#x3D;”scss”属性）"></a>引入uView基础样式（注意！在<code>App.vue</code>中<strong>首行</strong>的位置引入，注意给style标签加入lang&#x3D;”scss”属性）</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* App.vue */</span></span><br><span class="line">&lt;style lang=&quot;scss&quot;&gt;</span><br><span class="line"><span class="comment">/* 注意要写在第一行，同时给style标签加入lang=&quot;scss&quot;属性 */</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;@/uni_modules/uview-ui/index.scss&quot;</span>;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="5、安装Vuex"><a href="#5、安装Vuex" class="headerlink" title="5、安装Vuex"></a>5、安装Vuex</h3><p>​    uniapp默认就已经安装了VUEX</p>
+<h3 id="安装Vuex"><a href="#安装Vuex" class="headerlink" title="安装Vuex"></a>安装Vuex</h3><p>​    uniapp默认就已经安装了VUEX</p>
 <p>​    添加store文件夹及其文件：根目录新建store文件夹，文件夹中新建index.js</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//store/index.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这边存放了项目需要用到的全局的东西（这里我放了登录和退出的接口，及token等）</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vuex</span> <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">Vuex</span>)</span><br><span class="line"><span class="comment">/* eslint-disable */</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    login,</span><br><span class="line">    logout</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&#x27;../apis/user.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123;</span><br><span class="line">    <span class="attr">state</span>: &#123;</span><br><span class="line">        <span class="attr">token</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">name</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">avatar</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">roles</span>:<span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">mutations</span>: &#123;</span><br><span class="line">        <span class="attr">SET_TOKEN</span>: <span class="function">(<span class="params">state, token</span>) =&gt;</span> &#123;</span><br><span class="line">            state.<span class="property">token</span> = token;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">SET_NAME</span>: <span class="function">(<span class="params">state, name</span>) =&gt;</span> &#123;</span><br><span class="line">            state.<span class="property">name</span> = name;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">SET_AVATAR</span>: <span class="function">(<span class="params">state, avatar</span>) =&gt;</span> &#123;</span><br><span class="line">            state.<span class="property">avatar</span> = avatar;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">SET_ROLES</span>: <span class="function">(<span class="params">state, roles</span>) =&gt;</span> &#123;</span><br><span class="line">            state.<span class="property">roles</span> = roles;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">actions</span>: &#123;</span><br><span class="line">        <span class="comment">// 用户登录</span></span><br><span class="line">        <span class="title function_">login</span>(<span class="params">&#123;</span></span><br><span class="line"><span class="params">            commit</span></span><br><span class="line"><span class="params">        &#125;, userInfo</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="title function_">login</span>(userInfo).<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;login&#x27;</span>, data)</span><br><span class="line">                    <span class="keyword">const</span> obj = data;</span><br><span class="line">                    <span class="title function_">commit</span>(<span class="string">&#x27;SET_TOKEN&#x27;</span>, obj.<span class="property">token</span>);</span><br><span class="line">                    <span class="title function_">commit</span>(<span class="string">&#x27;SET_NAME&#x27;</span>, obj.<span class="property">name</span>);</span><br><span class="line">                    <span class="title function_">commit</span>(<span class="string">&#x27;SET_AVATAR&#x27;</span>, obj.<span class="property">userId</span>);</span><br><span class="line">                    <span class="title function_">commit</span>(<span class="string">&#x27;SET_ROLES&#x27;</span>, <span class="string">&#x27;admin&#x27;</span>);</span><br><span class="line">                    uni.<span class="title function_">setStorageSync</span>(<span class="string">&#x27;token&#x27;</span>, obj.<span class="property">token</span>);</span><br><span class="line">                    uni.<span class="title function_">setStorageSync</span>(<span class="string">&#x27;userName&#x27;</span>, obj.<span class="property">name</span>);</span><br><span class="line">                    uni.<span class="title function_">setStorageSync</span>(<span class="string">&#x27;userSn&#x27;</span>, obj.<span class="property">userId</span>);</span><br><span class="line">                    uni.<span class="title function_">setStorageSync</span>(<span class="string">&#x27;userGroupId&#x27;</span>, obj.<span class="property">userGroupId</span>);</span><br><span class="line">                    uni.<span class="title function_">setStorageSync</span>(<span class="string">&#x27;unitGroupId&#x27;</span>, obj.<span class="property">unitGroupId</span>);</span><br><span class="line">                    uni.<span class="title function_">setStorageSync</span>(<span class="string">&#x27;sysAdmin&#x27;</span>, obj.<span class="property">sysAdmin</span>);</span><br><span class="line">                    <span class="title function_">resolve</span>(data);</span><br><span class="line">                &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="title function_">reject</span>(error.<span class="property">msg</span>);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 用户登出</span></span><br><span class="line">        <span class="title function_">logout</span>(<span class="params">&#123;</span></span><br><span class="line"><span class="params">            commit,</span></span><br><span class="line"><span class="params">            state</span></span><br><span class="line"><span class="params">        &#125;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="title function_">logout</span>(state.<span class="property">token</span>).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                    <span class="title function_">commit</span>(<span class="string">&#x27;SET_TOKEN&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">                    <span class="title function_">commit</span>(<span class="string">&#x27;SET_NAME&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">                    <span class="title function_">commit</span>(<span class="string">&#x27;SET_AVATAR&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">                    <span class="title function_">commit</span>(<span class="string">&#x27;SET_ROLES&#x27;</span>, []);</span><br><span class="line">                    uni.<span class="title function_">clearStorage</span>(); <span class="comment">//清除本地缓存</span></span><br><span class="line">                    <span class="title function_">resolve</span>();</span><br><span class="line">                &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="title function_">reject</span>(error);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -527,6 +440,71 @@
 ]]></content>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用VUE + Vant + uView + Sass搭建移动端项目</title>
+    <url>/2022/02/18/%E4%BD%BF%E7%94%A8VUE%20+%20Vant%20+%20uView%20+%20Sass%E6%90%AD%E5%BB%BA%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<h1 id="使用VUE-Vant-uView-Sass搭建移动端项目"><a href="#使用VUE-Vant-uView-Sass搭建移动端项目" class="headerlink" title="使用VUE + Vant + uView + Sass搭建移动端项目"></a>使用VUE + Vant + uView + Sass搭建移动端项目</h1><h3 id="框架搭建"><a href="#框架搭建" class="headerlink" title="框架搭建"></a>框架搭建</h3><h4 id="安装vue"><a href="#安装vue" class="headerlink" title="安装vue"></a>安装vue</h4><p>​    新建一个存放项目的文件夹目录</p>
+<p>​    在目录内cmd</p>
+<p>​    vue init webpack ‘项目名称’，如：vue init webpack MyPortalProject，然后根据自身选择需要的东西</p>
+<p>​    完成，直接npm run dev运行vue项目</p>
+<h3 id="配置ESLint"><a href="#配置ESLint" class="headerlink" title="配置ESLint"></a>配置ESLint</h3><h5 id="打开-eslintrc-js"><a href="#打开-eslintrc-js" class="headerlink" title="打开.eslintrc.js"></a>打开.eslintrc.js</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> isPro = process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&quot;production&quot;</span>;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">root</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">parserOptions</span>: &#123;</span><br><span class="line">    <span class="attr">parser</span>: <span class="string">&quot;babel-eslint&quot;</span>,</span><br><span class="line">    <span class="attr">ecmaVersion</span>:<span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">env</span>: &#123;</span><br><span class="line">    <span class="attr">browser</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">es6</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&#x27;plugin:vue/essential&#x27;</span>],</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&quot;vue&quot;</span>],</span><br><span class="line">  <span class="comment">// &quot;off&quot;或者0    关闭规则关闭</span></span><br><span class="line">  <span class="comment">// &quot;warn&quot;或者1   在打开的规则作为警告（不影响退出代码）</span></span><br><span class="line">  <span class="comment">// &quot;error&quot;或者2  把规则作为一个错误（退出代码触发时为1）</span></span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&quot;vue/no-use-v-if-with-v-for&quot;</span>: [<span class="string">&quot;error&quot;</span>, &#123;</span><br><span class="line">      <span class="string">&quot;allowUsingIterationVar&quot;</span>: <span class="literal">true</span></span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="comment">// 代码风格规范</span></span><br><span class="line">    <span class="string">&quot;quotes&quot;</span>: [<span class="number">2</span>, <span class="string">&quot;single&quot;</span>], <span class="comment">//字符串使用单引号</span></span><br><span class="line">    <span class="string">&quot;space-infix-ops&quot;</span>: <span class="number">2</span>, <span class="comment">// 操作符周围要有空格</span></span><br><span class="line">    <span class="string">&quot;spaced-comment&quot;</span>: <span class="number">2</span>, <span class="comment">//注释风格要有空格</span></span><br><span class="line">    <span class="string">&quot;comma-spacing&quot;</span>: <span class="number">2</span>, <span class="comment">//逗号后要有空格</span></span><br><span class="line">    <span class="string">&quot;comma-style&quot;</span>: [<span class="number">2</span>, <span class="string">&quot;last&quot;</span>], <span class="comment">//逗号风格，换行时在行首还是行尾</span></span><br><span class="line">    <span class="string">&quot;consistent-this&quot;</span>: [<span class="number">2</span>, <span class="string">&quot;_this&quot;</span>], <span class="comment">//this别名</span></span><br><span class="line">    <span class="string">&quot;curly&quot;</span>: [<span class="number">2</span>, <span class="string">&quot;all&quot;</span>], <span class="comment">//必须使用 if()&#123;&#125; 中的&#123;&#125;</span></span><br><span class="line">    <span class="string">&quot;brace-style&quot;</span>: [<span class="number">2</span>, <span class="string">&quot;1tbs&quot;</span>], <span class="comment">// 大括号和关键字在同一行</span></span><br><span class="line">    <span class="string">&quot;no-unused-vars&quot;</span>: [<span class="number">0</span>, &#123;<span class="string">&quot;vars&quot;</span>: <span class="string">&quot;all&quot;</span>, <span class="string">&quot;args&quot;</span>: <span class="string">&quot;after-used&quot;</span>&#125;], <span class="comment">//不能有声明后未被使用的变量或参数</span></span><br><span class="line">    <span class="string">&quot;no-use-before-define&quot;</span>: <span class="number">0</span>, <span class="comment">//未定义前不能使用</span></span><br><span class="line">    <span class="string">&quot;arrow-parens&quot;</span>: <span class="number">2</span>, <span class="comment">//箭头函数用小括号括起来</span></span><br><span class="line">    <span class="string">&quot;no-multiple-empty-lines&quot;</span>: [<span class="number">1</span>, &#123;<span class="string">&quot;max&quot;</span>: <span class="number">2</span>&#125;], <span class="comment">//空行最多不能超过2行</span></span><br><span class="line">    <span class="string">&quot;operator-linebreak&quot;</span>: [<span class="number">2</span>, <span class="string">&quot;after&quot;</span>], <span class="comment">//换行时运算符在行尾还是行首</span></span><br><span class="line">    <span class="string">&quot;indent&quot;</span>: [<span class="number">2</span>, <span class="number">2</span>], <span class="comment">//缩进风格,缩进两格</span></span><br><span class="line">    <span class="string">&quot;comma-dangle&quot;</span>: [<span class="number">2</span>, <span class="string">&quot;never&quot;</span>], <span class="comment">//对象字面量项尾不能有逗号</span></span><br><span class="line">    <span class="string">&quot;dot-location&quot;</span>: <span class="number">2</span>, <span class="comment">//对象访问符的位置，换行的时候在行首还是行尾</span></span><br><span class="line">    <span class="string">&quot;func-call-spacing&quot;</span>: <span class="number">2</span>, <span class="comment">//函数调用不要空格</span></span><br><span class="line">    <span class="string">&quot;key-spacing&quot;</span>: [<span class="number">2</span>, &#123; <span class="string">&quot;afterColon&quot;</span>: <span class="literal">true</span>, <span class="string">&quot;mode&quot;</span>: <span class="string">&quot;strict&quot;</span> &#125;], <span class="comment">// key的冒号后面要有空格</span></span><br><span class="line">    <span class="string">&quot;no-dupe-keys&quot;</span>: <span class="number">2</span>,<span class="comment">//在创建对象字面量时不允许键重复 &#123;a:1,a:1&#125;</span></span><br><span class="line">    <span class="string">&quot;no-duplicate-case&quot;</span>: <span class="number">2</span>,<span class="comment">//switch中的case标签不能重复</span></span><br><span class="line">    <span class="string">&quot;no-floating-decimal&quot;</span>: <span class="number">2</span>,<span class="comment">//禁止省略浮点数中的0 .5 3.</span></span><br><span class="line">    <span class="string">&quot;no-multi-spaces&quot;</span>: <span class="number">2</span>,<span class="comment">//不能用多余的空格</span></span><br><span class="line">    <span class="string">&quot;no-multi-str&quot;</span>: <span class="number">2</span>, <span class="comment">//字符串不能用\换行</span></span><br><span class="line">    <span class="string">&quot;object-property-newline&quot;</span>: <span class="number">0</span>, <span class="comment">//对象属性换行时注意统一代码风格。</span></span><br><span class="line">    <span class="string">&quot;padded-blocks&quot;</span>: <span class="number">0</span>,<span class="comment">//块语句内行首行尾是否要空行</span></span><br><span class="line">    <span class="string">&quot;vue/v-bind-style&quot;</span>: [<span class="string">&quot;error&quot;</span>, <span class="string">&quot;shorthand&quot;</span>],</span><br><span class="line">    <span class="string">&quot;vue/v-on-style&quot;</span>: [<span class="string">&quot;error&quot;</span>, <span class="string">&quot;shorthand&quot;</span>],</span><br><span class="line">    <span class="string">&quot;prefer-destructuring&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;class-methods-use-this&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;no-mixed-operators&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;max-len&quot;</span>: <span class="number">0</span>, <span class="comment">//字符串最大长度</span></span><br><span class="line">    <span class="string">&quot;no-unused-expressions&quot;</span>: <span class="number">2</span>, <span class="comment">//禁止无用的表达式</span></span><br><span class="line">    <span class="string">&quot;import/no-dynamic-require&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;func-names&quot;</span>: <span class="number">0</span>, <span class="comment">//函数表达式必须有名字</span></span><br><span class="line">    <span class="string">&quot;no-underscore-dangle&quot;</span>: <span class="number">0</span>, <span class="comment">//标识符不能以_开头或结尾</span></span><br><span class="line">    <span class="string">&quot;no-restricted-properties&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;no-restricted-syntax&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;no-prototype-builtins&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;no-plusplus&quot;</span>: <span class="number">0</span>, <span class="comment">//禁止使用++，--</span></span><br><span class="line">    <span class="string">&quot;one-var&quot;</span>: <span class="number">0</span>, <span class="comment">//连续声明</span></span><br><span class="line">    <span class="string">&quot;no-tabs&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;prefer-const&quot;</span>: <span class="number">0</span>, <span class="comment">//首选const</span></span><br><span class="line">    <span class="string">&quot;global-require&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;guard-for-in&quot;</span>: <span class="number">0</span>, <span class="comment">//for in循环要用if语句过滤</span></span><br><span class="line">    <span class="string">&quot;import/extensions&quot;</span>:<span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;no-console&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;no-return-assign&quot;</span>: <span class="number">0</span>, <span class="comment">//return 语句中不能有赋值表达式</span></span><br><span class="line">    <span class="string">&quot;no-param-reassign&quot;</span>: <span class="number">0</span>, <span class="comment">//禁止给参数重新赋值</span></span><br><span class="line">    <span class="string">&quot;no-nested-ternary&quot;</span>: <span class="number">0</span>, <span class="comment">//禁止使用嵌套的三目运算</span></span><br><span class="line">    <span class="string">&quot;camelcase&quot;</span>: <span class="number">0</span>, <span class="comment">//强制驼峰法命名</span></span><br><span class="line">    <span class="string">&quot;eqeqeq&quot;</span>: <span class="number">0</span>,<span class="comment">//必须使用全等</span></span><br><span class="line">    <span class="string">&quot;import/no-extraneous-dependencies&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;no-debugger&quot;</span>: isPro ? <span class="string">&quot;error&quot;</span> : <span class="string">&quot;off&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果运行的时候发生错误：可能为ESLint生效，把代码格式修改为正确的ESLint再重新运行</p>
+<h3 id="安装axios"><a href="#安装axios" class="headerlink" title="安装axios"></a>安装axios</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install axios --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装vuex"><a href="#安装vuex" class="headerlink" title="安装vuex"></a>安装vuex</h3><h4 id="安装：npm-i-vuex"><a href="#安装：npm-i-vuex" class="headerlink" title="安装：npm i vuex"></a>安装：npm i vuex</h4><p>新建文件store&#x2F;index.js </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vuex</span> <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="keyword">import</span> modules <span class="keyword">from</span> <span class="string">&#x27;./modules&#x27;</span>  </span><br><span class="line">    *<span class="comment">// 数据持久化*</span></span><br><span class="line">    <span class="keyword">import</span> createPersistedState <span class="keyword">from</span> <span class="string">&#x27;vuex-persistedstate&#x27;</span>;</span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">Vuex</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123;</span><br><span class="line">    modules</span><br><span class="line">    *<span class="comment">// plugins: [createPersistedState()]*</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>使用：main.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">    store</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装sass"><a href="#安装sass" class="headerlink" title="安装sass"></a>安装sass</h3><h5 id="sass-loader依赖于node-sass-所以要安装node-sass"><a href="#sass-loader依赖于node-sass-所以要安装node-sass" class="headerlink" title="sass-loader依赖于node-sass,所以要安装node-sass"></a>sass-loader依赖于node-sass,所以要安装node-sass</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install node-sass --save-dev    //安装node-sass</span><br><span class="line">npm install sass-loader --save-dev     //安装依赖包sass-loader</span><br><span class="line">npm install style-loader --save-dev    //安装style-loader</span><br></pre></td></tr></table></figure>
+
+<p>在build文件夹下的webpack.base.conf.js的module下 rules里面添加配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">test</span>: <span class="regexp">/\.sass$/</span>,</span><br><span class="line">  <span class="attr">loaders</span>: [<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;css&#x27;</span>, <span class="string">&#x27;sass&#x27;</span>]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>在需要用到sass的地方添加lang&#x3D;scss</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：如果因为使用lang&#x3D;“scss”后npm run dev报错，可能因为版本过高的原因，把</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//卸载sass-loader</span><br><span class="line">npm uninstall sass-loader</span><br><span class="line">//安装更低的版本</span><br><span class="line">npm install sass-loader@7.3.1 --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Vant框架"><a href="#安装Vant框架" class="headerlink" title="安装Vant框架"></a>安装Vant框架</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//npm 安装vant</span><br><span class="line">npm i vant -S</span><br></pre></td></tr></table></figure>
+
+<h4 id="引入组件（自动按需引入）"><a href="#引入组件（自动按需引入）" class="headerlink" title="引入组件（自动按需引入）"></a>引入组件（自动按需引入）</h4><p><a href="https://github.com/ant-design/babel-plugin-import">babel-plugin-import</a> 是一款 babel 插件，它会在编译过程中将 import 的写法自动转换为按需引入的方式。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 安装插件</span><br><span class="line">npm i babel-plugin-import -D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 接着你可以在代码中直接引入 Vant 组件</span></span><br><span class="line"><span class="comment">// 插件会自动将代码转化为方式二中的按需引入形式</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vant&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置scss（安装uview使用的sass10版本太高了）"><a href="#配置scss（安装uview使用的sass10版本太高了）" class="headerlink" title="配置scss（安装uview使用的sass10版本太高了）"></a>配置scss（安装uview使用的sass10版本太高了）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i node-sass -D // 安装node-sass</span><br><span class="line">npm i sass-loader@10 -D  // 安装sass-loader，注意需要版本10，否则可能会导致vue与sass的兼容问题而报错</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装uView"><a href="#安装uView" class="headerlink" title="安装uView"></a>安装uView</h3><p>安装uView</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install uview-ui // 安装</span><br></pre></td></tr></table></figure>
+
+<p>main.js引入uView主JS库</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在项目src目录中的main.js中，引入并使用uView的JS库，注意这两行要放在import Vue之后。</span></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> uView <span class="keyword">from</span> <span class="string">&quot;uview-ui&quot;</span>;</span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(uView);</span><br></pre></td></tr></table></figure>
+
+<p>在引入uView的全局SCSS主题文件</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*在项目src目录的uni.scss中引入此文件。*/</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;uview-ui/theme.scss&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>引入uView基础样式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* 在App.vue中首行的位置引入，注意给style标签加入lang=&quot;scss&quot;属性 */</span><br><span class="line">&lt;style lang=&quot;scss&quot;&gt;</span><br><span class="line">	/* 注意要写在第一行，同时给style标签加入lang=&quot;scss&quot;属性 */</span><br><span class="line">	@import &quot;uview-ui/index.scss&quot;;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>配置easycom组件模式</p>
+<p>此配置需要在项目<code>src</code>目录的<code>pages.json</code>中进行</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// pages.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;easycom&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;^u-(.*)&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uview-ui/components/u-$1/u-$1.vue&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 此为本身已有的内容</span></span><br><span class="line">	<span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="comment">// ......</span></span><br><span class="line">	<span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Cli模式额外配置</p>
+<p>如果您是<code>vue-cli</code>模式的项目，还需要在项目<code>根目录</code>的<code>vue.config.js</code>文件中进行如下配置：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vue.config.js，如没有此文件则手动创建</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">transpileDependencies</span>: [<span class="string">&#x27;uview-ui&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
