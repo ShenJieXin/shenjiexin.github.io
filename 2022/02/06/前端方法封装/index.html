@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shenjiexin.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+  <meta name="description" content="包含了vue、JavaScript等封装的一些方法进行纪律~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="前端封装的一些常用的方法">
+<meta property="og:url" content="https://shenjiexin.github.io/2022/02/06/%E5%89%8D%E7%AB%AF%E6%96%B9%E6%B3%95%E5%B0%81%E8%A3%85/index.html">
+<meta property="og:site_name" content="阿❤的小前端">
+<meta property="og:description" content="包含了vue、JavaScript等封装的一些方法进行纪律~">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-02-06T14:21:22.000Z">
+<meta property="article:modified_time" content="2022-06-09T03:12:59.786Z">
+<meta property="article:author" content="阿❤哒哒">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://shenjiexin.github.io/2022/02/06/%E5%89%8D%E7%AB%AF%E6%96%B9%E6%B3%95%E5%B0%81%E8%A3%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"https://shenjiexin.github.io/2022/02/06/%E5%89%8D%E7%AB%AF%E6%96%B9%E6%B3%95%E5%B0%81%E8%A3%85/","path":"2022/02/06/前端方法封装/","title":"前端封装的一些常用的方法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>前端封装的一些常用的方法 | 阿❤的小前端</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?6b9de439947224c912b264ad1c277093"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+  <script src="/live2d-widget/autoload.js"></script>
+  <script src="/js/clicklove.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">阿❤的小前端</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">23</span></a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%8E%BB%E9%87%8D"><span class="nav-number">1.</span> <span class="nav-text">复杂数组中的对象去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element%E5%A4%9A%E9%80%89%E8%A1%A8%E6%A0%BC%E5%9B%9E%E6%98%BE"><span class="nav-number">2.</span> <span class="nav-text">Element多选表格回显</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E9%A6%96%E5%B8%A7%E6%88%AA%E5%8F%96"><span class="nav-number">3.</span> <span class="nav-text">视频首帧截取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript%E7%94%9F%E6%88%90%E5%94%AF%E4%B8%80ID%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">JavaScript生成唯一ID的方式：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="阿❤哒哒"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">阿❤哒哒</p>
+  <div class="site-description" itemprop="description">Ctrl C + Ctrl V</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://shenjiexin.github.io/2022/02/06/%E5%89%8D%E7%AB%AF%E6%96%B9%E6%B3%95%E5%B0%81%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="阿❤哒哒">
+      <meta itemprop="description" content="Ctrl C + Ctrl V">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿❤的小前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端封装的一些常用的方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-06 22:21:22" itemprop="dateCreated datePublished" datetime="2022-02-06T22:21:22+08:00">2022-02-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-09 11:12:59" itemprop="dateModified" datetime="2022-06-09T11:12:59+08:00">2022-06-09</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">包含了vue、JavaScript等封装的一些方法进行纪律~</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="复杂数组中的对象去重"><a href="#复杂数组中的对象去重" class="headerlink" title="复杂数组中的对象去重"></a>复杂数组中的对象去重</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [&#123;<span class="attr">id</span>:<span class="string">&#x27;1&#x27;</span>,<span class="attr">name</span>:<span class="string">&#x27;沈杰鑫&#x27;</span>&#125;,&#123;<span class="attr">id</span>:<span class="string">&#x27;1&#x27;</span>,<span class="attr">name</span>:<span class="string">&#x27;沈杰鑫&#x27;</span>&#125;,&#123;<span class="attr">id</span>:<span class="string">&#x27;1&#x27;</span>,<span class="attr">name</span>:<span class="string">&#x27;沈杰鑫&#x27;</span>&#125;,&#123;<span class="attr">id</span>:<span class="string">&#x27;1&#x27;</span>,<span class="attr">name</span>:<span class="string">&#x27;沈杰鑫&#x27;</span>&#125;]</span><br><span class="line"><span class="title function_">setRepeat</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; <span class="variable language_">this</span>.<span class="property">array</span>.<span class="property">length</span> - <span class="number">1</span>;i++) &#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">var</span> j = i + <span class="number">1</span>;j &lt; <span class="variable language_">this</span>.<span class="property">array</span>.<span class="property">length</span>;j++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">array</span>[i].<span class="property">id</span> === <span class="variable language_">this</span>.<span class="property">array</span>[j].<span class="property">id</span>) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">array</span>.<span class="title function_">splice</span>(j, <span class="number">1</span>)</span><br><span class="line">            j--</span><br><span class="line">          &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">array</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Element多选表格回显"><a href="#Element多选表格回显" class="headerlink" title="Element多选表格回显"></a>Element多选表格回显</h2><p>需求：进行列表的选中操作，然后点击下一页，再返回，之前选中的记录就没有了。</p>
+<p>设计思路：</p>
+<ol>
+<li><p>进入多选表界面</p>
+</li>
+<li><p>选中多选框，使用：</p>
+<ol>
+<li><p>@<em>select</em>&#x3D;”handleSelection”</p>
+</li>
+<li><p>@<em>select-all</em>&#x3D;”handleSelection”</p>
+</li>
+<li><p>当选中当个或者多个都会触发事件：handleSelection</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">handleSelection</span>(<span class="params">row</span>) &#123;</span><br><span class="line">    <span class="comment">//将此行的数据赋值给toDeviceList</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">toDeviceList</span> = row</span><br><span class="line">    <span class="comment">//调用数据设置到对象的函数</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setDeviceList</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将选中的数据保存起来</span></span><br><span class="line"><span class="title function_">setDeviceList</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//获取当前page为第几页</span></span><br><span class="line">    <span class="comment">//currentPage当前页数</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">currentPage</span> = <span class="variable language_">this</span>.<span class="property">deviceParams</span>.<span class="property">pageNum</span></span><br><span class="line">    <span class="comment">//将当前页选中的数据赋值给devicePageList对象中的key值</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">devicePageList</span>[<span class="variable language_">this</span>.<span class="property">currentPage</span>] = <span class="variable language_">this</span>.<span class="property">toDeviceList</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 多选表格回显</span></span><br><span class="line"><span class="title function_">getDeviceList</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//获取当前页数</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">currentPage</span> = <span class="variable language_">this</span>.<span class="property">deviceParams</span>.<span class="property">pageNum</span></span><br><span class="line">        <span class="comment">//判断数据是否为空，为空则不进行回显</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">deviceToGroupTableData</span> !== <span class="literal">undefined</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">devicePageList</span>[<span class="variable language_">this</span>.<span class="property">currentPage</span>] !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">            <span class="comment">//获取当前页选中的数据</span></span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">devicePageList</span>[<span class="variable language_">this</span>.<span class="property">currentPage</span>].<span class="title function_">forEach</span>(<span class="function">(<span class="params">v, i</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="comment">//获取后端返回此页的数据</span></span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">deviceToGroupTableData</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">_v, _i</span>) =&gt;</span> &#123;</span><br><span class="line">                    <span class="comment">//判断选中的数据在此页是否有存在</span></span><br><span class="line">                    <span class="keyword">if</span> (v.<span class="property">deviceId</span> === _v.<span class="property">deviceId</span>) &#123;</span><br><span class="line">                        <span class="comment">//有存在：将此条数据回显到界面上</span></span><br><span class="line">                        <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">deviceToGroupTableData</span>.<span class="title function_">toggleRowSelection</span>(_v)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>每次进行分页点击后，进行回显函数调用</p>
+</li>
+</ol>
+<h2 id="视频首帧截取"><a href="#视频首帧截取" class="headerlink" title="视频首帧截取"></a>视频首帧截取</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">&quot;dialog_pan_img&quot;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">el-carousel</span> <span class="attr">:interval</span>=<span class="string">&quot;4000&quot;</span> <span class="attr">type</span>=<span class="string">&quot;card&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">el-carousel-item</span> <span class="attr">v-for</span>=<span class="string">&quot;(item,index) in videoList.videoInfoList&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.deviceId&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">video</span> <span class="attr">:id</span>=<span class="string">&quot;&#x27;video&#x27;+index&quot;</span> <span class="attr">:src</span>=<span class="string">&quot;item.url&quot;</span> <span class="attr">class</span>=<span class="string">&quot;videx&quot;</span> <span class="attr">controls</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">el-carousel-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">el-carousel</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="comment">//获取视频第一帧</span></span><br><span class="line"><span class="title function_">findvideocover</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 获取video节点</span></span><br><span class="line">    <span class="variable language_">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; <span class="variable language_">this</span>.<span class="property">videoList</span>.<span class="property">videoInfoList</span>.<span class="property">length</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">const</span> i = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;video&#x27;</span> + i)</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">            i.<span class="property">width</span> = <span class="number">160</span></span><br><span class="line">            i.<span class="property">height</span> = <span class="number">160</span></span><br><span class="line">            i.<span class="property">currentTime</span> = <span class="number">1</span> <span class="comment">// 第一帧</span></span><br><span class="line">            <span class="comment">// 创建canvas对象</span></span><br><span class="line">            <span class="keyword">const</span> canvas = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;canvas&#x27;</span>)</span><br><span class="line">            canvas.<span class="property">width</span> = <span class="number">160</span></span><br><span class="line">            canvas.<span class="property">height</span> = <span class="number">160</span></span><br><span class="line">            <span class="comment">// 利用canvas对象方法绘图</span></span><br><span class="line">            canvas.<span class="title function_">getContext</span>(<span class="string">&#x27;2d&#x27;</span>).<span class="title function_">drawImage</span>(i, <span class="number">0</span>, <span class="number">0</span>, canvas.<span class="property">width</span>, canvas.<span class="property">height</span>)</span><br><span class="line">            <span class="comment">// 转换成base64形式</span></span><br><span class="line">            <span class="keyword">const</span> img = canvas.<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/jpeg&#x27;</span>) <span class="comment">// 这个就是图片的base64</span></span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">coverUrl</span>.<span class="title function_">push</span>(img)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">coverUrl</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="JavaScript生成唯一ID的方式："><a href="#JavaScript生成唯一ID的方式：" class="headerlink" title="JavaScript生成唯一ID的方式："></a>JavaScript生成<code>唯一ID</code>的方式：</h2><p>​    <code>UUID</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">guid</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&quot;</span>.<span class="title function_">replace</span>(</span><br><span class="line">        <span class="regexp">/[xy]/g</span>,</span><br><span class="line">        <span class="keyword">function</span> (<span class="params">c</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> r = (<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">16</span>) | <span class="number">0</span>,</span><br><span class="line">                v = c == <span class="string">&quot;x&quot;</span> ? r : (r &amp; <span class="number">0x3</span>) | <span class="number">0x8</span>;</span><br><span class="line">            <span class="keyword">return</span> v.<span class="title function_">toString</span>(<span class="number">16</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 
+        如果文章由于我学识浅薄,导致您发现有严重谬误的地方,请一定在评论中指出,我会在第一时间修正我的文章,以避免误人子弟
+        ------</div>
+    
+</div>
+        
+      </div>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>阿❤哒哒
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://shenjiexin.github.io/2022/02/06/%E5%89%8D%E7%AB%AF%E6%96%B9%E6%B3%95%E5%B0%81%E8%A3%85/" title="前端封装的一些常用的方法">https://shenjiexin.github.io/2022/02/06/前端方法封装/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/22/%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8CVUE%E7%BB%84%E4%BB%B6/" rel="prev" title="使用webpack动态注册vue组件">
+                  <i class="fa fa-chevron-left"></i> 使用webpack动态注册vue组件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/02/18/Web%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="next" title="使用VUE + Vant + uView + Sass搭建移动端项目">
+                  使用VUE + Vant + uView + Sass搭建移动端项目 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81NjUzNS8zMjk5OA"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">是阿❤呀</span>
+</div>
+  <div class="powered-by">欢迎访问 | 阿❤的小前端
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共12.8k字</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+<script src="/js/third-party/comments/livere.js"></script>
+
+</body>
+</html>

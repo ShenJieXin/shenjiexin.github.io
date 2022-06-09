@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shenjiexin.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+  <meta name="description" content="使用阿里的G6进行流程图组件的开发流程~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="对于AntV的G6流程图的操作记录文档">
+<meta property="og:url" content="https://shenjiexin.github.io/2022/04/05/G6%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:site_name" content="阿❤的小前端">
+<meta property="og:description" content="使用阿里的G6进行流程图组件的开发流程~">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-04-05T12:02:07.000Z">
+<meta property="article:modified_time" content="2022-06-09T03:12:59.880Z">
+<meta property="article:author" content="阿❤哒哒">
+<meta property="article:tag" content="AntV-G6">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://shenjiexin.github.io/2022/04/05/G6%E6%96%87%E6%A1%A3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"https://shenjiexin.github.io/2022/04/05/G6%E6%96%87%E6%A1%A3/","path":"2022/04/05/G6文档/","title":"对于AntV的G6流程图的操作记录文档"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>对于AntV的G6流程图的操作记录文档 | 阿❤的小前端</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?6b9de439947224c912b264ad1c277093"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+  <script src="/live2d-widget/autoload.js"></script>
+  <script src="/js/clicklove.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">阿❤的小前端</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">23</span></a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8EAntV%E7%9A%84G6%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%9A%84%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95%E6%96%87%E6%A1%A3"><span class="nav-number">1.</span> <span class="nav-text">对于AntV的G6流程图的操作记录文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%EF%BC%9A%E6%B7%BB%E5%8A%A0%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">需求：添加流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85G6"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装G6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-%E5%9C%A8%E9%9C%80%E8%A6%81%E7%94%A8%E7%9A%84-G6-%E7%9A%84-JS-%E6%96%87%E4%BB%B6%E4%B8%AD%E5%AF%BC%E5%85%A5%EF%BC%9A"><span class="nav-number">1.1.2.</span> <span class="nav-text">使用 在需要用的 G6 的 JS 文件中导入：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%EF%BC%9A"><span class="nav-number">1.1.3.</span> <span class="nav-text">开始：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">创建容器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E6%95%B0%E6%8D%AE"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">准备数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">初始化流程图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">问题一：代码环境~</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%EF%BC%9A"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">解决：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-number">1.1.3.6.</span> <span class="nav-text">解决方式：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="阿❤哒哒"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">阿❤哒哒</p>
+  <div class="site-description" itemprop="description">Ctrl C + Ctrl V</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://shenjiexin.github.io/2022/04/05/G6%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="阿❤哒哒">
+      <meta itemprop="description" content="Ctrl C + Ctrl V">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿❤的小前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          对于AntV的G6流程图的操作记录文档
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-05 20:02:07" itemprop="dateCreated datePublished" datetime="2022-04-05T20:02:07+08:00">2022-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-09 11:12:59" itemprop="dateModified" datetime="2022-06-09T11:12:59+08:00">2022-06-09</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">使用阿里的G6进行流程图组件的开发流程~</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="对于AntV的G6流程图的操作记录文档"><a href="#对于AntV的G6流程图的操作记录文档" class="headerlink" title="对于AntV的G6流程图的操作记录文档"></a>对于AntV的G6流程图的操作记录文档</h2><h3 id="需求：添加流程图"><a href="#需求：添加流程图" class="headerlink" title="需求：添加流程图"></a>需求：添加流程图</h3><h4 id="安装G6"><a href="#安装G6" class="headerlink" title="安装G6"></a>安装G6</h4><p>​     npm install –save @antv&#x2F;g6</p>
+<h4 id="使用-在需要用的-G6-的-JS-文件中导入："><a href="#使用-在需要用的-G6-的-JS-文件中导入：" class="headerlink" title="使用 在需要用的 G6 的 JS 文件中导入："></a>使用 在需要用的 G6 的 JS 文件中导入：</h4><p>​    import G6 from ‘@antv&#x2F;g6’;</p>
+<h4 id="开始："><a href="#开始：" class="headerlink" title="开始："></a>开始：</h4><h5 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;mountNode&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            graph：<span class="literal">null</span>,</span><br><span class="line">            <span class="attr">chartData</span>: &#123;</span><br><span class="line">                <span class="comment">// 点集</span></span><br><span class="line">                <span class="attr">nodes</span>: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">id</span>: <span class="string">&quot;node1&quot;</span>, <span class="comment">// String，该节点存在则必须，节点的唯一标识</span></span><br><span class="line">                        <span class="attr">type</span>: <span class="string">&quot;ellipse&quot;</span>, <span class="comment">//图形状</span></span><br><span class="line">                        <span class="attr">x</span>: <span class="number">100</span>, <span class="comment">// Number，可选，节点位置的 x 值</span></span><br><span class="line">                        <span class="attr">y</span>: <span class="number">200</span>, <span class="comment">// Number，可选，节点位置的 y 值</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">id</span>: <span class="string">&quot;node2&quot;</span>, <span class="comment">// String，该节点存在则必须，节点的唯一标识</span></span><br><span class="line">                        <span class="attr">x</span>: <span class="number">300</span>, <span class="comment">// Number，可选，节点位置的 x 值</span></span><br><span class="line">                        <span class="attr">y</span>: <span class="number">200</span>, <span class="comment">// Number，可选，节点位置的 y 值</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                ],</span><br><span class="line">                <span class="comment">// 边集</span></span><br><span class="line">                <span class="attr">edges</span>: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">source</span>: <span class="string">&quot;node1&quot;</span>, <span class="comment">// String，必须，起始点 id</span></span><br><span class="line">                        <span class="attr">target</span>: <span class="string">&quot;node2&quot;</span>, <span class="comment">// String，必须，目标点 id</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                ],</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="初始化流程图"><a href="#初始化流程图" class="headerlink" title="初始化流程图"></a>初始化流程图</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">initG6</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">graph</span> = <span class="keyword">new</span> <span class="variable constant_">G6</span>.<span class="title class_">Graph</span>(&#123;</span><br><span class="line">        <span class="attr">container</span>: <span class="string">&#x27;mountNode&#x27;</span>, <span class="comment">// String | HTMLElement，必须，在 Step 1 中创建的容器 id 或容器本身</span></span><br><span class="line">        <span class="attr">width</span>: <span class="number">400</span>, <span class="comment">// Number，必须，图的宽度</span></span><br><span class="line">        <span class="attr">height</span>: <span class="number">400</span>, <span class="comment">// Number，必须，图的高度</span></span><br><span class="line">        <span class="attr">fitView</span>: <span class="literal">true</span>, <span class="comment">//自适应</span></span><br><span class="line">        <span class="attr">fitViewPadding</span>: [<span class="number">20</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">20</span>], <span class="comment">//四周留白</span></span><br><span class="line">        <span class="attr">modes</span>: &#123; <span class="comment">//设置画布的操作，这样可以对画布进行拖拽阿~缩放阿~节点拖拽阿~，具体有哪些查看g6官网文档</span></span><br><span class="line">            <span class="attr">default</span>: [<span class="string">&quot;drag-canvas&quot;</span>, <span class="string">&quot;zoom-canvas&quot;</span>, <span class="string">&quot;drag-node&quot;</span>], <span class="comment">// 允许拖拽画布、放缩画布、拖拽节点</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 布局~</span></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">graph</span>.<span class="title function_">data</span>(<span class="variable language_">this</span>.<span class="property">chartData</span>); <span class="comment">// 读取 Step 2 中的数据源到图上</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">graph</span>.<span class="title function_">render</span>(); <span class="comment">// 渲染图</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在mounted（）中调用</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">initG6</span>();</span><br><span class="line"><span class="comment">//这样界面上就有图啦，还能拖拽</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="问题一：代码环境"><a href="#问题一：代码环境" class="headerlink" title="问题一：代码环境~"></a>问题一：代码环境~</h5><p>在自己写的可视化编辑器中，需要添加流程图组件，添加流程图框的效，并且各个流程图的节点可以拖拽连接线等</p>
+<p>而在流程图组件外使用vue插槽solt中往canvas画布插入组件。</p>
+<p>在canvas外部有@mousedown事件（拖拽事件）</p>
+<p>所以这个时候G6自己的拖拽就会无法使用的问题。</p>
+<h5 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h5><p>在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;mountNode&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>中添加一个父级Div，并也添加@mousedown事件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div @mousedown=&quot;handleMousedownOnShape&quot;&gt;</span><br><span class="line">    &lt;div id=&quot;mountNode&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在handleMousedownOnShape使用stopPropagation来阻止事件的传播到父级</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">handleMousedownOnShape</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    e.<span class="title function_">stopPropagation</span>(); <span class="comment">// 阻止事件继续传播</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这样的话就基本完成啦<del>可以拖动G6啦</del></p>
+<p>但是！！！问题又来了，这时候父Div的mousedown方法就实现了，你再也拖动不了整个组件了！！！</p>
+<h5 id="解决方式："><a href="#解决方式：" class="headerlink" title="解决方式："></a>解决方式：</h5><p>第一个：找个父节点中不包含G6的进行拖放</p>
+<p>第二个：</p>
+<p>​    在G6中添加一个按钮，来对</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">handleMousedownOnShape</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    e.<span class="title function_">stopPropagation</span>(); <span class="comment">// 阻止事件继续传播</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>进行判断~</p>
+<p>结果如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">handleMousedownOnShape</span>(<span class="params">e</span>) &#123;</span><br><span class="line">   <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">canDrag</span>) &#123;  <span class="comment">// canDrag是按钮点击后可以进行判断现在是拖动G6内的图像还是整个流程图节点</span></span><br><span class="line">    	e.<span class="title function_">stopPropagation</span>(); <span class="comment">// 阻止事件继续传播*</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 
+        如果文章由于我学识浅薄,导致您发现有严重谬误的地方,请一定在评论中指出,我会在第一时间修正我的文章,以避免误人子弟
+        ------</div>
+    
+</div>
+        
+      </div>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>阿❤哒哒
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://shenjiexin.github.io/2022/04/05/G6%E6%96%87%E6%A1%A3/" title="对于AntV的G6流程图的操作记录文档">https://shenjiexin.github.io/2022/04/05/G6文档/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/AntV-G6/" rel="tag"># AntV-G6</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/02/uniApp%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/" rel="prev" title="UniApp开发基础框架搭建流程">
+                  <i class="fa fa-chevron-left"></i> UniApp开发基础框架搭建流程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/27/%E7%8E%A9%E8%BD%ACJavaScript%E6%97%B6%E9%97%B4/" rel="next" title="玩转JavaScript时间">
+                  玩转JavaScript时间 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81NjUzNS8zMjk5OA"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">是阿❤呀</span>
+</div>
+  <div class="powered-by">欢迎访问 | 阿❤的小前端
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共12.8k字</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+<script src="/js/third-party/comments/livere.js"></script>
+
+</body>
+</html>
